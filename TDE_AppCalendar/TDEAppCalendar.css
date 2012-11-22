@@ -1,0 +1,192 @@
+
+#example {height:30em;}
+
+.clear { clear:both; }
+#resp { margin:10px;padding:5px;border:1px solid #ccc;background:#fff;}
+#resp li { font-family:monospace }
+
+.cellworkingdates {
+background-color:#c5e4f5;
+border:1px solid #000000;
+margin:5px;
+width:100px;
+}
+.cell {
+background-color:#c5e4f5;
+border:1px solid #000000;
+text-align:center;
+margin:2px;
+float:left;
+width:49px;
+cursor:hand;
+}
+.cell12 {
+background-color:#c5e4f5;
+border:1px solid #000000;
+text-align:center;
+margin:2px;
+float:left;
+width:66px;
+cursor:hand;
+}
+.cellbusy a {
+text-decoration:none;
+}
+.cellbusy12 a {
+text-decoration:none;
+}
+.cellbusy {
+background-color:#c5e4f5;
+border:1px solid #000000;
+text-align:center;
+margin:2px;
+float:left;
+width:49px;
+text-decoration:line-through;
+cursor:hand; 
+}
+.cellbusy12 {
+background-color:#c5e4f5;
+border:1px solid #000000;
+text-align:center;
+margin:2px;
+float:left;
+width:66px;
+text-decoration:line-through;
+cursor:hand; 
+}
+.cell a {
+text-decoration:none;
+}
+.cell12 a {
+text-decoration:none;
+}
+
+.celltimes {
+background-color:#c5e4f5;
+border:1px solid #000000;
+text-align:center;
+margin:2px;
+float:left;
+width:59px;
+}
+.celltimes12 {
+background-color:#c5e4f5;
+border:1px solid #000000;
+text-align:center;
+margin:2px;
+float:left;
+width:76px;
+}
+.acell {
+text-decoration:none;
+cursor:hand;
+}
+.acell :hover{
+background-color:#ffffff;
+}
+.cellReserved {
+background-color:#B6EA59;
+border:1px solid #000000;
+color:#000000;
+text-align:center;
+margin:2px;
+float:left;
+width:49px;
+cursor:hand;
+}
+
+.cellReserved a {
+text-decoration:none;
+color:#000000;
+}
+.editorCell input
+{
+width:200px;
+}
+.editorCell a {
+text-decoration:none;
+}
+.editorCell textarea
+{
+width:200px;
+}
+#caladmin td.calcell {
+	padding:.5em 0.6em;
+	border:1px solid #E0E0E0;
+	text-align:center;
+}
+.yui-calendar td.no-working { background-color:#ddd; }
+.yui-calendar td.calcell.restricted { text-decoration:line-through; margin:2px;background-color:#E0E0E0;text-align:right;}
+.yui-calendar td.calcell.restricted2 { text-decoration:line-through; margin:2px;background-color:#E0E0E0;text-align:right;width:100px;}
+.yui-calendar td.calcell.today td.calcell.restricted{	background-color:#E0E0E0;text-align:right;}
+.yui-calendar td.calcell.reserveddate { background-color:#B6EA59;  }
+.yui-calendar td.calcell.fulldate { background-color:#ffa0a0;  }
+.yui-calendar td.calcell.eventdate { background-color:#ffffa0;  }
+
+.yui-calendar td.calcell .h{
+    padding:0px 0px;
+	width:100px;
+	min-height:100px;
+	text-align:right;
+	vertical-align: top;
+}
+.yui-calendar td.calcell .h a{
+    color:#000000;
+}
+.yui-calendar td.calcell .h a:hover{
+background-color:#6699CC;
+color:#ffffff;
+}
+.yui-calendar td.calcell .number{
+    background-color:#6699CC;
+    float:right;
+    width:15px;
+    height:15px;
+    text-align:center;
+    vertical-align:middle;
+    color:#ffffff
+    
+}
+
+
+
+
+
+
+
+
+
+#calendarList { float:left;border:1px solid #4857BB;background-color:#E1E5EC;width:400px;padding:2px;font-size:12px; }
+
+#calendarList .itemfirstpast { color:#A7A772;padding:2px;clear:both; }
+#calendarList .item0past { border-top:1px dotted #4857BB;color:#A7A772;padding:2px;clear:both; }
+#calendarList .item1past { border-top:1px dotted #4857BB;color:#A7A772;padding:2px;clear:both; }
+
+#calendarList .itemfirstpast .title { color:#B1B8E2; }
+#calendarList .item0past .title { color:#B1B8E2; }
+#calendarList .item1past .title { color:#B1B8E2; }
+
+#calendarList .itemfirstfuture { padding:2px;clear:both;}
+#calendarList .item0future { border-top:1px dotted #4857BB;padding:2px;clear:both; }
+#calendarList .item1future { border-top:1px dotted #4857BB;padding:2px;clear:both; }
+
+
+#calendarList .range { float:left;font-weight:bold;border:1px solid #4857BB;margin:3px;padding:3px;text-align:center;background-color:#ffffff;width:28px;  }
+#calendarList .range .month { font-size:10px; }
+#calendarList .range .day { font-size:14px;}
+#calendarList .range .year { font-size:10px; }
+#calendarList .range .delimiter1 { float:left;display:none; }
+#calendarList .range .delimiter2 { float:left;display:none; }
+
+#calendarList .range .separator { display:none; }
+
+#calendarList .time { color:#4857BB; padding-right:5px;float:left; }
+#calendarList .title { font-weight:bold;color:#4857BB;float:left; }
+#calendarList .description { clear:both; }
+#calendarList .appointment { clear:both;width:353px; }
+#calendarList .appointments { float:left }
+
+#calendarList .monthText { display:none; }
+#calendarList .monthText .month { float:left;background-color:inherit;padding-right:5px}
+#calendarList .monthText .year1 { float:left;background-color:inherit;}
