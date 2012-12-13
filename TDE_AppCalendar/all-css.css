@@ -537,3 +537,4 @@ color:#ffffff;
 #calendarList .monthText { display:none; }
 #calendarList .monthText .month { float:left;background-color:inherit;padding-right:5px}
 #calendarList .monthText .year1 { float:left;background-color:inherit;}
+.yui-panel-container .button-group{font-size:12px;}
