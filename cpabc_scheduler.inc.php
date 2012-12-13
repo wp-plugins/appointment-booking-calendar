@@ -65,10 +65,12 @@ var cpabc_global_maxdate = '<?php $value = cpabc_get_option('calendar_maxdate', 
 ?>
 
 <div id="calarea_<?php echo $item->id; ?>" style="display:none">
-<input name="selDaycal<?php echo $item->id; ?>" type="hidden" id="selDaycal<?php echo $item->id; ?>" /><input name="selMonthcal<?php echo $item->id; ?>" type="hidden" id="selMonthcal<?php echo $item->id; ?>" /><input name="selYearcal<?php echo $item->id; ?>" type="hidden" id="selYearcal<?php echo $item->id; ?>" /><input name="selHourcal<?php echo $item->id; ?>" type="hidden" id="selHourcal<?php echo $item->id; ?>" /><input name="selMinutecal<?php echo $item->id; ?>" type="hidden" id="selMinutecal<?php echo $item->id; ?>" />
- <div style="z-index:1000;">
-   <div id="cal<?php echo $item->id; ?>Container"></div>
- </div>
+ <input name="selDaycal<?php echo $item->id; ?>" type="hidden" id="selDaycal<?php echo $item->id; ?>" /><input name="selMonthcal<?php echo $item->id; ?>" type="hidden" id="selMonthcal<?php echo $item->id; ?>" /><input name="selYearcal<?php echo $item->id; ?>" type="hidden" id="selYearcal<?php echo $item->id; ?>" /><input name="selHourcal<?php echo $item->id; ?>" type="hidden" id="selHourcal<?php echo $item->id; ?>" /><input name="selMinutecal<?php echo $item->id; ?>" type="hidden" id="selMinutecal<?php echo $item->id; ?>" />
+ <div class="appContainer">
+  <div style="z-index:1000;" class="appContainer2">
+    <div id="cal<?php echo $item->id; ?>Container"></div>
+  </div>
+ </div> 
  <div style="clear:both;"></div>
 </div>
 <?php
