@@ -496,9 +496,13 @@ function cpabc_appointments_check_posted_data()
 {
     global $wpdb;
 
-    if ( $_GET["cpabc_app"] == 'calfeed')
-        cpabc_export_iCal();
-    
+    if(isset($_GET) && array_key_exists('cpabc_app',$_GET)) {
+        if ( $_GET["cpabc_app"] == 'calfeed')
+            cpabc_export_iCal();
+
+        if ( $_GET["cpabc_app"] == 'cpabc_loadcoupons')
+            cpabc_appointments_load_discount_codes();
+    } 
        
 
     if ( 'POST' == $_SERVER['REQUEST_METHOD'] && isset( $_POST['cpabc_appointments_post_options'] ) && is_admin() )
@@ -609,7 +613,7 @@ function cpabc_appointments_check_posted_data()
 <input type="hidden" name="return" value="<?php echo cpabc_get_option('url_ok', CPABC_APPOINTMENTS_DEFAULT_OK_URL); ?>">
 <input type="hidden" name="cancel_return" value="<?php echo cpabc_get_option('url_cancel', CPABC_APPOINTMENTS_DEFAULT_CANCEL_URL); ?>" />
 <input type="hidden" name="no_note" value="1" />
-<input type="hidden" name="currency_code" value="<?php echo cpabc_get_option('currency', CPABC_APPOINTMENTS_DEFAULT_CURRENCY); ?>" />
+<input type="hidden" name="currency_code" value="<?php echo strtoupper(cpabc_get_option('currency', CPABC_APPOINTMENTS_DEFAULT_CURRENCY)); ?>" />
 <input type="hidden" name="lc" value="<?php echo cpabc_get_option('paypal_language', CPABC_APPOINTMENTS_DEFAULT_PAYPAL_LANGUAGE); ?>" />
 <input type="hidden" name="bn" value="PP-BuyNowBF" />
 <input type="hidden" name="notify_url" value="<?php echo cpabc_appointment_get_FULL_site_url(); ?>/?cpabc_ipncheck=1&itemnumber=<?php echo $item_number; ?>" />
@@ -623,7 +627,6 @@ document.ppform3.submit();
 </html>
 <?php
         exit();
-
 
 }
 
