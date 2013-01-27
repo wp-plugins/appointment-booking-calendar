@@ -12,7 +12,7 @@ Appointment Booking Calendar allows you to accept online bookings from a set of 
 
 == Description ==
 
-Appointment Booking Calendar is a plugin for **accepting online bookings** from a set of **available time-slots in a calendar**. The booking form can be linked to a **PayPal** payment process.
+Appointment Booking Calendar is a plugin for **accepting online bookings** from a set of **available time-slots in a calendar**. The booking form is linked to a **PayPal** payment process.
 
 You can use it to accept bookings for medical consultation, classrooms, events, transportation and other activities where a specific time from a defined set must be selected, allowing you to define the maximum number of bookings that can be accepted for each time-slot.
 
