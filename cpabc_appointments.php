@@ -434,6 +434,7 @@ function cpabc_export_iCal() {
     header("Content-Disposition: attachment; filename=events".date("Y-M-D_H.i.s").".ics");
 
     define('CPABC_CAL_TIME_ZONE_MODIFY'," -2 hours");
+    define('CPABC_CAL_TIME_SLOT_SIZE'," +15 minutes");
 
     echo "BEGIN:VCALENDAR\n";
     echo "PRODID:-//CodePeople//Appointment Booking Calendar for WordPress//EN\n";
@@ -464,10 +465,9 @@ function cpabc_export_iCal() {
     $events = $wpdb->get_results( "SELECT * FROM ".CPABC_APPOINTMENTS_CALENDARS_TABLE_NAME." WHERE appointment_calendar_id=".$_GET["id"]." ORDER BY datatime ASC" );
     foreach ($events as $event)
     {
-
         echo "BEGIN:VEVENT\n";
         echo "DTSTART:".date("Ymd",strtotime($event->datatime.CPABC_CAL_TIME_ZONE_MODIFY))."T".date("His",strtotime($event->datatime.CPABC_CAL_TIME_ZONE_MODIFY))."Z\n";
-        echo "DTEND:".date("Ymd",strtotime($event->datatime.CPABC_CAL_TIME_ZONE_MODIFY))."T".date("His",strtotime($event->datatime.CPABC_CAL_TIME_ZONE_MODIFY." +15 minutes"))."Z\n";
+        echo "DTEND:".date("Ymd",strtotime($event->datatime.CPABC_CAL_TIME_ZONE_MODIFY))."T".date("His",strtotime($event->datatime.CPABC_CAL_TIME_ZONE_MODIFY.CPABC_CAL_TIME_SLOT_SIZE))."Z\n";
         echo "DTSTAMP:".date("Ymd",strtotime($event->datatime.CPABC_CAL_TIME_ZONE_MODIFY))."T".date("His",strtotime($event->datatime.CPABC_CAL_TIME_ZONE_MODIFY))."Z\n";
         echo "UID:uid".$event->id."@".$_SERVER["SERVER_NAME"]."\n";
         echo "CREATED:".date("Ymd",strtotime($event->datatime.CPABC_CAL_TIME_ZONE_MODIFY))."T".date("His",strtotime($event->datatime.CPABC_CAL_TIME_ZONE_MODIFY))."Z\n";
