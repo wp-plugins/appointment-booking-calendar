@@ -109,8 +109,7 @@ echo paginate_links(  array(
  {
       w=window.open();
       w.document.write("<style>table{border:2px solid black;width:100%;}th{border-bottom:2px solid black;text-align:left}td{padding-left:10px;border-bottom:1px solid black;}</style>"+document.getElementById('cpabc_printable_contents').innerHTML);
-      w.print();
-      w.close();    
+      w.print();    
  }
  
  var $j = jQuery.noConflict();
@@ -133,14 +132,3 @@ echo paginate_links(  array(
   The current user logged in doesn't have enough permissions to edit this calendar. This user can edit only his/her own calendars. Please log in as administrator to get access to all calendars.
 
 <?php } ?>
-
-
-
-
-
-
-
-
-
-
-
