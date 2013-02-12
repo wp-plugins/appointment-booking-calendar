@@ -369,6 +369,7 @@ function cpabc_appointments_html_post_page() {
 }
 
 function set_cpabc_apps_insert_button() {    
+    /**
     global $wpdb;
     $options = '';
     $calendars = $wpdb->get_results( 'SELECT * FROM '.$wpdb->prefix.CPABC_APPOINTMENTS_CONFIG_TABLE_NAME_NO_PREFIX);     
@@ -409,6 +410,8 @@ function set_cpabc_apps_insert_button() {
     <?php
 
     print '<a href="javascript:cpabc_appointments_fpanel.open()" title="'.__('Insert Appointment Booking Calendar').'"><img hspace="5" src="'.plugins_url('/images/cpabc_apps.gif', __FILE__).'" alt="'.__('Insert  Appointment Booking Calendar').'" /></a>';    
+    */
+    print '<a href="javascript:send_to_editor(\'[CPABC_APPOINTMENT_CALENDAR calendar=&quot;1&quot;]\');" title="'.__('Insert Appointment Booking Calendar').'"><img hspace="5" src="'.plugins_url('/images/cpabc_apps.gif', __FILE__).'" alt="'.__('Insert  Appointment Booking Calendar').'" /></a>';    
 }
 
 function set_cpabc_apps_insert_adminScripts($hook) {
