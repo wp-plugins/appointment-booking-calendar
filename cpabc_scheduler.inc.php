@@ -30,7 +30,7 @@ var cpabc_global_maxdate = '<?php $value = cpabc_get_option('calendar_maxdate', 
 <script type="text/javascript" src="<?php echo plugins_url('TDE_AppCalendar/all-scripts.js', __FILE__); ?>"></script>
 
 
-<form name="FormEdit" action="<?php get_site_url(); ?>" method="post" onsubmit="return doValidate(this);">
+<form class="cpp_form" name="FormEdit" action="<?php get_site_url(); ?>" method="post" onsubmit="return doValidate(this);">
  <input name="cpabc_appointments_post" type="hidden" id="1" />
 
 
@@ -193,10 +193,10 @@ var cpabc_global_maxdate = '<?php $value = cpabc_get_option('calendar_maxdate', 
 
 
 <?php if (cpabc_get_option('dexcv_enable_captcha', CPABC_TDEAPP_DEFAULT_dexcv_enable_captcha) != 'false') { ?>
-  Please enter the security code:<br />
+  <?php _e('Please enter the security code:'); ?><br />
   <img src="<?php echo plugins_url('/captcha/captcha.php?width='.cpabc_get_option('dexcv_width', CPABC_TDEAPP_DEFAULT_dexcv_width).'&height='.cpabc_get_option('dexcv_height', CPABC_TDEAPP_DEFAULT_dexcv_height).'&letter_count='.cpabc_get_option('dexcv_chars', CPABC_TDEAPP_DEFAULT_dexcv_chars).'&min_size='.cpabc_get_option('dexcv_min_font_size', CPABC_TDEAPP_DEFAULT_dexcv_min_font_size).'&max_size='.cpabc_get_option('dexcv_max_font_size', CPABC_TDEAPP_DEFAULT_dexcv_max_font_size).'&noise='.cpabc_get_option('dexcv_noise', CPABC_TDEAPP_DEFAULT_dexcv_noise).'&noiselength='.cpabc_get_option('dexcv_noise_length', CPABC_TDEAPP_DEFAULT_dexcv_noise_length).'&bcolor='.cpabc_get_option('dexcv_background', CPABC_TDEAPP_DEFAULT_dexcv_background).'&border='.cpabc_get_option('dexcv_border', CPABC_TDEAPP_DEFAULT_dexcv_border).'&font='.cpabc_get_option('dexcv_font', CPABC_TDEAPP_DEFAULT_dexcv_font), __FILE__); ?>"  id="captchaimg" alt="security code" border="0"  />
   <br />
-  Security Code (lowercase letters):<br />
+  <?php _e('Security Code (lowercase letters):'); ?><br />
   <div class="dfield">
   <input type="text" size="20" name="hdcaptcha" id="hdcaptcha" value="" />
   <div class="error message" id="hdcaptcha_error" generated="true" style="display:none;position: absolute; left: 0px; top: 25px;"></div>
@@ -204,7 +204,5 @@ var cpabc_global_maxdate = '<?php $value = cpabc_get_option('calendar_maxdate', 
   <br />
 <?php } ?>
 
-<input type="submit" name="subbtn" value="<?php _e("Continue"); ?>">
+<input type="submit" name="subbtn" value="<?php _e('Continue'); ?>">
 </form>
-
-
