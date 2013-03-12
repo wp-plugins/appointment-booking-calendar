@@ -30,7 +30,7 @@ var cpabc_global_maxdate = '<?php $value = cpabc_get_option('calendar_maxdate', 
 <script type="text/javascript" src="<?php echo plugins_url('TDE_AppCalendar/all-scripts.js', __FILE__); ?>"></script>
 
 
-<form name="FormEdit" action="<?php get_site_url(); ?>" method="post" onsubmit="return doValidate(this);">
+<form class="cpp_form" name="FormEdit" action="<?php get_site_url(); ?>" method="post" onsubmit="return doValidate(this);">
  <input name="cpabc_appointments_post" type="hidden" id="1" />
 
 
