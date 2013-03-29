@@ -164,7 +164,7 @@ var cpabc_global_maxdate = '<?php $value = cpabc_get_option('calendar_maxdate', 
     var result = $dexQuery.ajax({
         type: "GET",
         url: "<?php echo cpabc_appointment_get_site_url(); ?>?hdcaptcha="+form.hdcaptcha.value,
-        async: false,
+        async: false
     }).responseText;
     if (result == "captchafailed")
     {
