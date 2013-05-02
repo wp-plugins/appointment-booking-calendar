@@ -169,7 +169,8 @@ if (cpabc_appointment_is_administrator() || $mycalendarrows[0]->conwer == $curre
     <table class="form-table">
         <tr valign="top">        
         <th scope="row">Enable Paypal Payments?</th>
-        <td><input type="checkbox" readonly disabled name="enable_paypal" size="40" value="1" checked /></td>
+        <td><input type="checkbox" readonly disabled name="enable_paypal" size="40" value="1" checked /> <em>The feature for working without PayPal is implemented/available in the <a href="http://wordpress.dwbooster.com/calendars/appointment-booking-calendar#download">pro version</a>.</em>
+        </td>
         </tr>    
     
         <tr valign="top">        
