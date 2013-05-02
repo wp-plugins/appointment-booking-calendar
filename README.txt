@@ -38,6 +38,8 @@ Features:
 * You can block specific dates.
 * Pretty modern administration interface.
 
+Please note that this is a plugin originally designed to accept bookings linked to PayPal payments. The feature for working without PayPal is implemented/available in the Pro version: http://wordpress.dwbooster.com/calendars/appointment-booking-calendar#download
+
 == Installation ==
 
 To install **Appointment Booking Calendar**, follow these steps:
