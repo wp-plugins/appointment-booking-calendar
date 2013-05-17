@@ -112,6 +112,11 @@ define('CPABC_TDEAPP_DEFAULT_dexcv_text_enter_valid_captcha', 'Please enter a va
 
 register_activation_hook(__FILE__,'cpabc_appointments_install');
 
+function cpabc_plugin_init() {
+  load_plugin_textdomain( 'default', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+}
+add_action('plugins_loaded', 'cpabc_plugin_init');
+
 function cpabc_appointments_install($networkwide)  {
 	global $wpdb;
 
