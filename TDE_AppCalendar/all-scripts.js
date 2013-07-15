@@ -521,7 +521,11 @@ YAHOO.TDE.AppCalendar.appoiments = new Array();
 					 var k2 = new Date(k1[0],(k1[1]-1),k1[2]);
 					 var appCount = 0;
 					 for (j in a[k])
-						 appCount += a[k][j].length;
+					 {
+					     var tmp = j.split(":");
+					     if (tmp.length==2) //check if time?
+						    appCount += a[k][j].length;
+					 }
 					 var slotAvailables = 0;
 					 for (var s=0;s<twd[k2.getDay()].length;s++)
 						 slotAvailables += parseInt(twd[k2.getDay()][s].reservations);
