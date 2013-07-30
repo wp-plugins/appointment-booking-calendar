@@ -158,8 +158,7 @@ var cpabc_global_maxdate = '<?php $value = cpabc_get_option('calendar_maxdate', 
     {
         alert('<?php _e('Please enter the captcha verification code'); ?>.');
         return false;
-    }        
-    // check captcha
+    }
     $dexQuery = jQuery.noConflict();
     var result = $dexQuery.ajax({
         type: "GET",
