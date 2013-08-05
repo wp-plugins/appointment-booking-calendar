@@ -969,7 +969,7 @@ function cpabc_appointments_save_options()
     }        
 
     foreach ($_POST as $item => $value)    
-        $_POST[$item] = stripcslashes($value);
+        $_POST[$item] = @stripcslashes($value);
         
     cpabc_appointments_add_field_verify(CPABC_APPOINTMENTS_CONFIG_TABLE_NAME, 'form_structure');
     
@@ -1039,9 +1039,9 @@ function cpabc_appointments_save_options()
          'email_notification_to_admin' => $_POST["email_notification_to_admin"],
 
          'enable_reminder' => @$_POST["enable_reminder"],
-         'reminder_hours' => $_POST["reminder_hours"],
-         'reminder_subject' => $_POST["reminder_subject"],
-         'reminder_content' => $_POST["reminder_content"],
+         'reminder_hours' => @$_POST["reminder_hours"],
+         'reminder_subject' => @$_POST["reminder_subject"],
+         'reminder_content' => @$_POST["reminder_content"],
 
          'dexcv_enable_captcha' => $_POST["dexcv_enable_captcha"],
          'dexcv_width' => $_POST["dexcv_width"],
@@ -1055,7 +1055,7 @@ function cpabc_appointments_save_options()
          'dexcv_border' => $_POST["dexcv_border"],
          'dexcv_font' => $_POST["dexcv_font"],
          'cv_text_enter_valid_captcha' => $_POST['cv_text_enter_valid_captcha'],
-         'cp_cal_checkboxes' => $_POST["cp_cal_checkboxes"]
+         'cp_cal_checkboxes' => @$_POST["cp_cal_checkboxes"]
 	);
     $wpdb->update ( CPABC_APPOINTMENTS_CONFIG_TABLE_NAME, $data, array( 'id' => CP_CALENDAR_ID ));
 }
@@ -1070,7 +1070,7 @@ function cpabc_appointments_calendar_load() {
     global $wpdb;
 	if ( ! isset( $_GET['cpabc_calendar_load'] ) || $_GET['cpabc_calendar_load'] != '1' )
 		return;
-    ob_end_clean();
+    @ob_end_clean();
     header("Cache-Control: no-store, no-cache, must-revalidate");
     header("Pragma: no-cache");
     $calid = str_replace  (CPABC_TDEAPP_CAL_PREFIX, "",$_GET["id"]);
@@ -1097,7 +1097,7 @@ function cpabc_appointments_calendar_load2() {
     global $wpdb;
 	if ( ! isset( $_GET['cpabc_calendar_load2'] ) || $_GET['cpabc_calendar_load2'] != '1' )
 		return;
-    ob_end_clean();
+    @ob_end_clean();
     header("Cache-Control: no-store, no-cache, must-revalidate");
     header("Pragma: no-cache");
     $calid = str_replace  (CPABC_TDEAPP_CAL_PREFIX, "",$_GET["id"]);
@@ -1132,7 +1132,7 @@ function cpabc_appointments_calendar_update() {
         		
     cpabc_appointments_add_field_verify(CPABC_TDEAPP_CONFIG, 'specialDates');
     
-    ob_end_clean();
+    @ob_end_clean();
     header("Cache-Control: no-store, no-cache, must-revalidate");
     header("Pragma: no-cache");
     if ( $user_ID )
@@ -1154,7 +1154,7 @@ function cpabc_appointments_calendar_update2() {
     if ( ! current_user_can('edit_pages') && !cpabc_appointments_user_access_to($calid) )
         return;
         		
-    ob_end_clean();
+    @ob_end_clean();
     header("Cache-Control: no-store, no-cache, must-revalidate");
     header("Pragma: no-cache");
     if ( $user_ID )
