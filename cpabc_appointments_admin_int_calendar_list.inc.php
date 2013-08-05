@@ -10,25 +10,35 @@ $current_user = wp_get_current_user();
 
 global $wpdb;
 $message = "";
-if (isset($_GET['a']) && $_GET['a'] == '1')
+if (isset($_GET['u']) && $_GET['u'] != '')
 {
-    $sql .= 'INSERT INTO `'.CPABC_APPOINTMENTS_CONFIG_TABLE_NAME.'` (conwer,`'.CPABC_TDEAPP_CONFIG_TITLE.'`,`'.CPABC_TDEAPP_CONFIG_USER.'`,`'.CPABC_TDEAPP_CONFIG_PASS.'`,`'.CPABC_TDEAPP_CONFIG_LANG.'`,`'.CPABC_TDEAPP_CONFIG_CPAGES.'`,`'.CPABC_TDEAPP_CONFIG_TYPE.'`,`'.CPABC_TDEAPP_CONFIG_MSG.'`,`'.CPABC_TDEAPP_CONFIG_WORKINGDATES.'`,`'.CPABC_TDEAPP_CONFIG_RESTRICTEDDATES.'`,`'.CPABC_TDEAPP_CONFIG_TIMEWORKINGDATES0.'`,`'.CPABC_TDEAPP_CONFIG_TIMEWORKINGDATES1.'`,`'.CPABC_TDEAPP_CONFIG_TIMEWORKINGDATES2.'`,`'.CPABC_TDEAPP_CONFIG_TIMEWORKINGDATES3.'`,`'.CPABC_TDEAPP_CONFIG_TIMEWORKINGDATES4.'`,`'.CPABC_TDEAPP_CONFIG_TIMEWORKINGDATES5.'`,`'.CPABC_TDEAPP_CONFIG_TIMEWORKINGDATES6.'`,`'.CPABC_TDEAPP_CALDELETED_FIELD.'`) '.
-            ' VALUES(0,"","'.$_GET["name"].'","","ENG","1","3","Please, select your appointment.","1,2,3,4,5","","","9:0,10:0,11:0,12:0,13:0,14:0,15:0,16:0","9:0,10:0,11:0,12:0,13:0,14:0,15:0,16:0","9:0,10:0,11:0,12:0,13:0,14:0,15:0,16:0","9:0,10:0,11:0,12:0,13:0,14:0,15:0,16:0","9:0,10:0,11:0,12:0,13:0,14:0,15:0,16:0","","0");';
-            
-    $wpdb->query($sql);       
-    $results = $wpdb->get_results('SELECT `'.CPABC_TDEAPP_CONFIG_ID.'` FROM `'.CPABC_APPOINTMENTS_CONFIG_TABLE_NAME.'` ORDER BY `'.CPABC_TDEAPP_CONFIG_ID.'` DESC LIMIT 0,1');        
-    $wpdb->query('UPDATE `'.CPABC_APPOINTMENTS_CONFIG_TABLE_NAME.'` SET `'.CPABC_TDEAPP_CONFIG_TITLE.'`="cal'.$results[0]->id.'" WHERE `'.CPABC_TDEAPP_CONFIG_ID.'`='.$results[0]->id);           
-    $message = "Item added";
-} 
-else if (isset($_GET['u']) && $_GET['u'] != '')
-{
-    $wpdb->query('UPDATE `'.CPABC_APPOINTMENTS_CONFIG_TABLE_NAME.'` SET conwer='.$_GET["owner"].',`'.CPABC_TDEAPP_CALDELETED_FIELD.'`='.$_GET["public"].',`'.CPABC_TDEAPP_CONFIG_USER.'`="'.$_GET["name"].'" WHERE `'.CPABC_TDEAPP_CONFIG_ID.'`='.$_GET['u']);           
+    $wpdb->query('UPDATE `'.CPABC_APPOINTMENTS_CONFIG_TABLE_NAME.'` SET conwer='.$_GET["owner"].',`'.CPABC_TDEAPP_CONFIG_USER.'`="'.$_GET["name"].'" WHERE `'.CPABC_TDEAPP_CONFIG_ID.'`='.$_GET['u']);           
     $message = "Item updated";        
 }
-else if (isset($_GET['d']) && $_GET['d'] != '')
-{
-    $wpdb->query('DELETE FROM `'.CPABC_APPOINTMENTS_CONFIG_TABLE_NAME.'` WHERE `'.CPABC_TDEAPP_CONFIG_ID.'`='.$_GET['d']);       
-    $message = "Item deleted";
+else if (isset($_GET['ac']) && $_GET['ac'] == 'st')
+{   
+    update_option( 'CPABC_APPOINTMENTS_LOAD_SCRIPTS', ($_GET["scr"]=="1"?"1":"2") );   
+    update_option( 'CPABC_APPOINTMENTS_DEFAULT_USE_EDITOR', "1" );
+    if ($_GET["chs"] != '')
+    {
+        $target_charset = $_GET["chs"];
+        $tables = array( $wpdb->prefix.CPABC_APPOINTMENTS_TABLE_NAME_NO_PREFIX, $wpdb->prefix.CPABC_APPOINTMENTS_CALENDARS_TABLE_NAME_NO_PREFIX
+                         , $wpdb->prefix.CPABC_APPOINTMENTS_CONFIG_TABLE_NAME_NO_PREFIX, $wpdb->prefix.CPABC_APPOINTMENTS_DISCOUNT_CODES_TABLE_NAME_NO_PREFIX );                
+        foreach ($tables as $tab)
+        {  
+            $myrows = $wpdb->get_results( "DESCRIBE {$tab}" );                                                                                 
+            foreach ($myrows as $item)
+	        {
+	            $name = $item->Field;
+		        $type = $item->Type;
+		        if (preg_match("/^varchar\((\d+)\)$/i", $type, $mat) || !strcasecmp($type, "CHAR") || !strcasecmp($type, "TEXT") || !strcasecmp($type, "MEDIUMTEXT"))
+		        {
+	                $wpdb->query("ALTER TABLE {$tab} CHANGE {$name} {$name} {$type} COLLATE {$target_charset}");	            
+	            }
+	        }
+        }
+    }
+    $message = "Throubleshoot settings updated";
 }
 
 
@@ -51,14 +61,18 @@ if ($message) echo "<div id='setting-error-settings_updated' class='updated sett
     var owner = document.getElementById("calowner_"+id).options[document.getElementById("calowner_"+id).options.selectedIndex].value;    
     if (owner == '')
         owner = 0;
-    var is_public = (document.getElementById("calpublic_"+id).checked?"0":"1");
-    document.location = 'admin.php?page=cpabc_appointments&u='+id+'&r='+Math.random()+'&public='+is_public+'&owner='+owner+'&name='+encodeURIComponent(calname);    
+    document.location = 'admin.php?page=cpabc_appointments&u='+id+'&r='+Math.random()+'&owner='+owner+'&name='+encodeURIComponent(calname);    
  }
  
  function cp_manageSettings(id)
  {
     document.location = 'admin.php?page=cpabc_appointments&cal='+id+'&r='+Math.random();
  }
+ 
+ function cp_cloneItem(id)
+ {
+    document.location = 'admin.php?page=cpabc_appointments&c='+id+'&r='+Math.random();  
+ }  
  
  function cp_BookingsList(id)
  {
@@ -73,6 +87,17 @@ if ($message) echo "<div id='setting-error-settings_updated' class='updated sett
     }
  }
  
+ function cp_updateConfig()
+ {
+    if (confirm('Are you sure that you want to update these settings?'))
+    {        
+        var scr = document.getElementById("ccscriptload").value;    
+        var chs = document.getElementById("cccharsets").value;    
+        var ccf = document.getElementById("ccformrender").value; 
+        document.location = 'admin.php?page=cpabc_appointments&ac=st&scr='+scr+'&chs='+chs+'&ccf='+ccf+'&r='+Math.random();
+    }    
+ } 
+ 
 </script>
 
 
@@ -84,9 +109,9 @@ if ($message) echo "<div id='setting-error-settings_updated' class='updated sett
   <div class="inside">
   
   
-  <table cellspacing="10"> 
+  <table cellspacing="2"> 
    <tr>
-    <th align="left">ID</th><th align="left">Calendar Name</th><th align="left">Owner</th><th align="left">&nbsp; &nbsp; Published?</th><th align="left">iCal Link</th><th align="left">&nbsp; &nbsp; Options</th>
+    <th align="left">ID</th><th align="left">Calendar Name</th><th align="left">Owner</th><th align="left">iCal Link</th><th align="left">&nbsp; &nbsp; Options</th><th align="left">Shortcode</th>
    </tr> 
 <?php  
 
@@ -116,22 +141,16 @@ if ($message) echo "<div id='setting-error-settings_updated' class='updated sett
         <?php echo $current_user->user_login; ?>
         </td>
     <?php } ?>
-    
-    <td nowrap align="center">
-       <?php if (cpabc_appointment_is_administrator()) { ?> 
-         &nbsp; &nbsp; <input type="checkbox" name="calpublic_<?php echo $item->id; ?>" id="calpublic_<?php echo $item->id; ?>" value="1" <?php if (!$item->caldeleted) echo " checked "; ?> />
-       <?php } else { ?>  
-         <?php if (!$item->caldeleted) echo "Yes"; else echo "No"; ?> 
-       <?php } ?>   
-    </td>
+       
     <td nowrap><a href="<?php get_site_url(); ?>?cpabc_app=calfeed&id=<?php echo $item->id; ?>">iCal Feed</a></td>
     <td nowrap>&nbsp; &nbsp; 
                              <?php if (cpabc_appointment_is_administrator()) { ?> 
-                               <input type="button" name="calupdate_<?php echo $item->id; ?>" value="Update" onclick="cp_updateItem(<?php echo $item->id; ?>);" /> &nbsp; 
+                               <input style="font-size:11px;" type="button" name="calupdate_<?php echo $item->id; ?>" value="Update" onclick="cp_updateItem(<?php echo $item->id; ?>);" /> &nbsp; 
                              <?php } ?>    
-                             <input type="button" name="calmanage_<?php echo $item->id; ?>" value="Manage Settings" onclick="cp_manageSettings(<?php echo $item->id; ?>);" /> &nbsp; 
-                             <input type="button" name="calbookings_<?php echo $item->id; ?>" value="Bookings List" onclick="cp_BookingsList(<?php echo $item->id; ?>);" /> &nbsp; 
+                             <input style="font-size:11px;" type="button" name="calmanage_<?php echo $item->id; ?>" value="Manage Settings" onclick="cp_manageSettings(<?php echo $item->id; ?>);" /> &nbsp; 
+                             <input style="font-size:11px;" type="button" name="calbookings_<?php echo $item->id; ?>" value="Bookings List" onclick="cp_BookingsList(<?php echo $item->id; ?>);" /> &nbsp;                             
     </td>
+     <td nowrap style="font-size:10px;">[CPABC_APPOINTMENT_CALENDAR calendar="<?php echo $item->id; ?>"]</td>
    </tr>
 <?php  
       } 
@@ -149,14 +168,53 @@ if ($message) echo "<div id='setting-error-settings_updated' class='updated sett
  <div id="metabox_basic_settings" class="postbox" >
   <h3 class='hndle' style="padding:5px;"><span>New Calendar / Item</span></h3>
   <div class="inside"> 
-   
-    This version supports one calendar.
+  
+       This version supports one calendar.
 
   </div>    
  </div>
 
-<?php } ?> 
 
+
+ <div id="metabox_basic_settings" class="postbox" >
+  <h3 class='hndle' style="padding:5px;"><span>Form Builder Settings & Throubleshoot Area</span></h3>
+  <div class="inside"> 
+    <p><strong>Important!</strong>: Use this area <strong>only</strong> if you want to activate the form builder or if you are experiencing conflicts with third party plugins, with the theme scripts or with the character encoding.</p>
+    <form name="updatesettings">
+    
+      Form rendering:<br />
+       <select id="ccformrender" name="ccformrender">
+        <option value="1" selected>Use classic predefined form</option>        
+       </select><br />
+       <em>* The <strong>Visual Form Builder</strong> is available only in the <a href="http://wordpress.dwbooster.com/calendars/appointment-booking-calendar#download">pro version</a>. To edit the form in this basic version you should manually edit the file 'cpabc_scheduler.inc.php'.</em>
+      
+      <br /><br />
+          
+    
+      Script load method:<br />
+       <select id="ccscriptload" name="ccscriptload">
+        <option value="1" <?php if (get_option('CPABC_APPOINTMENTS_LOAD_SCRIPTS',"1") == "1") echo 'selected'; ?>>Classic (Recommended)</option>
+        <option value="2" <?php if (get_option('CPABC_APPOINTMENTS_LOAD_SCRIPTS',"1") != "1") echo 'selected'; ?>>Direct</option>
+       </select><br />
+       <em>* Change the script load method if the form doesn't appear in the public website.</em>
+      
+      <br /><br />
+      Character encoding:<br />
+       <select id="cccharsets" name="cccharsets">
+        <option value="">Keep current charset (Recommended)</option>
+        <option value="utf8_general_ci">UTF-8 (try this first)</option>
+        <option value="latin1_swedish_ci">latin1_swedish_ci</option>
+       </select><br />
+       <em>* Update the charset if you are getting problems displaying special/non-latin characters. After updated you need to edit the special characters again.</em>
+       <br />
+       <input type="button" onclick="cp_updateConfig();" name="gobtn" value="UPDATE" />
+      <br /><br />      
+    </form>
+
+  </div>    
+ </div> 
+ 
+<?php } ?>  
   
 </div> 
 
@@ -164,17 +222,3 @@ if ($message) echo "<div id='setting-error-settings_updated' class='updated sett
 [<a href="http://wordpress.dwbooster.com/contact-us" target="_blank">Request Custom Modifications</a>] | [<a href="http://wordpress.dwbooster.com/calendars/appointment-booking-calendar" target="_blank">Help</a>]
 </form>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-

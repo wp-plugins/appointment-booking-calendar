@@ -121,12 +121,13 @@ for ($i=0;$i<$noise;$i++)
   imageline ( $image, $x1, $y1, mt_rand($x1-$noiselength,$x1+$noiselength), mt_rand($y1-$noiselength,$y1+$noiselength), $color);
 }  
 
-$font = "./font-1.ttf"; // font
-if ($_GET["font"]) $font = "./".$_GET["font"];       
-if (!file_exists($font))
+$font = dirname( __FILE__ ) . "/font-1.ttf"; // font
+if ($_GET["font"]) $font = dirname( __FILE__ ) . "/".$_GET["font"];       
+/**if (!file_exists($font))
     $font = $_SERVER["DOCUMENT_ROOT"]."/HDWFormCaptcha/".$font;
 if (!file_exists($font))
     $font = dirname(__FILE__)."/".$font;   
+*/
 
 $font_size = rand($min_size, $max_size);
   

@@ -10,8 +10,16 @@ if (!defined('CP_CALENDAR_ID'))
     define ('CP_CALENDAR_ID',intval($_GET["cal"]));
 
 global $wpdb;
-$mycalendarrows = $wpdb->get_results( 'SELECT * FROM '.CPABC_APPOINTMENTS_CONFIG_TABLE_NAME .' WHERE `'.CPABC_TDEAPP_CONFIG_ID.'`='.CP_CALENDAR_ID);
 
+$message = "";
+if (isset($_GET['ld']) && $_GET['ld'] != '')
+{
+    $wpdb->query('DELETE FROM `'.CPABC_APPOINTMENTS_CALENDARS_TABLE_NAME.'` WHERE id='.$_GET['ld']);       
+    $message = "Item deleted";
+}
+
+
+$mycalendarrows = $wpdb->get_results( 'SELECT * FROM '.CPABC_APPOINTMENTS_CONFIG_TABLE_NAME .' WHERE `'.CPABC_TDEAPP_CONFIG_ID.'`='.CP_CALENDAR_ID);
 
 if ( 'POST' == $_SERVER['REQUEST_METHOD'] && isset( $_POST['cpabc_appointments_post_options'] ) )
     echo "<div id='setting-error-settings_updated' class='updated settings-error'> <p><strong>Settings saved.</strong></p></div>";
@@ -33,7 +41,18 @@ if ($_GET["dto"] != '') $cond .= " AND (datatime <= '".$wpdb->escape($_GET["dto"
 $events = $wpdb->get_results( "SELECT * FROM ".CPABC_APPOINTMENTS_CALENDARS_TABLE_NAME." WHERE appointment_calendar_id=".CP_CALENDAR_ID.$cond." ORDER BY datatime DESC" );
 $total_pages = ceil(count($events) / $records_per_page);
 
+if ($message) echo "<div id='setting-error-settings_updated' class='updated settings-error'><p><strong>".$message."</strong></p></div>";
+
 ?>
+<script type="text/javascript">
+ function cp_deleteMessageItem(id)
+ {
+    if (confirm('Are you sure that you want to delete this item?'))
+    {        
+        document.location = 'admin.php?page=cpabc_appointments&cal=<?php echo $_GET["cal"]; ?>&list=1&ld='+id+'&r='+Math.random();
+    }
+ }
+</script>
 <div class="wrap">
 <h2>Appointment Booking Calendar - Bookings List</h2>
 
@@ -85,6 +104,8 @@ echo paginate_links(  array(
 	  <th style="padding-left:7px;font-weight:bold;">Date</th>
 	  <th style="padding-left:7px;font-weight:bold;">Title</th>
 	  <th style="padding-left:7px;font-weight:bold;">Description</th>
+	  <th style="padding-left:7px;font-weight:bold;">Quantity</th>
+	  <th style="padding-left:7px;font-weight:bold;">Options</th>
 	</tr>
 	</thead>
 	<tbody id="the-list">
@@ -93,6 +114,10 @@ echo paginate_links(  array(
 		<td><?php echo substr($events[$i]->datatime,0,16); ?></td>
 		<td><?php echo $events[$i]->title; ?></td>
 		<td><?php echo $events[$i]->description; ?></td>
+		<td><?php echo $events[$i]->quantity; ?></td>
+		<td>
+		  <input type="button" name="caldelete_<?php echo $events[$i]->id; ?>" value="Delete" onclick="cp_deleteMessageItem(<?php echo $events[$i]->id; ?>);" />                             
+		</td>		
       </tr>
      <?php } ?>
 	</tbody>
@@ -109,7 +134,7 @@ echo paginate_links(  array(
  {
       w=window.open();
       w.document.write("<style>table{border:2px solid black;width:100%;}th{border-bottom:2px solid black;text-align:left}td{padding-left:10px;border-bottom:1px solid black;}</style>"+document.getElementById('cpabc_printable_contents').innerHTML);
-      w.print();    
+      w.print();     
  }
  
  var $j = jQuery.noConflict();
@@ -132,3 +157,14 @@ echo paginate_links(  array(
   The current user logged in doesn't have enough permissions to edit this calendar. This user can edit only his/her own calendars. Please log in as administrator to get access to all calendars.
 
 <?php } ?>
+
+
+
+
+
+
+
+
+
+
+

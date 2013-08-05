@@ -1,13 +1,13 @@
 <?php
 
-if ( !is_admin() ) 
+if ( !is_admin() && !defined('CPABC_CALENDAR_ON_PUBLIC_WEBSITE')) 
 {
     echo 'Direct access not allowed.';
     exit;
 }
 
 if (!defined('CP_CALENDAR_ID'))
-    define ('CP_CALENDAR_ID',intval($_GET["cal"]));
+    define ('CP_CALENDAR_ID',1);
 
 global $wpdb; 
 $mycalendarrows = $wpdb->get_results( 'SELECT * FROM '.CPABC_APPOINTMENTS_CONFIG_TABLE_NAME .' WHERE `'.CPABC_TDEAPP_CONFIG_ID.'`='.CP_CALENDAR_ID); 
@@ -21,14 +21,23 @@ $current_user = wp_get_current_user();
 if (cpabc_appointment_is_administrator() || $mycalendarrows[0]->conwer == $current_user->ID) { 
 
 ?>
+
+<?php if (!CPABC_APPOINTMENTS_DEFAULT_DEFER_SCRIPTS_LOADING) { ?>
+<script type='text/javascript' src='../wp-content/plugins/appointment-booking-calendar/js/jQuery.stringify.js'></script>
+<script type='text/javascript' src='../wp-content/plugins/appointment-booking-calendar/js/fbuilder-pro.jquery.js'></script>
+<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/themes/smoothness/jquery-ui.css" type="text/css" rel="stylesheet" />   
+<?php } ?>
+
 <div class="wrap">
 <h2>Appointment Booking Calendar - Manage Calendar Availability</h2>
 
+<?php if (!defined('CPABC_CALENDAR_ON_PUBLIC_WEBSITE')) { ?>
 <input type="button" name="backbtn" value="Back to items list..." onclick="document.location='admin.php?page=cpabc_appointments';">
+<?php } ?>
 
 <form method="post" name="dexconfigofrm" action=""> 
 <input name="cpabc_appointments_post_options" type="hidden" id="1" />
-<input name="cpabc_item" type="hidden" value="<?php echo intval($_GET["cal"]); ?>" />
+<input name="cpabc_item" type="hidden" value="<?php echo CP_CALENDAR_ID; ?>" />
    
 <div id="normal-sortables" class="meta-box-sortables">
 
@@ -71,6 +80,7 @@ if (cpabc_appointment_is_administrator() || $mycalendarrows[0]->conwer == $curre
         <td>
              <?php $value = cpabc_get_option('calendar_language',CPABC_APPOINTMENTS_DEFAULT_CALENDAR_LANGUAGE); ?>
              <select name="calendar_language">               
+               <option value="CZ" <?php if ($value == 'CZ') echo ' selected="selected"'; ?>>Czech</option>
                <option value="DE" <?php if ($value == 'DE') echo ' selected="selected"'; ?>>German</option>
                <option value="DU" <?php if ($value == 'DU') echo ' selected="selected"'; ?>>Dutch</option>
                <option value="EN" <?php if ($value == 'EN') echo ' selected="selected"'; ?>>English</option>
@@ -78,7 +88,8 @@ if (cpabc_appointment_is_administrator() || $mycalendarrows[0]->conwer == $curre
                <option value="IT" <?php if ($value == 'IT') echo ' selected="selected"'; ?>>Italian</option>
                <option value="JP" <?php if ($value == 'JP') echo ' selected="selected"'; ?>>Japanese</option>
                <option value="PT" <?php if ($value == 'PT') echo ' selected="selected"'; ?>>Portuguese</option>               
-               <option value="SP" <?php if ($value == 'SP') echo ' selected="selected"'; ?>>Spanish</option>            
+               <option value="SP" <?php if ($value == 'SP') echo ' selected="selected"'; ?>>Spanish</option>
+               <option value="SK" <?php if ($value == 'SK') echo ' selected="selected"'; ?>>Slovak</option>
             </select>
         </td>
         </tr>
@@ -162,6 +173,21 @@ if (cpabc_appointment_is_administrator() || $mycalendarrows[0]->conwer == $curre
   </div>    
  </div>
 
+ 
+ <input type="hidden" name="form_structure" id="form_structure" size="180" value="<?php echo str_replace("\r","",str_replace("\n","",esc_attr(cpabc_appointment_cleanJSON(cpabc_get_option('form_structure', CPABC_APPOINTMENTS_DEFAULT_form_structure))))); ?>" />
+ 
+ <input type="hidden" name="vs_use_validation" value="1" />
+ <input type="hidden" name="vs_text_is_required" value="<?php echo esc_attr(cpabc_get_option('vs_text_is_required', CPABC_APPOINTMENTS_DEFAULT_vs_text_is_required)); ?>" />
+ <input type="hidden" name="vs_text_is_email" value="<?php echo esc_attr(cpabc_get_option('vs_text_is_email', CPABC_APPOINTMENTS_DEFAULT_vs_text_is_email)); ?>" />
+ <input type="hidden" name="cv_text_enter_valid_captcha" value="<?php echo esc_attr(cpabc_get_option('cv_text_enter_valid_captcha', CPABC_TDEAPP_DEFAULT_dexcv_text_enter_valid_captcha)); ?>" />
+ <input type="hidden" name="vs_text_datemmddyyyy" value="<?php echo esc_attr(cpabc_get_option('vs_text_datemmddyyyy', CPABC_APPOINTMENTS_DEFAULT_vs_text_datemmddyyyy)); ?>" />
+ <input type="hidden" name="vs_text_dateddmmyyyy" value="<?php echo esc_attr(cpabc_get_option('vs_text_dateddmmyyyy', CPABC_APPOINTMENTS_DEFAULT_vs_text_dateddmmyyyy)); ?>" />
+ <input type="hidden" name="vs_text_number" value="<?php echo esc_attr(cpabc_get_option('vs_text_number', CPABC_APPOINTMENTS_DEFAULT_vs_text_number)); ?>" />
+ <input type="hidden" name="vs_text_digits" value="<?php echo esc_attr(cpabc_get_option('vs_text_digits', CPABC_APPOINTMENTS_DEFAULT_vs_text_digits)); ?>" />
+ <input type="hidden" name="vs_text_max" value="<?php echo esc_attr(cpabc_get_option('vs_text_max', CPABC_APPOINTMENTS_DEFAULT_vs_text_max)); ?>" />
+ <input type="hidden" name="vs_text_min" value="<?php echo esc_attr(cpabc_get_option('vs_text_min', CPABC_APPOINTMENTS_DEFAULT_vs_text_min)); ?>" />
+
+
  <div id="metabox_basic_settings" class="postbox" >
   <h3 class='hndle' style="padding:5px;"><span>Paypal Payment Configuration</span></h3>
   <div class="inside">
@@ -171,7 +197,7 @@ if (cpabc_appointment_is_administrator() || $mycalendarrows[0]->conwer == $curre
         <th scope="row">Enable Paypal Payments?</th>
         <td><input type="checkbox" readonly disabled name="enable_paypal" size="40" value="1" checked /> <em>The feature for working without PayPal is implemented/available in the <a href="http://wordpress.dwbooster.com/calendars/appointment-booking-calendar#download">pro version</a>.</em>
         </td>
-        </tr>    
+        </tr>      
     
         <tr valign="top">        
         <th scope="row">Paypal email</th>
@@ -213,7 +239,7 @@ if (cpabc_appointment_is_administrator() || $mycalendarrows[0]->conwer == $curre
         <tr valign="top">
         <th scope="row">Discount Codes</th>
         <td> 
-           <em>This feature is available in the <a href="http://wordpress.dwbooster.com/calendars/appointment-booking-calendar#download">pro version</a>.</em>
+           <em>The -discount codes- feature is available in the <a href="http://wordpress.dwbooster.com/calendars/appointment-booking-calendar#download">pro version</a>.</em>
         </td>
         </tr>  
                    
@@ -223,8 +249,9 @@ if (cpabc_appointment_is_administrator() || $mycalendarrows[0]->conwer == $curre
  </div>    
  
  
+  
  <div id="metabox_basic_settings" class="postbox" >
-  <h3 class='hndle' style="padding:5px;"><span>Notification Settings</span></h3>
+  <h3 class='hndle' style="padding:5px;"><span>Notification Settings to Administrators</span></h3>
   <div class="inside">
      <table class="form-table">    
         <tr valign="top">
@@ -234,30 +261,57 @@ if (cpabc_appointment_is_administrator() || $mycalendarrows[0]->conwer == $curre
         <tr valign="top">
         <th scope="row">Send notification to email</th>
         <td><input type="text" name="notification_destination_email" size="40" value="<?php echo esc_attr(cpabc_get_option('notification_destination_email', CPABC_APPOINTMENTS_DEFAULT_PAYPAL_EMAIL)); ?>" />
-        <br />
-        <em>Note: Comma separated list for adding more than one email address<em>
+          <br />
+          <em>Note: Comma separated list for adding more than one email address<em>
         </td>
-        </tr>
-        <tr valign="top">
-        <th scope="row">Email subject confirmation to user</th>
-        <td><input type="text" name="email_subject_confirmation_to_user" size="70" value="<?php echo esc_attr(cpabc_get_option('email_subject_confirmation_to_user', CPABC_APPOINTMENTS_DEFAULT_SUBJECT_CONFIRMATION_EMAIL)); ?>" /></td>
-        </tr>
-        <tr valign="top">
-        <th scope="row">Email confirmation to user</th>
-        <td><textarea cols="70" rows="5" name="email_confirmation_to_user"><?php echo cpabc_get_option('email_confirmation_to_user', CPABC_APPOINTMENTS_DEFAULT_CONFIRMATION_EMAIL); ?></textarea></td>
         </tr>
         <tr valign="top">
         <th scope="row">Email subject notification to admin</th>
         <td><input type="text" name="email_subject_notification_to_admin" size="70" value="<?php echo esc_attr(cpabc_get_option('email_subject_notification_to_admin', CPABC_APPOINTMENTS_DEFAULT_SUBJECT_NOTIFICATION_EMAIL)); ?>" /></td>
         </tr>
         <tr valign="top">
+        <th scope="row">Email format?</th>
+        <td>
+          <?php $option = cpabc_get_option('nadmin_emailformat', CPABC_APPOINTMENTS_DEFAULT_email_format); ?>
+          <select name="nadmin_emailformat">
+           <option value="text"<?php if ($option != 'html') echo ' selected'; ?>>Plain Text (default)</option>
+           <option value="html"<?php if ($option == 'html') echo ' selected'; ?>>HTML (use html in the textarea below)</option>
+          </select>
+        </td>
+        </tr>          
+        <tr valign="top">
         <th scope="row">Email notification to admin</th>
         <td><textarea cols="70" rows="5" name="email_notification_to_admin"><?php echo cpabc_get_option('email_notification_to_admin', CPABC_APPOINTMENTS_DEFAULT_NOTIFICATION_EMAIL); ?></textarea></td>
+        </tr>
+     </table>  
+  </div>    
+ </div>
+ 
+ <div id="metabox_basic_settings" class="postbox" >
+  <h3 class='hndle' style="padding:5px;"><span>Email Copy to User / Auto-reply</span></h3>
+  <div class="inside">
+     <table class="form-table">     
+        <tr valign="top">
+        <th scope="row">Email subject confirmation to user</th>
+        <td><input type="text" name="email_subject_confirmation_to_user" size="70" value="<?php echo esc_attr(cpabc_get_option('email_subject_confirmation_to_user', CPABC_APPOINTMENTS_DEFAULT_SUBJECT_CONFIRMATION_EMAIL)); ?>" /></td>
+        </tr>
+        <tr valign="top">
+        <th scope="row">Email format?</th>
+        <td>
+          <?php $option = cpabc_get_option('nuser_emailformat', CPABC_APPOINTMENTS_DEFAULT_email_format); ?>
+          <select name="nuser_emailformat">
+           <option value="text"<?php if ($option != 'html') echo ' selected'; ?>>Plain Text (default)</option>
+           <option value="html"<?php if ($option == 'html') echo ' selected'; ?>>HTML (use html in the textarea below)</option>
+          </select>
+        </td>
+        </tr>          
+        <tr valign="top">
+        <th scope="row">Email confirmation to user</th>
+        <td><textarea cols="70" rows="5" name="email_confirmation_to_user"><?php echo cpabc_get_option('email_confirmation_to_user', CPABC_APPOINTMENTS_DEFAULT_CONFIRMATION_EMAIL); ?></textarea></td>
         </tr>                                                
      </table>  
   </div>    
- </div>  
- 
+ </div>
  
  <div id="metabox_basic_settings" class="postbox" >
   <h3 class='hndle' style="padding:5px;"><span>Captcha Verification</span></h3>
@@ -291,7 +345,7 @@ if (cpabc_appointment_is_administrator() || $mycalendarrows[0]->conwer == $curre
          <td colspan="2" rowspan="">
            Preview:<br />
              <br />
-            <img src="<?php echo plugins_url('/captcha/captcha.php', __FILE__); ?>"  id="captchaimg" alt="security code" border="0"  />            
+            <img src="<?php echo cpabc_appointment_get_site_url(); ?>/?cpabc_app=captcha"  id="captchaimg" alt="security code" border="0"  />            
          </td> 
         </tr>             
                 
@@ -328,19 +382,61 @@ if (cpabc_appointment_is_administrator() || $mycalendarrows[0]->conwer == $curre
   </div>    
  </div>     
  
+ 
  <div id="metabox_basic_settings" class="postbox" >
-  <h3 class='hndle' style="padding:5px;"><span>Custom Settings</span></h3>
+  <h3 class='hndle' style="padding:5px;"><span>Email Reminder Settings  - Available only in Pro version</span></h3>
+  <div class="inside">  
+     <table class="form-table">    
+        <tr valign="top">
+        <th scope="row">Enable e-mail reminder?</th>
+        <td><input type="checkbox" name="enable_reminder" disabled readonly size="40" value="1" <?php if (cpabc_get_option('enable_reminder',CPABC_APPOINTMENTS_DEFAULT_ENABLE_REMINDER)) echo 'checked'; ?> /> * This feature is available in the <a href="http://wordpress.dwbooster.com/calendars/appointment-booking-calendar#download">pro version</a>.</td>
+        </tr>             
+        <tr valign="top">
+        <th scope="row">Send reminder:</th>
+        <td><input type="text" name="reminder_hours"  disabled readonly size="2" value="<?php echo esc_attr(cpabc_get_option('reminder_hours', CPABC_APPOINTMENTS_DEFAULT_REMINDER_HOURS)); ?>" /> hours before the appointment        
+        </td>
+        </tr>
+        <tr valign="top">
+        <th scope="row">Remainder email subject</th>
+        <td><input type="text" name="reminder_subject"  disabled readonly size="70" value="<?php echo esc_attr(cpabc_get_option('reminder_subject', CPABC_APPOINTMENTS_DEFAULT_REMINDER_SUBJECT)); ?>" /></td>
+        </tr>
+        <tr valign="top">
+        <th scope="row">Email format?</th>
+        <td>
+          <?php $option = cpabc_get_option('nremind_emailformat', CPABC_APPOINTMENTS_DEFAULT_email_format); ?>
+          <select name="nremind_emailformat">
+           <option value="text"<?php if ($option != 'html') echo ' selected'; ?>>Plain Text (default)</option>
+           <option value="html"<?php if ($option == 'html') echo ' selected'; ?>>HTML (use html in the textarea below)</option>
+          </select>
+        </td>
+        </tr>          
+        <tr valign="top">
+        <th scope="row">Remainder email message</th>
+        <td><textarea cols="70" rows="3"  disabled readonly name="reminder_content"><?php echo cpabc_get_option('reminder_content', CPABC_APPOINTMENTS_DEFAULT_REMINDER_CONTENT); ?></textarea></td>
+        </tr>                                                
+     </table>
+  </div>
+</div>  
+
+ 
+ <div id="metabox_basic_settings" class="postbox" >
+  <h3 class='hndle' style="padding:5px;"><span>Custom Settings - Available only in Pro version</span></h3>
   <div class="inside">
      <table class="form-table">    
         <tr valign="top">
-        <th scope="row">Options (drop-down select for  multiple prices / multiple services)</th>
-        <td><em>This feature is available in the <a href="http://wordpress.dwbooster.com/calendars/appointment-booking-calendar#download">pro version</a>.</em></td>
+        <th scope="row">Options (drop-down select, one item per line with format: <span style="color:#ff0000">price | title</span>)<br />                
+        <ul>Sample Format:</ul>
+        <?php echo str_replace("\n", "<br />", CPABC_APPOINTMENTS_DEFAULT_EXPLAIN_CP_CAL_CHECKBOXES); ?>
+        </th>
+        <td>
+            <em>This feature is available only in the <a href="http://wordpress.dwbooster.com/calendars/appointment-booking-calendar#download">pro version</a>.</em>
+        </td>
         </tr>             
      </table>  
   </div>    
  </div>   
  
- 
+<?php if (!defined('CPABC_CALENDAR_ON_PUBLIC_WEBSITE')) { ?> 
  <div id="metabox_basic_settings" class="postbox" >
   <h3 class='hndle' style="padding:5px;"><span>Note</span></h3>
   <div class="inside">
@@ -350,14 +446,17 @@ if (cpabc_appointment_is_administrator() || $mycalendarrows[0]->conwer == $curre
    <br /><br />
   </div>
 </div>   
-
+<?php } ?>
   
 </div> 
 
 
 <p class="submit"><input type="submit" name="submit" id="submit" class="button-primary" value="Save Changes"  /></p>
 
+<?php if (!defined('CPABC_CALENDAR_ON_PUBLIC_WEBSITE')) { ?> 
 [<a href="http://wordpress.dwbooster.com/contact-us" target="_blank">Request Custom Modifications</a>] | [<a href="http://wordpress.dwbooster.com/calendars/appointment-booking-calendar" target="_blank">Help</a>]
+<?php } ?>
+
 </form>
 </div>
 <script type="text/javascript">
@@ -377,7 +476,7 @@ if (cpabc_appointment_is_administrator() || $mycalendarrows[0]->conwer == $curre
     qs += "&font="+f.dexcv_font.options[f.dexcv_font.selectedIndex].value;
     qs += "&rand="+d;
          
-    document.getElementById("captchaimg").src= "<?php echo plugins_url('/captcha/captcha.php', __FILE__); ?>"+qs;
+    document.getElementById("captchaimg").src= "<?php echo cpabc_appointment_get_site_url(); ?>/?cpabc_app=captcha&"+qs;
  }       
          
  generateCaptcha();
@@ -415,14 +514,3 @@ if (cpabc_appointment_is_administrator() || $mycalendarrows[0]->conwer == $curre
   The current user logged in doesn't have enough permissions to edit this calendar. This user can edit only his/her own calendars. Please log in as administrator to get access to all calendars.
 
 <?php } ?>
-
-
-
-
-
-
-
-
-
-
-
