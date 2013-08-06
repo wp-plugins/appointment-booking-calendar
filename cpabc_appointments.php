@@ -1222,7 +1222,7 @@ function cpabc_appointment_cleanJSON($str)
 function cpabc_appointment_get_site_url()
 {
     $url = parse_url(get_site_url());
-    $url = rtrim($url["path"],"/");
+    $url = rtrim(@$url["path"],"/");
     return $url;
 }
 
@@ -1230,7 +1230,7 @@ function cpabc_appointment_get_site_url()
 function cpabc_appointment_get_FULL_site_url()
 {
     $url = parse_url(get_site_url());
-    $url = rtrim($url["path"],"/");
+    $url = rtrim(@$url["path"],"/");
     $pos = strpos($url, "://");
     if ($pos === false)
         $url = 'http://'.$_SERVER["HTTP_HOST"].$url;

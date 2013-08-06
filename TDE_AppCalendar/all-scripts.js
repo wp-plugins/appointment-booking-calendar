@@ -440,16 +440,16 @@ YAHOO.TDE.AppCalendar.appoiments = new Array();
 						
 					break;
 					case "CZ":
-						ms = ["Led", "&Uacute;no", "Bre", "Dub", "Kve", "Cer", "Cec", "Srp", "Z&aacute;r", "R&iacute;j", "Lis", "Pro"];
-						ml = ["Leden", "&Uacute;nor", "Brezen", "Duben", "Kveten", "Cerven", "Cervenec", "Srpen", "Z&aacute;r&iacute;", "R&iacute;jen", "Listopad", "Prosinec"];
+						ms = ["Led", "&Uacute;no", "B&#x159;e", "Dub", "Kv&#x11b;", "&#x10c;er", "&#x10c;ec", "Srp", "Z&aacute;&#x159;", "&#x159;&iacute;j", "Lis", "Pro"];
+						ml = ["Leden", "&Uacute;nor", "B&#x159;ezen", "Duben", "Kv&#x11b;ten", "&#x10c;erven", "&#x10c;ervenec", "Srpen", "Z&aacute;&#x159;&iacute;", "&#x159;&iacute;jen", "Listopad", "Prosinec"];
 						wc = ["N","P", "&Uacute;", "S", "C", "P", "S"];
-						ws = ["Ne", "Po", "&Uacute;t", "St", "Ct", "P&aacute;", "So"];
-						wm = ["Ned", "Pon", "&Uacute;te", "Str", "Ctv", "P&aacute;t", "Sob"];
-						wl = ["Nedele", "Pondel&iacute;", "&Uacute;terý", "Streda", "Ctvrtek", "P&aacute;tek", "Sobota"];
+						ws = ["Ne", "Po", "&Uacute;t", "St", "&#x10c;t", "P&aacute;", "So"];
+						wm = ["Ned", "Pon", "&Uacute;te", "Str", "&#x10c;tv", "P&aacute;t", "Sob"];
+						wl = ["Nedele", "Pondel&iacute;", "&Uacute;terý", "Streda", "&#x10c;tvrtek", "P&aacute;tek", "Sobota"];
 					break;
 					case "SK":
 						ms = ["Jan", "Fab", "Mar", "Apr", "M&aacute;j", "J&uacute;n", "J&uacute;l", "Aug", "Sep", "Okt", "Nov", "Dec"];
-						ml = ["Janu&aacute;r", "Febru&aacute;r", "Marec", "Apr&iacute;l", "M&aacute;j", "J&uacute;n", "J&uacute;l", "August", "September", "Október", "November", "December"];
+						ml = ["Janu&aacute;r", "Febru&aacute;r", "Marec", "Apr&iacute;l", "M&aacute;j", "J&uacute;n", "J&uacute;l", "August", "September", "Okt&oacute;er", "November", "December"];
 						wc = ["N","P", "&Uacute;", "S", "&Scirc;", "P", "S"];
 						ws = ["Ne", "Po", "&Uacute;t", "St", "&Scirc;t", "Pi", "So"];
 						wm = ["Ned", "Pon", "&Uacute;to", "Str", "&Scirc;tv", "Pia", "Sob"];
