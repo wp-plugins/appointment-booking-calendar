@@ -41,23 +41,23 @@ msgstr "Prosím zvolte datum a čas"
 
 #: cpabc_internal.inc.php:62 cpabc_scheduler.inc.php:79
 msgid "Coupon code (optional)"
-msgstr "Kupon kód (volitelně)"
+msgstr "Kód kupónu (volitelně)"
 
 #: cpabc_internal.inc.php:67 cpabc_scheduler.inc.php:84
 msgid "Service"
-msgstr "Servis"
+msgstr "Služba"
 
 #: cpabc_internal.inc.php:73 cpabc_scheduler.inc.php:90
 msgid "Please enter the security code:"
-msgstr "Zadejte captcha kód:"
+msgstr "Zadejte CAPTCHA kód:"
 
 #: cpabc_internal.inc.php:76 cpabc_scheduler.inc.php:93
 msgid "Security Code (lowercase letters):"
-msgstr "Captcha kód:"
+msgstr "CAPTCHA kód:"
 
 #: cpabc_internal.inc.php:84 cpabc_scheduler.inc.php:101
 msgid "Continue"
-msgstr "Pokracovat"
+msgstr "Pokračovat"
 
 #: cpabc_scheduler.inc.php:22
 msgid "Please enter a valid phone number"
@@ -69,15 +69,15 @@ msgstr "Zadejte prosím platnou e-mailovou adresu"
 
 #: cpabc_scheduler.inc.php:32
 msgid "Please write your name"
-msgstr "Prosím, napište své jméno"
+msgstr "Zadejte prosím své jméno"
 
 #: cpabc_scheduler.inc.php:42
 msgid "Please enter the captcha verification code"
-msgstr "Zadejte prosím ověřovací kód captcha"
+msgstr "Zadejte prosím ověřovací kód CAPTCHA"
 
 #: cpabc_scheduler.inc.php:64
 msgid "Your phone number"
-msgstr "Vaše telefonní císlo"
+msgstr "Vaše telefonní číslo"
 
 #: cpabc_scheduler.inc.php:67
 msgid "Your name"
@@ -89,4 +89,4 @@ msgstr "Váš e-mail"
 
 #: cpabc_scheduler.inc.php:73
 msgid "Comments/Questions"
-msgstr "Píipomínky/Dotazy"
+msgstr "Připomínky/Dotazy"

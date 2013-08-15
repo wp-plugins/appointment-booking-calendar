@@ -278,7 +278,7 @@ function _cpabc_appointments_install() {
     $sql = "ALTER TABLE  `".$wpdb->prefix.CPABC_APPOINTMENTS_CALENDARS_TABLE_NAME_NO_PREFIX."` ADD `quantity` VARCHAR(25) DEFAULT '1' NOT NULL;"; $wpdb->query($sql);
 
     $sql = 'INSERT INTO `'.$wpdb->prefix.CPABC_APPOINTMENTS_CONFIG_TABLE_NAME.'` (conwer,`form_structure`,`'.CPABC_TDEAPP_CONFIG_ID.'`,`'.CPABC_TDEAPP_CONFIG_TITLE.'`,`'.CPABC_TDEAPP_CONFIG_USER.'`,`'.CPABC_TDEAPP_CONFIG_PASS.'`,`'.CPABC_TDEAPP_CONFIG_LANG.'`,`'.CPABC_TDEAPP_CONFIG_CPAGES.'`,`'.CPABC_TDEAPP_CONFIG_TYPE.'`,`'.CPABC_TDEAPP_CONFIG_MSG.'`,`'.CPABC_TDEAPP_CONFIG_WORKINGDATES.'`,`'.CPABC_TDEAPP_CONFIG_RESTRICTEDDATES.'`,`'.CPABC_TDEAPP_CONFIG_TIMEWORKINGDATES0.'`,`'.CPABC_TDEAPP_CONFIG_TIMEWORKINGDATES1.'`,`'.CPABC_TDEAPP_CONFIG_TIMEWORKINGDATES2.'`,`'.CPABC_TDEAPP_CONFIG_TIMEWORKINGDATES3.'`,`'.CPABC_TDEAPP_CONFIG_TIMEWORKINGDATES4.'`,`'.CPABC_TDEAPP_CONFIG_TIMEWORKINGDATES5.'`,`'.CPABC_TDEAPP_CONFIG_TIMEWORKINGDATES6.'`,`'.CPABC_TDEAPP_CALDELETED_FIELD.'`) '.
-                                                                                ' VALUES(0,"'.$wpdb->escape(CPABC_APPOINTMENTS_DEFAULT_form_structure).'","1","cal1","Calendar Item 1","","ENG","1","3","Please, select your appointment.","1,2,3,4,5","","","9:0,10:0,11:0,12:0,13:0,14:0,15:0,16:0","9:0,10:0,11:0,12:0,13:0,14:0,15:0,16:0","9:0,10:0,11:0,12:0,13:0,14:0,15:0,16:0","9:0,10:0,11:0,12:0,13:0,14:0,15:0,16:0","9:0,10:0,11:0,12:0,13:0,14:0,15:0,16:0","","0");';
+                                                                                ' VALUES(0,"'.esc_sql(CPABC_APPOINTMENTS_DEFAULT_form_structure).'","1","cal1","Calendar Item 1","","ENG","1","3","Please, select your appointment.","1,2,3,4,5","","","9:0,10:0,11:0,12:0,13:0,14:0,15:0,16:0","9:0,10:0,11:0,12:0,13:0,14:0,15:0,16:0","9:0,10:0,11:0,12:0,13:0,14:0,15:0,16:0","9:0,10:0,11:0,12:0,13:0,14:0,15:0,16:0","9:0,10:0,11:0,12:0,13:0,14:0,15:0,16:0","","0");';
     $wpdb->query($sql);
 
     require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
@@ -302,7 +302,7 @@ function cpabc_appointments_filter_content($atts) {
         define ('CPABC_CALENDAR_FIXED_ID',$calendar);
     else if ($user != '') 
     {
-        $users = $wpdb->get_results( "SELECT user_login,ID FROM ".$wpdb->users." WHERE user_login='".$wpdb->escape($user)."'" );
+        $users = $wpdb->get_results( "SELECT user_login,ID FROM ".$wpdb->users." WHERE user_login='".esc_sql($user)."'" );
         if (isset($users[0]))
             define ('CPABC_CALENDAR_USER',$users[0]->ID);
         else
@@ -326,7 +326,7 @@ function cpabc_appointments_filter_edit($atts) {
 	), $atts ) );
 	$buffered_contents = '';
 	$current_user = wp_get_current_user();
-	$myrows = $wpdb->get_results( "SELECT * FROM ".CPABC_APPOINTMENTS_CONFIG_TABLE_NAME." where conwer<>'' AND conwer='".$wpdb->escape($current_user->ID )."'" );                                                                     
+	$myrows = $wpdb->get_results( "SELECT * FROM ".CPABC_APPOINTMENTS_CONFIG_TABLE_NAME." where conwer<>'' AND conwer='".esc_sql($current_user->ID )."'" );                                                                     
     if (count($myrows))    
     {
         if (!defined('CP_CALENDAR_ID'))
@@ -793,7 +793,7 @@ document.ppform3.submit();
 function cpabc_appointments_user_access_to($calendar) {
     global $wpdb;
 	$current_user = wp_get_current_user();
-	$myrows = $wpdb->get_results( "SELECT * FROM ".CPABC_APPOINTMENTS_CONFIG_TABLE_NAME." where id='".$calendar."' AND conwer<>'' AND conwer='".$wpdb->escape($current_user->ID)."'" );         	
+	$myrows = $wpdb->get_results( "SELECT * FROM ".CPABC_APPOINTMENTS_CONFIG_TABLE_NAME." where id='".$calendar."' AND conwer<>'' AND conwer='".esc_sql($current_user->ID)."'" );         	
 	return count($myrows);
 }
 
@@ -1181,7 +1181,7 @@ function cpabc_appointments_calendar_update2() {
                 if ($j!=count($data)-1)
                     $description .= "\n";
             }
-            $wpdb->query("update  ".CPABC_TDEAPP_CALENDAR_DATA_TABLE." set ".CPABC_TDEAPP_DATA_DATETIME."='".$datetime."',quantity='".$capacity."',".CPABC_TDEAPP_DATA_TITLE."='".$wpdb->escape($title)."',".CPABC_TDEAPP_DATA_DESCRIPTION."='".$wpdb->escape($description)."'  where ".CPABC_TDEAPP_DATA_IDCALENDAR."=".$calid." and ".CPABC_TDEAPP_DATA_ID."=".$_POST["sqlId"]);
+            $wpdb->query("update  ".CPABC_TDEAPP_CALENDAR_DATA_TABLE." set ".CPABC_TDEAPP_DATA_DATETIME."='".$datetime."',quantity='".$capacity."',".CPABC_TDEAPP_DATA_TITLE."='".esc_sql($title)."',".CPABC_TDEAPP_DATA_DESCRIPTION."='".esc_sql($description)."'  where ".CPABC_TDEAPP_DATA_IDCALENDAR."=".$calid." and ".CPABC_TDEAPP_DATA_ID."=".$_POST["sqlId"]);
         }
         else if ($_GET["act"]=='add')
         {
@@ -1199,7 +1199,7 @@ function cpabc_appointments_calendar_update2() {
                 if ($j!=count($data)-1)
                     $description .= "\n";
             }
-            $wpdb->query("insert into ".CPABC_TDEAPP_CALENDAR_DATA_TABLE."(".CPABC_TDEAPP_DATA_IDCALENDAR.",".CPABC_TDEAPP_DATA_DATETIME.",".CPABC_TDEAPP_DATA_TITLE.",".CPABC_TDEAPP_DATA_DESCRIPTION.",quantity) values(".$calid.",'".$datetime."','".$wpdb->escape($title)."','".$wpdb->escape($description)."','".$capacity."') ");
+            $wpdb->query("insert into ".CPABC_TDEAPP_CALENDAR_DATA_TABLE."(".CPABC_TDEAPP_DATA_IDCALENDAR.",".CPABC_TDEAPP_DATA_DATETIME.",".CPABC_TDEAPP_DATA_TITLE.",".CPABC_TDEAPP_DATA_DESCRIPTION.",quantity) values(".$calid.",'".$datetime."','".esc_sql($title)."','".esc_sql($description)."','".$capacity."') ");
             echo  $wpdb->insert_id;
 
         }

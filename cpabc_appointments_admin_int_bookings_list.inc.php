@@ -33,9 +33,9 @@ if (!$current_page) $current_page = 1;
 $records_per_page = 50;                                                                                  
 
 $cond = '';
-if ($_GET["search"] != '') $cond .= " AND (title like '%".$wpdb->escape($_GET["search"])."%' OR description LIKE '%".$wpdb->escape($_GET["search"])."%')";
-if ($_GET["dfrom"] != '') $cond .= " AND (datatime >= '".$wpdb->escape($_GET["dfrom"])."')";
-if ($_GET["dto"] != '') $cond .= " AND (datatime <= '".$wpdb->escape($_GET["dto"])." 23:59:59')";
+if ($_GET["search"] != '') $cond .= " AND (title like '%".esc_sql($_GET["search"])."%' OR description LIKE '%".esc_sql($_GET["search"])."%')";
+if ($_GET["dfrom"] != '') $cond .= " AND (datatime >= '".esc_sql($_GET["dfrom"])."')";
+if ($_GET["dto"] != '') $cond .= " AND (datatime <= '".esc_sql($_GET["dto"])." 23:59:59')";
 
 
 $events = $wpdb->get_results( "SELECT * FROM ".CPABC_APPOINTMENTS_CALENDARS_TABLE_NAME." WHERE appointment_calendar_id=".CP_CALENDAR_ID.$cond." ORDER BY datatime DESC" );

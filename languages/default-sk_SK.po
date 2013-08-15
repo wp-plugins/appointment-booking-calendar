@@ -41,7 +41,7 @@ msgstr "Prosím vyberte dátum a čas"
 
 #: cpabc_internal.inc.php:62 cpabc_scheduler.inc.php:79
 msgid "Coupon code (optional)"
-msgstr "Kupon kód (voliteľne)"
+msgstr "Kód kupónu (voliteľne)"
 
 #: cpabc_internal.inc.php:67 cpabc_scheduler.inc.php:84
 msgid "Service"
@@ -49,15 +49,15 @@ msgstr "Služby"
 
 #: cpabc_internal.inc.php:73 cpabc_scheduler.inc.php:90
 msgid "Please enter the security code:"
-msgstr "Zadejte captcha kód:"
+msgstr "Zadajte CAPTCHA kód:"
 
 #: cpabc_internal.inc.php:76 cpabc_scheduler.inc.php:93
 msgid "Security Code (lowercase letters):"
-msgstr "Captcha kód:"
+msgstr "CAPTCHA kód:"
 
 #: cpabc_internal.inc.php:84 cpabc_scheduler.inc.php:101
 msgid "Continue"
-msgstr "Pokracovat"
+msgstr "Pokračovať"
 
 #: cpabc_scheduler.inc.php:22
 msgid "Please enter a valid phone number"
@@ -69,11 +69,11 @@ msgstr "Zadajte platnú e-mailovú adresu"
 
 #: cpabc_scheduler.inc.php:32
 msgid "Please write your name"
-msgstr "Prosím, napíšte svoje meno"
+msgstr "Zadajte svoje meno"
 
 #: cpabc_scheduler.inc.php:42
 msgid "Please enter the captcha verification code"
-msgstr "Zadajte prosím overovací kód captcha"
+msgstr "Zadajte prosím overovací kód CAPTCHA"
 
 #: cpabc_scheduler.inc.php:64
 msgid "Your phone number"

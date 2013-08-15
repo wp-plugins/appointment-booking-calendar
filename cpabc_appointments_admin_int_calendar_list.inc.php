@@ -38,7 +38,7 @@ else if (isset($_GET['ac']) && $_GET['ac'] == 'st')
 	        }
         }
     }
-    $message = "Throubleshoot settings updated";
+    $message = "Troubleshoot settings updated";
 }
 
 
@@ -177,7 +177,7 @@ if ($message) echo "<div id='setting-error-settings_updated' class='updated sett
 
 
  <div id="metabox_basic_settings" class="postbox" >
-  <h3 class='hndle' style="padding:5px;"><span>Form Builder Settings & Throubleshoot Area</span></h3>
+  <h3 class='hndle' style="padding:5px;"><span>Form Builder Settings & Troubleshoot Area</span></h3>
   <div class="inside"> 
     <p><strong>Important!</strong>: Use this area <strong>only</strong> if you want to activate the form builder or if you are experiencing conflicts with third party plugins, with the theme scripts or with the character encoding.</p>
     <form name="updatesettings">

@@ -112,6 +112,66 @@ Please check if after the completing the payment at Paypal the appointment appea
 * **If the appointment purchase isn't registered and you are testing it on an online website**, then check if the payment appears as "completed" at the Paypal seller account (no red flags, no pending mark). Check also if your Paypal account is setup to automatically accept payments in the selected currency. The payment must be "accepted" and "completed" in the PayPal seller account.
 
 
+== Other Notes ==
+
+= The Troubleshoot Area =
+
+Use the troubleshot if you are having problems with special or non-latin characters. In most cases changing the charset to UTF-8 through the option available for that in the troubleshot area will solve the problem.
+
+You can also use this area to change the script load method if the booking calendar isn't appearing in the public website.
+
+
+= The Restricted Dates Tab =
+
+The "Restricted Dates" tab into the calendar settings lets you to completely disable selected dates from the appointment calendar. This is useful for excluding public holidays or other specific dates where no appointments will be offered.
+
+To restrict a date just click it into the date picker calendar that appears in this tab. To remove an already restricted date just click it again.
+
+= The Special Dates Tab =
+
+The "Restricted Dates" tab into the calendar settings lets you use a different time-slots schedule for specific dates. For example you can have the same time-slots available for all Tuesdays inthe appointment booking calendar, but if you want to offer different time-slots on a specific Tuesday then you can use the "Special Dates" tab to overwrite the time-slots for that date.
+
+To use this section click a date into the date picker that appears on the "Restricted Dates" tab and a floating panel will appear for editing the available time-slots for the selected date.
+ 
+= Available Languages and Addinng New Languages / Translations = 
+
+The current translations are already available for both the appointment calendar and public booking form:
+
+- English
+- Czech
+- Dutch
+- German
+- Polish
+- Slovak
+- Spanish
+
+In addition to the above, the following translations are also available for the appointment calendar area:
+
+- French
+- Italian
+- Japanese
+- Portuguese
+
+If you want to add a new translation you can add a new PO/MO file into the "languages" folder. If you want to provide the translation for a new language you can send us the texts and we will create the PO/MO files for you. We will appreciate if you allow to share your translation with other WordPress users.
+
+= The Notification Emails =
+
+The notification emails with the appointment data entered in the booking form can sent in "Plain Text" format (default) or in "HTML" format. If you select "HTML" format, be sure to use the BR or P tags for the line breaks into the text and to use the proper formatting.
+
+ 
+= Other Versions and Features = 
+ 
+The free version published in this WordPress directory is a fully-functional version for accepting appointments through PayPal as indicated in the plugin description. There is also a pro (commercial)  version that includes the following additional features (not present in the free version):
+
+- Ability to process forms/appointments without PayPal
+- Coupons / discount codes
+- Form builder for a visual customization of the booking form
+- Email reminders for the appointments
+- Additional drop-down fields for multiple prices/services
+
+Please note that the pro features aren't advised as part of the free plugin in the description shown in this WordPress directory. If you are interested in more information about the pro features go to the plugin's page: http://wordpress.dwbooster.com/calendars/appointment-booking-calendar
+ 
+ 
 == Screenshots ==
 
 1. Appointment booking form.
