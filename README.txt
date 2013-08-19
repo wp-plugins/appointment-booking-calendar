@@ -3,7 +3,7 @@ Contributors: codepeople
 Donate link: http://wordpress.dwbooster.com/calendars/appointment-booking-calendar
 Tags: booking form,booking calendar,appointment,appointment calendar,paypal calendar,paypal bookings,paypal appointments,booking,bookings,meeting,meet
 Requires at least: 3.0.5
-Tested up to: 3.5
+Tested up to: 3.6
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -185,6 +185,11 @@ Please note that the pro features aren't advised as part of the free plugin in t
 = 1.0 =
 * First stable version released.
 * More configuration options added.
+
+= 1.0.1 =
+* Interface modifications.
+* Compatible with WP 3.6
+* More features added
 
 == Upgrade Notice ==
 
