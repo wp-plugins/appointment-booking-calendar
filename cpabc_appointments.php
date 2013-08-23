@@ -313,7 +313,7 @@ function cpabc_appointments_filter_content($atts) {
     ob_start();
     cpabc_appointments_get_public_form();
     $buffered_contents = ob_get_contents();
-    ob_end_clean();
+    ob_clean();
     return $buffered_contents;
 }
 
@@ -335,7 +335,7 @@ function cpabc_appointments_filter_edit($atts) {
         ob_start();
         @include_once dirname( __FILE__ ) . '/cpabc_appointments_admin_int.inc.php';
         $buffered_contents = ob_get_contents();
-        ob_end_clean();
+        ob_clean();
     }    
     return $buffered_contents;
 }
@@ -1070,7 +1070,7 @@ function cpabc_appointments_calendar_load() {
     global $wpdb;
 	if ( ! isset( $_GET['cpabc_calendar_load'] ) || $_GET['cpabc_calendar_load'] != '1' )
 		return;
-    @ob_end_clean();
+    @ob_clean();
     header("Cache-Control: no-store, no-cache, must-revalidate");
     header("Pragma: no-cache");
     $calid = str_replace  (CPABC_TDEAPP_CAL_PREFIX, "",$_GET["id"]);
@@ -1097,7 +1097,7 @@ function cpabc_appointments_calendar_load2() {
     global $wpdb;
 	if ( ! isset( $_GET['cpabc_calendar_load2'] ) || $_GET['cpabc_calendar_load2'] != '1' )
 		return;
-    @ob_end_clean();
+    @ob_clean();
     header("Cache-Control: no-store, no-cache, must-revalidate");
     header("Pragma: no-cache");
     $calid = str_replace  (CPABC_TDEAPP_CAL_PREFIX, "",$_GET["id"]);
@@ -1132,7 +1132,7 @@ function cpabc_appointments_calendar_update() {
         		
     cpabc_appointments_add_field_verify(CPABC_TDEAPP_CONFIG, 'specialDates');
     
-    @ob_end_clean();
+    @ob_clean();
     header("Cache-Control: no-store, no-cache, must-revalidate");
     header("Pragma: no-cache");
     if ( $user_ID )
@@ -1154,7 +1154,7 @@ function cpabc_appointments_calendar_update2() {
     if ( ! current_user_can('edit_pages') && !cpabc_appointments_user_access_to($calid) )
         return;
         		
-    @ob_end_clean();
+    @ob_clean();
     header("Cache-Control: no-store, no-cache, must-revalidate");
     header("Pragma: no-cache");
     if ( $user_ID )
