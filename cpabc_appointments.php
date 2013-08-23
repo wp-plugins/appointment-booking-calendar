@@ -313,7 +313,7 @@ function cpabc_appointments_filter_content($atts) {
     ob_start();
     cpabc_appointments_get_public_form();
     $buffered_contents = ob_get_contents();
-    ob_clean();
+    ob_end_clean();
     return $buffered_contents;
 }
 
@@ -335,7 +335,7 @@ function cpabc_appointments_filter_edit($atts) {
         ob_start();
         @include_once dirname( __FILE__ ) . '/cpabc_appointments_admin_int.inc.php';
         $buffered_contents = ob_get_contents();
-        ob_clean();
+        ob_end_clean();
     }    
     return $buffered_contents;
 }
