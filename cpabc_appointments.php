@@ -26,9 +26,9 @@ define('CPABC_APPOINTMENTS_IDENTIFY_PRICES', false);  // Undocumented feature: C
 define('CPABC_APPOINTMENTS_DEFAULT_DEFER_SCRIPTS_LOADING', (get_option('CPABC_APPOINTMENTS_LOAD_SCRIPTS',"1") == "1"?true:false));
 
 define('CPABC_APPOINTMENTS_DEFAULT_CURRENCY_SYMBOL','$');
-define('CPABC_APPOINTMENTS_GBP_CURRENCY_SYMBOL','£'); // Different encoding: £
-define('CPABC_APPOINTMENTS_EUR_CURRENCY_SYMBOL_A','?');
-define('CPABC_APPOINTMENTS_EUR_CURRENCY_SYMBOL_B','€');
+define('CPABC_APPOINTMENTS_GBP_CURRENCY_SYMBOL',chr(163)); 
+define('CPABC_APPOINTMENTS_EUR_CURRENCY_SYMBOL_A','EUR ');
+define('CPABC_APPOINTMENTS_EUR_CURRENCY_SYMBOL_B',chr(128));
 
 define('CPABC_APPOINTMENTS_DEFAULT_form_structure', '[[{"name":"email","index":0,"title":"Email","ftype":"femail","userhelp":"","csslayout":"","required":true,"predefined":"","size":"medium"},{"name":"subject","index":1,"title":"Subject","required":true,"ftype":"ftext","userhelp":"","csslayout":"","predefined":"","size":"medium"},{"name":"message","index":2,"size":"large","required":true,"title":"Message","ftype":"ftextarea","userhelp":"","csslayout":"","predefined":""}],[{"title":"","description":"","formlayout":"top_aligned"}]]');
 
@@ -274,7 +274,7 @@ function _cpabc_appointments_install() {
     $wpdb->query($sql);
     
     $sql = "ALTER TABLE  `".$wpdb->prefix.CPABC_APPOINTMENTS_CALENDARS_TABLE_NAME_NO_PREFIX."` ADD `reminder` VARCHAR(1) DEFAULT '' NOT NULL;"; $wpdb->query($sql);
-    $sql = "ALTER TABLE  `".$wpdb->prefix.CPABC_APPOINTMENTS_CALENDARS_TABLE_NAME_NO_PREFIX."` ADD `reference` VARCHAR(1) DEFAULT '' NOT NULL;"; $wpdb->query($sql);
+    $sql = "ALTER TABLE  `".$wpdb->prefix.CPABC_APPOINTMENTS_CALENDARS_TABLE_NAME_NO_PREFIX."` ADD `reference` VARCHAR(10) DEFAULT '' NOT NULL;"; $wpdb->query($sql);
     $sql = "ALTER TABLE  `".$wpdb->prefix.CPABC_APPOINTMENTS_CALENDARS_TABLE_NAME_NO_PREFIX."` ADD `quantity` VARCHAR(25) DEFAULT '1' NOT NULL;"; $wpdb->query($sql);
 
     $sql = 'INSERT INTO `'.$wpdb->prefix.CPABC_APPOINTMENTS_CONFIG_TABLE_NAME.'` (conwer,`form_structure`,`'.CPABC_TDEAPP_CONFIG_ID.'`,`'.CPABC_TDEAPP_CONFIG_TITLE.'`,`'.CPABC_TDEAPP_CONFIG_USER.'`,`'.CPABC_TDEAPP_CONFIG_PASS.'`,`'.CPABC_TDEAPP_CONFIG_LANG.'`,`'.CPABC_TDEAPP_CONFIG_CPAGES.'`,`'.CPABC_TDEAPP_CONFIG_TYPE.'`,`'.CPABC_TDEAPP_CONFIG_MSG.'`,`'.CPABC_TDEAPP_CONFIG_WORKINGDATES.'`,`'.CPABC_TDEAPP_CONFIG_RESTRICTEDDATES.'`,`'.CPABC_TDEAPP_CONFIG_TIMEWORKINGDATES0.'`,`'.CPABC_TDEAPP_CONFIG_TIMEWORKINGDATES1.'`,`'.CPABC_TDEAPP_CONFIG_TIMEWORKINGDATES2.'`,`'.CPABC_TDEAPP_CONFIG_TIMEWORKINGDATES3.'`,`'.CPABC_TDEAPP_CONFIG_TIMEWORKINGDATES4.'`,`'.CPABC_TDEAPP_CONFIG_TIMEWORKINGDATES5.'`,`'.CPABC_TDEAPP_CONFIG_TIMEWORKINGDATES6.'`,`'.CPABC_TDEAPP_CALDELETED_FIELD.'`) '.
