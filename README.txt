@@ -190,6 +190,7 @@ Please note that the pro features aren't advised as part of the free plugin in t
 * Interface modifications.
 * Compatible with WP 3.6
 * More features added
+* Fixing tags in wp directory
 
 == Upgrade Notice ==
 
