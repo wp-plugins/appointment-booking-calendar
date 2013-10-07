@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: app book cal\n"
 "POT-Creation-Date: 2013-04-19 10:48+0100\n"
-"PO-Revision-Date: 2013-08-05 17:35+0100\n"
+"PO-Revision-Date: 2013-09-18 20:19+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -90,3 +90,17 @@ msgstr "Váš e-mail"
 #: cpabc_scheduler.inc.php:73
 msgid "Comments/Questions"
 msgstr "Pripomienky/Otázky"
+
+msgid ""
+"Please select at least %1 time-slots. Currently selected: %2 time-slots."
+msgstr "Prosím vyberte aspon %1 čas. Aktuálne vybratý: %2 čas"
+
+msgid ""
+"Please select a maximum of %1 time-slots. Currently selected: %2 time-slots."
+msgstr "Prosím vyberte maximálne %1 čas. Aktuálne vybratý: %2 čas"
+
+msgid "Cancel"
+msgstr "Zrušiť"
+
+msgid "Previous"
+msgstr "Predchádzajúce"

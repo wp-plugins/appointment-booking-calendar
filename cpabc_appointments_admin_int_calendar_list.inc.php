@@ -17,6 +17,9 @@ if (isset($_GET['u']) && $_GET['u'] != '')
 }
 else if (isset($_GET['ac']) && $_GET['ac'] == 'st')
 {   
+    update_option( 'CPABC_CAL_TIME_ZONE_MODIFY_SET', $_GET["ict"] );
+    update_option( 'CPABC_CAL_TIME_SLOT_SIZE_SET', $_GET["ics"] );
+    
     update_option( 'CPABC_APPOINTMENTS_LOAD_SCRIPTS', ($_GET["scr"]=="1"?"1":"2") );   
     update_option( 'CPABC_APPOINTMENTS_DEFAULT_USE_EDITOR', "1" );
     if ($_GET["chs"] != '')
@@ -94,7 +97,9 @@ if ($message) echo "<div id='setting-error-settings_updated' class='updated sett
         var scr = document.getElementById("ccscriptload").value;    
         var chs = document.getElementById("cccharsets").value;    
         var ccf = document.getElementById("ccformrender").value; 
-        document.location = 'admin.php?page=cpabc_appointments&ac=st&scr='+scr+'&chs='+chs+'&ccf='+ccf+'&r='+Math.random();
+        var ict = document.getElementById("icaltimediff").value; 
+        var ics = document.getElementById("icaltimeslotsize").value; 
+        document.location = 'admin.php?page=cpabc_appointments&ac=st&scr='+scr+'&chs='+chs+'&ccf='+ccf+'&ict='+ict+'&ics='+ics+'&r='+Math.random();
     }    
  } 
  
@@ -111,7 +116,7 @@ if ($message) echo "<div id='setting-error-settings_updated' class='updated sett
   
   <table cellspacing="2"> 
    <tr>
-    <th align="left">ID</th><th align="left">Calendar Name</th><th align="left">Owner</th><th align="left">iCal Link</th><th align="left">&nbsp; &nbsp; Options</th><th align="left">Shortcode</th>
+    <th align="left">ID</th><th align="left">Calendar Name</th><th align="left">Owner</th><th align="left">iCal Link</th><th align="left">&nbsp; &nbsp; Options</th><th align="left">Shortcode</th>    
    </tr> 
 <?php  
 
@@ -148,7 +153,7 @@ if ($message) echo "<div id='setting-error-settings_updated' class='updated sett
                                <input style="font-size:11px;" type="button" name="calupdate_<?php echo $item->id; ?>" value="Update" onclick="cp_updateItem(<?php echo $item->id; ?>);" /> &nbsp; 
                              <?php } ?>    
                              <input style="font-size:11px;" type="button" name="calmanage_<?php echo $item->id; ?>" value="Manage Settings" onclick="cp_manageSettings(<?php echo $item->id; ?>);" /> &nbsp; 
-                             <input style="font-size:11px;" type="button" name="calbookings_<?php echo $item->id; ?>" value="Bookings List" onclick="cp_BookingsList(<?php echo $item->id; ?>);" /> &nbsp;                             
+                             <input style="font-size:11px;" type="button" name="calbookings_<?php echo $item->id; ?>" value="Bookings List" onclick="cp_BookingsList(<?php echo $item->id; ?>);" /> &nbsp;  
     </td>
      <td nowrap style="font-size:10px;">[CPABC_APPOINTMENT_CALENDAR calendar="<?php echo $item->id; ?>"]</td>
    </tr>
@@ -168,7 +173,7 @@ if ($message) echo "<div id='setting-error-settings_updated' class='updated sett
  <div id="metabox_basic_settings" class="postbox" >
   <h3 class='hndle' style="padding:5px;"><span>New Calendar / Item</span></h3>
   <div class="inside"> 
-  
+   
        This version supports one calendar.
 
   </div>    
@@ -206,14 +211,32 @@ if ($message) echo "<div id='setting-error-settings_updated' class='updated sett
         <option value="latin1_swedish_ci">latin1_swedish_ci</option>
        </select><br />
        <em>* Update the charset if you are getting problems displaying special/non-latin characters. After updated you need to edit the special characters again.</em>
-       <br />
+      
+       
+       <br /><br />
+       iCal timezone difference vs server time:<br />
+       <select id="icaltimediff" name="icaltimediff">
+        <?php for ($i=-23;$i<24; $i++) { ?>        
+        <option value="<?php $text = " ".($i<0?"":"+").$i." hours"; echo $text; ?>" <?php if (get_option('CPABC_CAL_TIME_ZONE_MODIFY_SET'," +2 hours") == $text) echo ' selected'; ?>><?php echo $text; ?></option>
+        <?php } ?>
+       </select><br />
+       <em>* Update this, if needed, to match the desired timezone. The difference is calculated referred to the server time.</em>
+       
+       <br /><br />
+       iCal timeslot size in minutes:<br />
+        <input type="text" size="2" name="icaltimeslotsize" id="icaltimeslotsize" value="<?php echo get_option('CPABC_CAL_TIME_SLOT_SIZE_SET',"15"); ?>" /> minutes
+        <br />
+       <em>* Update this, if needed, to have a specific slot time in the exported iCal file.</em>
+      
+        <br /><br />         
        <input type="button" onclick="cp_updateConfig();" name="gobtn" value="UPDATE" />
       <br /><br />      
     </form>
 
   </div>    
  </div> 
- 
+
+  
 <?php } ?>  
   
 </div> 

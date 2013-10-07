@@ -31,8 +31,10 @@ Features:
 * Allows defining the product name at PayPal, the currency, the PayPal language and amount to pay for an appointment booking (you can set zero to let the user pay/donate the desired amount).
 * Allows defining the working days, the exact time slots available and the appointment capacity of each time slot.
 * **Multi-page calendar:** You can setup it to show many months at once.
+* **Multiple time-slot selection:** The custom can book many time-slots at once if allowed in the settings.
 * Configurable date format: mm/dd/yyyy or dd/mm/yyyy
 * Supports both am/pm and military time.
+* Export appointment data to CSV / Excel files.
 * You can define the **start day** of the week on the appointment calendar.
 * You can define the **minimum** available date and the **maximum** available date for the bookings.
 * You can block specific dates.
@@ -120,6 +122,8 @@ Use the troubleshot if you are having problems with special or non-latin charact
 
 You can also use this area to change the script load method if the booking calendar isn't appearing in the public website.
 
+There are also two fields related to the iCal settings: the "iCal time zone difference vs. server time" and the "iCal timeslot size in minutes". The "iCal time zone difference vs. server time" can be updated to match the desired time zone. The difference is calculated referred to the server time, you may have to test some values until finding the one that matches the desired time-zone.  The "iCal timeslot size in minutes" can be modified to have a specific slot time in the exported iCal file.
+
 
 = The Restricted Dates Tab =
 
@@ -129,11 +133,11 @@ To restrict a date just click it into the date picker calendar that appears in t
 
 = The Special Dates Tab =
 
-The "Restricted Dates" tab into the calendar settings lets you use a different time-slots schedule for specific dates. For example you can have the same time-slots available for all Tuesdays inthe appointment booking calendar, but if you want to offer different time-slots on a specific Tuesday then you can use the "Special Dates" tab to overwrite the time-slots for that date.
+The "Restricted Dates" tab into the calendar settings lets you use a different time-slots schedule for specific dates. For example you can have the same time-slots available for all Tuesdays in the appointment booking calendar, but if you want to offer different time-slots on a specific Tuesday then you can use the "Special Dates" tab to overwrite the time-slots for that date.
 
 To use this section click a date into the date picker that appears on the "Restricted Dates" tab and a floating panel will appear for editing the available time-slots for the selected date.
  
-= Available Languages and Addinng New Languages / Translations = 
+= Available Languages and Adding New Languages / Translations = 
 
 The current translations are already available for both the appointment calendar and public booking form:
 
@@ -152,12 +156,76 @@ In addition to the above, the following translations are also available for the 
 - Japanese
 - Portuguese
 
-If you want to add a new translation you can add a new PO/MO file into the "languages" folder. If you want to provide the translation for a new language you can send us the texts and we will create the PO/MO files for you. We will appreciate if you allow to share your translation with other WordPress users.
+If you want to add a new translation you can add a new PO/MO file into the "languages" folder. If you want to provide the translation for a new language you can send us the texts and we will create the PO/MO files for you. We will appreciate if you allow sharing your translation with other WordPress users.
 
 = The Notification Emails =
 
 The notification emails with the appointment data entered in the booking form can sent in "Plain Text" format (default) or in "HTML" format. If you select "HTML" format, be sure to use the BR or P tags for the line breaks into the text and to use the proper formatting.
 
+ 
+= Displaying a List of Appointments = 
+
+A list with the appointments set on the calendar can be displayed by using this shortcode in the page where you want to display the list:
+
+    [CPABC_APPOINTMENT_LIST]
+
+... can be also customized with some parameters if needed, example:
+
+    [CPABC_APPOINTMENT_LIST from="today" to="today +30 days" fields="DATE,TIME,NAME" calendar="1"]
+
+... the "from" and "to" are used to display only the appointments / bookings on the specified period. That can be either indicated as relative days to "today" or as fixed dates.
+
+There is also a "group" attribute to join the names of the appointments made on the same time-slot (for time-slots with multiple capacity):
+
+    [CPABC_APPOINTMENT_LIST group="yes"]
+
+The "fields" can be used to modify the columns to display, that field accepts the following items (uppercase):
+
+    DATE
+    TIME
+    NAME
+    PHONE
+    COMMENTS
+
+... however, in most cases, probably you don't want to display the phone or comments.
+
+The styles for the list are located at the end of the file "all-css.css":
+
+    .cpabc_field_0, .cpabc_field_1, .cpabc_field_2, ...
+
+Clear the browser cache if the list isn't displayed in a correct way (to be sure it loads the updated styles).
+
+= Opening the Calendar in a Different Month =  
+
+There is a field in the settings area named "Open calendar in this initial month/year". This can be used to display the calendar initially in a specified month. This is useful, for example, for bookings of an event that will happen in a future month, so you can display the calendar exactly on that month.
+
+= Allowing Booking Multiple Appointment Slots =  
+
+These settings fields are available for each appointment calendar:
+
+* **Minimum slots to be selected:** This is the minimum number of slots that the customer must select in the booking form.
+
+* **Maximum slots to be selected:** This is the maximum number of slots that the customer can select in the booking form.
+
+* <strong>Close floating panel after selecting a time-slot?:</strong> Default: "Yes". Set to "No" in the case the user have to select various slots in the same date. The price should be set for each total number of slots below (request cost setting).
+
+Note that the **request cost** field will be automatically updated for allowing entering the price for each number of time-slots, giving total freedom at this price setting.
+
+ 
+= Exporting Appointments to CSV / Excel Files =  
+
+The appointment data can be exported to a CSV file (Excel compatible) to manage the data from other applications. That option is available from the "bookings list", the appointments can be filtered by date and by the text into them, so you can export just the needed appointments to the CSV file.
+ 
+ 
+= Appointment Calendar Theme Selection =  
+ 
+The current Appointment Booking Calendar version has three pre-built CSS themes:
+
+* Default - Classic
+* Light
+* Blue
+
+The theme can be selected into the administration area, below the calendar on the settings field labeled "Calendar visual theme". Once selected a new theme, the CSS file "all-css.css" will be loaded frmo a different subfolder, be sure to edit the related CSS file if you need further modifications to the appointment booking calendar theme styles.
  
 = Other Versions and Features = 
  
@@ -195,4 +263,4 @@ Please note that the pro features aren't advised as part of the free plugin in t
 == Upgrade Notice ==
 
 = 1.0.1 =
-* Interface modifications.
+ Interface modifications.

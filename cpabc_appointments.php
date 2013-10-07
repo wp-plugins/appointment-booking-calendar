@@ -13,20 +13,21 @@ License: GPL
 /* initialization / install / uninstall functions */
 
 
-define('CPABC_APPOINTMENTS_DEFAULT_ON_CANCEL_REDIRECT_TO', '/'); // Undocumented feature: Return address for the cancellation link. 
+define('CPABC_APPOINTMENTS_DEFAULT_ON_CANCEL_REDIRECT_TO', '/'); // Undocumented feature: Return address for the cancellation link.
 
 define('CPABC_APPOINTMENTS_AUTO_FILL_LOGGED_USER_DATA', true); // Undocumented feature: Currently enabled. Works only in predefined classic form.
 
 define('CPABC_APPOINTMENTS_ENABLE_QUANTITY_FIELD', 0);  // Undocumented feature: Still in beta version. Number means the capacity number.
+                                                        // dev note: quantity_field field pre-added to the database
 
-define('CPABC_APPOINTMENTS_IDENTIFY_PRICES', false);  // Undocumented feature: Currently disabled. Still in beta version. 
+define('CPABC_APPOINTMENTS_IDENTIFY_PRICES', false);  // Undocumented feature: Currently disabled. Still in beta version.
 
 
 
 define('CPABC_APPOINTMENTS_DEFAULT_DEFER_SCRIPTS_LOADING', (get_option('CPABC_APPOINTMENTS_LOAD_SCRIPTS',"1") == "1"?true:false));
 
 define('CPABC_APPOINTMENTS_DEFAULT_CURRENCY_SYMBOL','$');
-define('CPABC_APPOINTMENTS_GBP_CURRENCY_SYMBOL',chr(163)); 
+define('CPABC_APPOINTMENTS_GBP_CURRENCY_SYMBOL',chr(163));
 define('CPABC_APPOINTMENTS_EUR_CURRENCY_SYMBOL_A','EUR ');
 define('CPABC_APPOINTMENTS_EUR_CURRENCY_SYMBOL_B',chr(128));
 
@@ -206,9 +207,9 @@ function _cpabc_appointments_install() {
     $sql = "ALTER TABLE  `".$wpdb->prefix.CPABC_APPOINTMENTS_CONFIG_TABLE_NAME."` ADD `conwer` INT NOT NULL AFTER  `id`;";
 
     $sql = "ALTER TABLE  `".$wpdb->prefix.CPABC_APPOINTMENTS_CONFIG_TABLE_NAME."` ADD `form_structure` text AFTER  `id`;";     $wpdb->query($sql);
-    
+
     $sql = "ALTER TABLE  `".$wpdb->prefix.CPABC_APPOINTMENTS_CONFIG_TABLE_NAME."` ADD `specialDates` text AFTER  `id`;";     $wpdb->query($sql);
-                  
+
     $sql = "ALTER TABLE  `".$wpdb->prefix.CPABC_APPOINTMENTS_CONFIG_TABLE_NAME."` ADD `vs_use_validation` VARCHAR(10) DEFAULT '' NOT NULL      AFTER  `id`;";     $wpdb->query($sql);
     $sql = "ALTER TABLE  `".$wpdb->prefix.CPABC_APPOINTMENTS_CONFIG_TABLE_NAME."` ADD `vs_text_is_required` VARCHAR(250) DEFAULT '' NOT NULL   AFTER  `id`;";     $wpdb->query($sql);
     $sql = "ALTER TABLE  `".$wpdb->prefix.CPABC_APPOINTMENTS_CONFIG_TABLE_NAME."` ADD `vs_text_is_email` VARCHAR(250) DEFAULT '' NOT NULL      AFTER  `id`;";     $wpdb->query($sql);
@@ -217,7 +218,8 @@ function _cpabc_appointments_install() {
     $sql = "ALTER TABLE  `".$wpdb->prefix.CPABC_APPOINTMENTS_CONFIG_TABLE_NAME."` ADD `vs_text_number` VARCHAR(250) DEFAULT '' NOT NULL        AFTER  `id`;";     $wpdb->query($sql);
     $sql = "ALTER TABLE  `".$wpdb->prefix.CPABC_APPOINTMENTS_CONFIG_TABLE_NAME."` ADD `vs_text_digits` VARCHAR(250) DEFAULT '' NOT NULL        AFTER  `id`;";     $wpdb->query($sql);
     $sql = "ALTER TABLE  `".$wpdb->prefix.CPABC_APPOINTMENTS_CONFIG_TABLE_NAME."` ADD `vs_text_max` VARCHAR(250) DEFAULT '' NOT NULL           AFTER  `id`;";     $wpdb->query($sql);
-    $sql = "ALTER TABLE  `".$wpdb->prefix.CPABC_APPOINTMENTS_CONFIG_TABLE_NAME."` ADD `vs_text_min` VARCHAR(250) DEFAULT '' NOT NULL           AFTER  `id`;";     $wpdb->query($sql);    
+    $sql = "ALTER TABLE  `".$wpdb->prefix.CPABC_APPOINTMENTS_CONFIG_TABLE_NAME."` ADD `vs_text_min` VARCHAR(250) DEFAULT '' NOT NULL           AFTER  `id`;";     $wpdb->query($sql);
+    $sql = "ALTER TABLE  `".$wpdb->prefix.CPABC_APPOINTMENTS_CONFIG_TABLE_NAME."` ADD `vs_text_submitbtn` VARCHAR(250) DEFAULT '' NOT NULL           AFTER  `id`;";     $wpdb->query($sql);
 
     $sql = "ALTER TABLE  `".$wpdb->prefix.CPABC_APPOINTMENTS_CONFIG_TABLE_NAME."` ADD `conwer` INT NOT NULL AFTER  `id`;";     $wpdb->query($sql);
 
@@ -228,6 +230,14 @@ function _cpabc_appointments_install() {
     $sql = "ALTER TABLE  `".$wpdb->prefix.CPABC_APPOINTMENTS_CONFIG_TABLE_NAME."` ADD `calendar_weekday` text AFTER  `timeWorkingDates6`;"; $wpdb->query($sql);
     $sql = "ALTER TABLE  `".$wpdb->prefix.CPABC_APPOINTMENTS_CONFIG_TABLE_NAME."` ADD `calendar_mindate` text AFTER  `timeWorkingDates6`;"; $wpdb->query($sql);
     $sql = "ALTER TABLE  `".$wpdb->prefix.CPABC_APPOINTMENTS_CONFIG_TABLE_NAME."` ADD `calendar_maxdate` text AFTER  `timeWorkingDates6`;"; $wpdb->query($sql);
+    $sql = "ALTER TABLE  `".$wpdb->prefix.CPABC_APPOINTMENTS_CONFIG_TABLE_NAME."` ADD `calendar_startmonth` VARCHAR(20) DEFAULT '' NOT NULL;"; $wpdb->query($sql);
+    $sql = "ALTER TABLE  `".$wpdb->prefix.CPABC_APPOINTMENTS_CONFIG_TABLE_NAME."` ADD `calendar_startyear` VARCHAR(20) DEFAULT '' NOT NULL;"; $wpdb->query($sql);
+    $sql = "ALTER TABLE  `".$wpdb->prefix.CPABC_APPOINTMENTS_CONFIG_TABLE_NAME."` ADD `calendar_theme` text AFTER  `timeWorkingDates6`;"; $wpdb->query($sql);
+
+    $sql = "ALTER TABLE  `".$wpdb->prefix.CPABC_APPOINTMENTS_CONFIG_TABLE_NAME."` ADD `min_slots` VARCHAR(10) DEFAULT '' NOT NULL AFTER  `timeWorkingDates6`;"; $wpdb->query($sql);
+    $sql = "ALTER TABLE  `".$wpdb->prefix.CPABC_APPOINTMENTS_CONFIG_TABLE_NAME."` ADD `max_slots` VARCHAR(10) DEFAULT '' NOT NULL AFTER  `timeWorkingDates6`;"; $wpdb->query($sql);
+    $sql = "ALTER TABLE  `".$wpdb->prefix.CPABC_APPOINTMENTS_CONFIG_TABLE_NAME."` ADD `close_fpanel` VARCHAR(10) DEFAULT '' NOT NULL AFTER  `timeWorkingDates6`;"; $wpdb->query($sql);
+    $sql = "ALTER TABLE  `".$wpdb->prefix.CPABC_APPOINTMENTS_CONFIG_TABLE_NAME."` ADD `quantity_field` VARCHAR(10) DEFAULT '' NOT NULL AFTER  `timeWorkingDates6`;"; $wpdb->query($sql);
 
     $sql = "ALTER TABLE  `".$wpdb->prefix.CPABC_APPOINTMENTS_CONFIG_TABLE_NAME."` ADD `enable_paypal` text AFTER  `timeWorkingDates6`;"; $wpdb->query($sql);
     $sql = "ALTER TABLE  `".$wpdb->prefix.CPABC_APPOINTMENTS_CONFIG_TABLE_NAME."` ADD `paypal_email` text AFTER  `timeWorkingDates6`;"; $wpdb->query($sql);
@@ -265,16 +275,16 @@ function _cpabc_appointments_install() {
     $sql = "ALTER TABLE  `".$wpdb->prefix.CPABC_APPOINTMENTS_CONFIG_TABLE_NAME."` ADD `dexcv_font` text AFTER  `timeWorkingDates6`;"; $wpdb->query($sql);
     $sql = "ALTER TABLE  `".$wpdb->prefix.CPABC_APPOINTMENTS_CONFIG_TABLE_NAME."` ADD `cv_text_enter_valid_captcha` VARCHAR(250) DEFAULT '' NOT NULL AFTER  `timeWorkingDates6`;"; $wpdb->query($sql);
     $sql = "ALTER TABLE  `".$wpdb->prefix.CPABC_APPOINTMENTS_CONFIG_TABLE_NAME."` ADD `cp_cal_checkboxes` text AFTER  `timeWorkingDates6`;"; $wpdb->query($sql);
-    
+
     $sql = "ALTER TABLE  `".$wpdb->prefix.CPABC_APPOINTMENTS_CONFIG_TABLE_NAME."` ADD `nuser_emailformat` text AFTER  `timeWorkingDates6`;"; $wpdb->query($sql);
     $sql = "ALTER TABLE  `".$wpdb->prefix.CPABC_APPOINTMENTS_CONFIG_TABLE_NAME."` ADD `nadmin_emailformat` text AFTER  `timeWorkingDates6`;"; $wpdb->query($sql);
     $sql = "ALTER TABLE  `".$wpdb->prefix.CPABC_APPOINTMENTS_CONFIG_TABLE_NAME."` ADD `nremind_emailformat` text AFTER  `timeWorkingDates6`;"; $wpdb->query($sql);
 
-    $sql = "CREATE TABLE `".$wpdb->prefix.CPABC_APPOINTMENTS_CALENDARS_TABLE_NAME."` (`".CPABC_TDEAPP_DATA_ID."` int(10) unsigned NOT NULL auto_increment,`".CPABC_TDEAPP_DATA_IDCALENDAR."` int(10) unsigned default NULL,`".CPABC_TDEAPP_DATA_DATETIME."`datetime NOT NULL default '0000-00-00 00:00:00',`".CPABC_TDEAPP_DATA_TITLE."` varchar(250) default NULL,`".CPABC_TDEAPP_DATA_DESCRIPTION."` text,PRIMARY KEY (`".CPABC_TDEAPP_DATA_ID."`)) ;"; 
+    $sql = "CREATE TABLE `".$wpdb->prefix.CPABC_APPOINTMENTS_CALENDARS_TABLE_NAME."` (`".CPABC_TDEAPP_DATA_ID."` int(10) unsigned NOT NULL auto_increment,`".CPABC_TDEAPP_DATA_IDCALENDAR."` int(10) unsigned default NULL,`".CPABC_TDEAPP_DATA_DATETIME."`datetime NOT NULL default '0000-00-00 00:00:00',`".CPABC_TDEAPP_DATA_TITLE."` varchar(250) default NULL,`".CPABC_TDEAPP_DATA_DESCRIPTION."` text,PRIMARY KEY (`".CPABC_TDEAPP_DATA_ID."`)) ;";
     $wpdb->query($sql);
-    
+
     $sql = "ALTER TABLE  `".$wpdb->prefix.CPABC_APPOINTMENTS_CALENDARS_TABLE_NAME_NO_PREFIX."` ADD `reminder` VARCHAR(1) DEFAULT '' NOT NULL;"; $wpdb->query($sql);
-    $sql = "ALTER TABLE  `".$wpdb->prefix.CPABC_APPOINTMENTS_CALENDARS_TABLE_NAME_NO_PREFIX."` ADD `reference` VARCHAR(10) DEFAULT '' NOT NULL;"; $wpdb->query($sql);
+    $sql = "ALTER TABLE  `".$wpdb->prefix.CPABC_APPOINTMENTS_CALENDARS_TABLE_NAME_NO_PREFIX."` ADD `reference` VARCHAR(20) DEFAULT '' NOT NULL;"; $wpdb->query($sql);
     $sql = "ALTER TABLE  `".$wpdb->prefix.CPABC_APPOINTMENTS_CALENDARS_TABLE_NAME_NO_PREFIX."` ADD `quantity` VARCHAR(25) DEFAULT '1' NOT NULL;"; $wpdb->query($sql);
 
     $sql = 'INSERT INTO `'.$wpdb->prefix.CPABC_APPOINTMENTS_CONFIG_TABLE_NAME.'` (conwer,`form_structure`,`'.CPABC_TDEAPP_CONFIG_ID.'`,`'.CPABC_TDEAPP_CONFIG_TITLE.'`,`'.CPABC_TDEAPP_CONFIG_USER.'`,`'.CPABC_TDEAPP_CONFIG_PASS.'`,`'.CPABC_TDEAPP_CONFIG_LANG.'`,`'.CPABC_TDEAPP_CONFIG_CPAGES.'`,`'.CPABC_TDEAPP_CONFIG_TYPE.'`,`'.CPABC_TDEAPP_CONFIG_MSG.'`,`'.CPABC_TDEAPP_CONFIG_WORKINGDATES.'`,`'.CPABC_TDEAPP_CONFIG_RESTRICTEDDATES.'`,`'.CPABC_TDEAPP_CONFIG_TIMEWORKINGDATES0.'`,`'.CPABC_TDEAPP_CONFIG_TIMEWORKINGDATES1.'`,`'.CPABC_TDEAPP_CONFIG_TIMEWORKINGDATES2.'`,`'.CPABC_TDEAPP_CONFIG_TIMEWORKINGDATES3.'`,`'.CPABC_TDEAPP_CONFIG_TIMEWORKINGDATES4.'`,`'.CPABC_TDEAPP_CONFIG_TIMEWORKINGDATES5.'`,`'.CPABC_TDEAPP_CONFIG_TIMEWORKINGDATES6.'`,`'.CPABC_TDEAPP_CALDELETED_FIELD.'`) '.
@@ -300,16 +310,16 @@ function cpabc_appointments_filter_content($atts) {
 	), $atts ) );
     if ($calendar != '')
         define ('CPABC_CALENDAR_FIXED_ID',$calendar);
-    else if ($user != '') 
+    else if ($user != '')
     {
         $users = $wpdb->get_results( "SELECT user_login,ID FROM ".$wpdb->users." WHERE user_login='".esc_sql($user)."'" );
         if (isset($users[0]))
             define ('CPABC_CALENDAR_USER',$users[0]->ID);
         else
-            define ('CPABC_CALENDAR_USER',0);    
-    }  
+            define ('CPABC_CALENDAR_USER',0);
+    }
     else
-        define ('CPABC_CALENDAR_USER',0);  
+        define ('CPABC_CALENDAR_USER',0);
     ob_start();
     cpabc_appointments_get_public_form();
     $buffered_contents = ob_get_contents();
@@ -326,8 +336,8 @@ function cpabc_appointments_filter_edit($atts) {
 	), $atts ) );
 	$buffered_contents = '';
 	$current_user = wp_get_current_user();
-	$myrows = $wpdb->get_results( "SELECT * FROM ".CPABC_APPOINTMENTS_CONFIG_TABLE_NAME." where conwer<>'' AND conwer='".esc_sql($current_user->ID )."'" );                                                                     
-    if (count($myrows))    
+	$myrows = $wpdb->get_results( "SELECT * FROM ".CPABC_APPOINTMENTS_CONFIG_TABLE_NAME." where conwer<>'' AND conwer='".esc_sql($current_user->ID )."'" );
+    if (count($myrows))
     {
         if (!defined('CP_CALENDAR_ID'))
             define ('CP_CALENDAR_ID',$myrows[0]->id);
@@ -336,45 +346,134 @@ function cpabc_appointments_filter_edit($atts) {
         @include_once dirname( __FILE__ ) . '/cpabc_appointments_admin_int.inc.php';
         $buffered_contents = ob_get_contents();
         ob_end_clean();
-    }    
+    }
     return $buffered_contents;
 }
 
+
+function cpabc_appointments_filter_list($atts) {
+    global $wpdb;
+    extract( shortcode_atts( array(
+		'calendar' => '',
+		'user' => '',
+		'group' => 'no',
+		'fields' => 'DATE,TIME,NAME',
+		'from' => "today",
+		'to' => "today +30 days",
+	), $atts ) );
+	
+	$from = date("Y-m-d 00:00:00", strtotime($from));
+	$to = date("Y-m-d 23:59:59", strtotime($to));
+	$group = strtolower($group);
+	
+    if ($calendar != '')
+        define ('CPABC_CALENDAR_FIXED_ID',$calendar);
+    else if ($user != '')
+    {
+        $users = $wpdb->get_results( "SELECT user_login,ID FROM ".$wpdb->users." WHERE user_login='".esc_sql($user)."'" );
+        if (isset($users[0]))
+            define ('CPABC_CALENDAR_USER',$users[0]->ID);
+        else
+            define ('CPABC_CALENDAR_USER',0);
+    }
+    else
+        define ('CPABC_CALENDAR_USER',0);
+        
+    if (defined('CPABC_CALENDAR_USER') && CPABC_CALENDAR_USER != 0)
+        $myrows = $wpdb->get_results( "SELECT * FROM ".CPABC_APPOINTMENTS_CONFIG_TABLE_NAME." WHERE conwer=".CPABC_CALENDAR_USER." AND caldeleted=0" );
+    else if (defined('CPABC_CALENDAR_FIXED_ID'))
+        $myrows = $wpdb->get_results( "SELECT * FROM ".CPABC_APPOINTMENTS_CONFIG_TABLE_NAME." WHERE id=".CPABC_CALENDAR_FIXED_ID." AND caldeleted=0" );
+    else
+        $myrows = $wpdb->get_results( "SELECT * FROM ".CPABC_APPOINTMENTS_CONFIG_TABLE_NAME." WHERE caldeleted=0" );    
+        
+    if (!defined('CP_CALENDAR_ID')) define ('CP_CALENDAR_ID',$myrows[0]->id);    
+    
+    ob_start();
+    echo '<link rel="stylesheet" type="text/css" href="'.plugins_url('TDE_AppCalendar/'.cpabc_get_option('calendar_theme','').'all-css.css', __FILE__).'" />';
+    $fields = explode(",",$fields);
+    $last_date = '';
+    $mycalendarrows = $wpdb->get_results( "SELECT * FROM ".CPABC_TDEAPP_CALENDAR_DATA_TABLE ." INNER JOIN  ".CPABC_APPOINTMENTS_TABLE_NAME." on  ".CPABC_APPOINTMENTS_TABLE_NAME.".id=".CPABC_TDEAPP_CALENDAR_DATA_TABLE.".reference WHERE datatime>='".$from."' AND datatime<='".$to."' AND appointment_calendar_id=".CP_CALENDAR_ID." ORDER BY datatime ASC");
+    for($f=0; $f<count($mycalendarrows); $f++) {        
+        $params = unserialize($mycalendarrows[$f]->buffered_date);    
+        $newline = ($last_date != $mycalendarrows[$f]->booked_time_unformatted);
+        if ($group != 'yes' || $newline) 
+        {
+            echo '<div class="cpabc_field_clear"></div>';   
+        }    
+        for ($k=0; $k < count($fields); $k++)
+        {
+            $fieldname = trim($fields[$k]);
+            if ($group == 'yes')
+            { 
+                if ($newline || ($fieldname != "DATE" && $fieldname != "TIME"))
+                {
+                    echo '<div class="cpabc_field_'.$k.'">';                    
+                    echo (@$params[$fieldname]);
+                    if ($fieldname != "DATE" && $fieldname != "TIME")
+                    {
+                        while ($f<count($mycalendarrows) && @$mycalendarrows[$f+1]->booked_time_unformatted == @$mycalendarrows[$f]->booked_time_unformatted)
+                        {
+                            $f++;
+                            $params = unserialize($mycalendarrows[$f]->buffered_date);    
+                            echo ", ".@$params[$fieldname];
+                        }
+                        $k = count($fields);
+                    }    
+                    echo '</div>';
+                }
+            }
+            else
+                echo '<div class="cpabc_field_'.$k.'">'.(@$params[$fieldname]).'</div>';    
+        }        
+        $last_date = $mycalendarrows[$f]->booked_time_unformatted;        
+    }
+    echo '<div class="cpabc_field_clear"></div>';
+    $buffered_contents = ob_get_contents();
+    ob_end_clean();
+    return $buffered_contents;
+}
 
 
 
 function cpabc_appointments_get_public_form() {
 
     global $wpdb;
+
     
     $myrows = $wpdb->get_results( "SELECT * FROM ".CPABC_APPOINTMENTS_CONFIG_TABLE_NAME." WHERE id=1" );
     
-    define ('CP_CALENDAR_ID',1);
-    
-    wp_enqueue_script( 'jquery' );    
-    
+    define ('CP_CALENDAR_ID',1);        
+
+    $button_label = cpabc_get_option('vs_text_submitbtn', 'Continue');
+    $button_label = ($button_label==''?'Continue':$button_label);
+
+    $previous_label = __("Previous");
+    $next_label = __("Next");
+
+    wp_enqueue_script( 'jquery' );  
+
     $calendar_items = '';
     foreach ($myrows as $item)
       $calendar_items .=  '<option value='.$item->id.'>'.$item->uname.'</option>';
-      
+
     $cpabc_buffer = "";
     $services = array();
     
 
-    $codes = $wpdb->get_results( 'SELECT * FROM '.CPABC_APPOINTMENTS_DISCOUNT_CODES_TABLE_NAME.' WHERE `cal_id`='.CP_CALENDAR_ID);         
-    
+    $codes = $wpdb->get_results( 'SELECT * FROM '.CPABC_APPOINTMENTS_DISCOUNT_CODES_TABLE_NAME.' WHERE `cal_id`='.CP_CALENDAR_ID);
+
     $quant_buffer = '';
     if (CPABC_APPOINTMENTS_ENABLE_QUANTITY_FIELD)
     {
-        $quant_buffer = _('Quantity').':<br /><select id="abc_capacity" name="abc_capacity" onchange="apc_clear_date();">';
+        $quant_buffer = __('Quantity').':<br /><select id="abc_capacity" name="abc_capacity" onchange="apc_clear_date();">';
         for ($i=1; $i<=CPABC_APPOINTMENTS_ENABLE_QUANTITY_FIELD; $i++)
             $quant_buffer .= '<option'.($i==1?' selected="selected"':'').'>'.$i.'</option>';
         $quant_buffer .= '</select><br />';
     }
-    
+
     ?>
 </p> <!-- this p tag fixes a IE bug -->
-<link rel="stylesheet" type="text/css" href="<?php echo plugins_url('TDE_AppCalendar/all-css.css', __FILE__); ?>" />
+<link rel="stylesheet" type="text/css" href="<?php echo plugins_url('TDE_AppCalendar/'.cpabc_get_option('calendar_theme','').'all-css.css', __FILE__); ?>" />
 <script>
 var pathCalendar = "<?php echo cpabc_appointment_get_site_url(); ?>";
 var cpabc_global_date_format = '<?php echo cpabc_get_option('calendar_dateformat', CPABC_APPOINTMENTS_DEFAULT_CALENDAR_DATEFORMAT); ?>';
@@ -382,15 +481,24 @@ var cpabc_global_military_time = '<?php echo cpabc_get_option('calendar_military
 var cpabc_global_start_weekday = '<?php echo cpabc_get_option('calendar_weekday', CPABC_APPOINTMENTS_DEFAULT_CALENDAR_WEEKDAY); ?>';
 var cpabc_global_mindate = '<?php $value = cpabc_get_option('calendar_mindate', CPABC_APPOINTMENTS_DEFAULT_CALENDAR_MINDATE); if ($value != '') echo date("n/j/Y", strtotime($value)); ?>';
 var cpabc_global_maxdate = '<?php $value = cpabc_get_option('calendar_maxdate', CPABC_APPOINTMENTS_DEFAULT_CALENDAR_MAXDATE); if ($value != '') echo date("n/j/Y",strtotime($value)); ?>';
+var cpabc_global_close_on_select = <?php $value = cpabc_get_option('close_fpanel', 'yes'); if ($value == '' || $value == 'yes') echo 'true'; else echo 'false'; ?>;
+var cpabc_global_cancel_text = '<?php _e("Cancel"); ?>';
+var cpabc_global_pagedate = '<?php 
+    $sm = cpabc_get_option('calendar_startmonth', date("n"));
+    $sy = cpabc_get_option('calendar_startyear', date("Y")); 
+    if ($sm=='0' || $sm=='') $sm = date("n");
+    if ($sy=='0' || $sy=='') $sy = date("Y");
+    echo $sm."/".$sy; 
+?>';
 </script>
 <script type="text/javascript" src="<?php echo plugins_url('TDE_AppCalendar/all-scripts.js', __FILE__); ?>"></script>
 <script type="text/javascript">
  var cpabc_current_calendar_item;
- function apc_clear_date() 
+ function apc_clear_date()
  {
     document.getElementById("selDaycal"+cpabc_current_calendar_item ).value = "";
     cpabc_updateItem();
- } 
+ }
  function cpabc_updateItem()
  {
     document.getElementById("calarea_"+cpabc_current_calendar_item).style.display = "none";
@@ -403,8 +511,7 @@ var cpabc_global_maxdate = '<?php $value = cpabc_get_option('calendar_maxdate', 
     cpabc_current_calendar_item = id;
     document.getElementById("calarea_"+cpabc_current_calendar_item).style.display = "";
     initAppCalendar("cal"+cpabc_current_calendar_item,<?php echo cpabc_get_option('calendar_pages', CPABC_APPOINTMENTS_DEFAULT_CALENDAR_PAGES); ?>,2,"<?php echo cpabc_get_option('calendar_language', CPABC_APPOINTMENTS_DEFAULT_CALENDAR_LANGUAGE); ?>",{m1:"<?php _e('Please select the appointment time.'); ?>"});
-    document.getElementById("selddiv").innerHTML = "";
- } 
+ }
  function updatedate()
  {
     if (document.getElementById("selDaycal"+cpabc_current_calendar_item ).value != '')
@@ -425,24 +532,13 @@ var cpabc_global_maxdate = '<?php $value = cpabc_get_option('calendar_maxdate', 
         if (minute.length == 1)
             minute = "0"+minute;
         minute = hour + ":" + minute + timead;
-        if (cpabc_global_date_format == '1')
-            selected_date = document.getElementById("selDaycal"+cpabc_current_calendar_item ).value+"/"
-                                                      +document.getElementById("selMonthcal"+cpabc_current_calendar_item ).value+"/"
-                                                      +document.getElementById("selYearcal"+cpabc_current_calendar_item ).value+", "                                                      
-                                                      +minute;
-        else
-            selected_date = document.getElementById("selMonthcal"+cpabc_current_calendar_item ).value+"/"
-                                                      +document.getElementById("selDaycal"+cpabc_current_calendar_item ).value+"/"
-                                                      +document.getElementById("selYearcal"+cpabc_current_calendar_item ).value+", "                                                      
-                                                      +minute;
-        document.getElementById("selddiv").innerHTML = "<?php echo _e("Selected date"); ?>: "+selected_date;
     }
  }
  </script>
     <?php
     $current_user = wp_get_current_user();
     define('CPABC_AUTH_INCLUDE', true);
-    @include dirname( __FILE__ ) . '/cpabc_scheduler.inc.php';    
+    @include dirname( __FILE__ ) . '/cpabc_scheduler.inc.php';
 }
 
 
@@ -474,6 +570,8 @@ if ( is_admin() ) {
 else
 {
     add_shortcode( 'CPABC_APPOINTMENT_CALENDAR', 'cpabc_appointments_filter_content' );    
+    add_shortcode( 'CPABC_EDIT_CALENDAR', 'cpabc_appointments_filter_edit' );
+    add_shortcode( 'CPABC_APPOINTMENT_LIST', 'cpabc_appointments_filter_list' );
 }
 
 function cpabc_settingsLink($links) {
@@ -559,9 +657,9 @@ function set_cpabc_apps_insert_adminScripts($hook) {
         
         wp_enqueue_script( 'jquery' );
         wp_enqueue_script( 'jquery-ui-core' );
-        wp_enqueue_script( 'jquery-ui-datepicker' );                   
+        wp_enqueue_script( 'jquery-ui-datepicker' );    
         
-        wp_enqueue_style('jquery-style', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/themes/smoothness/jquery-ui.css'); 
+        wp_enqueue_style('jquery-style', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/themes/smoothness/jquery-ui.css');
     }
     if( 'post.php' != $hook  && 'post-new.php' != $hook )
         return;
@@ -572,8 +670,8 @@ function cpabc_export_iCal() {
     header("Content-type: application/octet-stream");
     header("Content-Disposition: attachment; filename=events".date("Y-M-D_H.i.s").".ics");
 
-    define('CPABC_CAL_TIME_ZONE_MODIFY'," -2 hours");
-    define('CPABC_CAL_TIME_SLOT_SIZE'," +15 minutes");
+    define('CPABC_CAL_TIME_ZONE_MODIFY',get_option('CPABC_CAL_TIME_ZONE_MODIFY_SET'," +2 hours"));
+    define('CPABC_CAL_TIME_SLOT_SIZE'," +".get_option('CPABC_CAL_TIME_SLOT_SIZE_SET',"15")." minutes");
 
     echo "BEGIN:VCALENDAR\n";
     echo "PRODID:-//CodePeople//Appointment Booking Calendar for WordPress//EN\n";
@@ -638,23 +736,29 @@ function cpabc_appointments_check_posted_data()
     if(isset($_GET) && array_key_exists('cpabc_app',$_GET)) {
         if ( $_GET["cpabc_app"] == 'calfeed')
             cpabc_export_iCal();
-            
+
         if ($_GET["cpabc_app"] == 'captcha')
         {
-            @include_once dirname( __FILE__ ) . '/captcha/captcha.php';            
+            @include_once dirname( __FILE__ ) . '/captcha/captcha.php';
             exit;
         }
 
     }
-    
+
+    if (isset( $_GET['cpabc_appointments_csv'] ) && is_admin() )
+    {
+        cpabc_appointments_export_csv();
+        return;
+    }
+
     if (isset($_GET["cpabc_c"]) && $_GET['cpabc_c'] == '1')
     {
         cpabc_process_cancel_go_appointment();
-    }    
+    }
 
     if (!defined('CP_CALENDAR_ID') && isset($_POST["cpabc_item"]))
         define ('CP_CALENDAR_ID', $_POST["cpabc_item"]);
-        
+
     if ( 'POST' == $_SERVER['REQUEST_METHOD'] && isset( $_POST['cpabc_appointments_post_options'] ) && (is_admin() || cpabc_appointments_user_access_to(CP_CALENDAR_ID) ))
     {
         cpabc_appointments_save_options();
@@ -668,7 +772,8 @@ function cpabc_appointments_check_posted_data()
 
 
     session_start();
-    if (!isset($_GET["hdcaptcha"]) || $_GET['hdcaptcha'] == '') $_GET['hdcaptcha'] = $_POST['hdcaptcha'];
+    
+    if (!isset($_GET["hdcaptcha"]) || $_GET['hdcaptcha'] == '') $_GET['hdcaptcha'] = @$_POST['hdcaptcha'];
     if (
            (cpabc_get_option('dexcv_enable_captcha', CPABC_TDEAPP_DEFAULT_dexcv_enable_captcha) != 'false') &&
            ( (strtolower($_GET['hdcaptcha']) != strtolower($_SESSION['rand_code'])) ||
@@ -684,6 +789,8 @@ function cpabc_appointments_check_posted_data()
 	// if this isn't the real post (it was the captcha verification) then echo ok and exit
     if ( 'POST' != $_SERVER['REQUEST_METHOD'] || ! isset( $_POST['cpabc_appointments_post'] ) )
 	{
+	    if (!isset($_GET["abcc"]))
+	        return;
 	    echo 'ok';
         exit;
 	}
@@ -692,72 +799,90 @@ function cpabc_appointments_check_posted_data()
 
     $selectedCalendar = $_POST["cpabc_item"];
 
-    $_POST["dateAndTime"] =  $_POST["selYearcal".$selectedCalendar]."-".$_POST["selMonthcal".$selectedCalendar]."-".$_POST["selDaycal".$selectedCalendar]." ".$_POST["selHourcal".$selectedCalendar].":".$_POST["selMinutecal".$selectedCalendar];
+    $_POST["dateAndTime"] =   explode(";",str_replace(",","-",$_POST["selDaycal".$selectedCalendar]));
+    array_shift($_POST["dateAndTime"]);
 
     $military_time = cpabc_get_option('calendar_militarytime', CPABC_APPOINTMENTS_DEFAULT_CALENDAR_MILITARYTIME);
     if (cpabc_get_option('calendar_militarytime', CPABC_APPOINTMENTS_DEFAULT_CALENDAR_MILITARYTIME) == '0') $format = "g:i A"; else $format = "H:i";
     if (cpabc_get_option('calendar_dateformat', CPABC_APPOINTMENTS_DEFAULT_CALENDAR_DATEFORMAT) == '0') $format = "m/d/Y ".$format; else $format = "d/m/Y ".$format;
-    $_POST["Date"] = date($format,strtotime($_POST["dateAndTime"]));
+    for($n=0;$n<count($_POST["dateAndTime"]); $n++)
+    {
+        $_POST["dateAndTime"][$n] = date("Y-m-d H:i:s",strtotime($_POST["dateAndTime"][$n]));
+        $_POST["Date"][$n] = date($format,strtotime($_POST["dateAndTime"][$n]));
+    }
 
     $services_formatted = array();
 
-    $price = cpabc_get_option('request_cost', CPABC_APPOINTMENTS_DEFAULT_COST);
+    
+    $price = explode(";",cpabc_get_option('request_cost', CPABC_APPOINTMENTS_DEFAULT_COST));
+    $price = $price[count($_POST["dateAndTime"])-1];
+    
 
     // check discount codes
-    //------------------------------------------------- 
+    //-------------------------------------------------
     $discount_note = "";
-    $coupon = false;
-    
-    $params = array();    
-    $params["DATE"] = $_POST["selYearcal".$selectedCalendar]."-".$_POST["selMonthcal".$selectedCalendar]."-".$_POST["selDaycal".$selectedCalendar];
-    $params["TIME"] = $_POST["selHourcal".$selectedCalendar].":".($_POST["selMinutecal".$selectedCalendar]<10?"0":"").$_POST["selMinutecal".$selectedCalendar];
+    $coupon = false;    
+
+    $params = array();
+    $params["COUPONCODE"] = ($coupon?"\nCoupon code:".$coupon->code.$discount_note."\n":"");
+    $params["QUANTITY"] = @$_POST["abc_capacity"];
 
     // get form info
     //---------------------------
     $params["NAME"] = $_POST["name"];
     $params["EMAIL"] = $_POST["email"];
     $params["PHONE"] = $_POST["phone"];
-    $params["COMMENTS"] = $_POST["question"];        
-    
+    $params["COMMENTS"] = $_POST["question"];
+
+    /**
     $buffer = $_POST["selYearcal".$selectedCalendar].",".$_POST["selMonthcal".$selectedCalendar].",".$_POST["selDaycal".$selectedCalendar]."\n".
     $_POST["selHourcal".$selectedCalendar].":".($_POST["selMinutecal".$selectedCalendar]<10?"0":"").$_POST["selMinutecal".$selectedCalendar]."\n".
     "Name: ".$_POST["name"]."\n".
     "Email: ".$_POST["email"]."\n".
     "Phone: ".$_POST["phone"]."\n".
     "Question: ".$_POST["question"]."\n".
+            (@$_POST["services"]?"\nService:".trim($services_formatted[1])."\n":"").
+            ($coupon?"\nCoupon code:".$coupon->code.$discount_note."\n":"").
     "*-*\n";
+    */
     $buffer_A = $_POST["question"];
     $to = "email";
-    
+
 
     // insert into database
     //---------------------------
     cpabc_appointments_add_field_verify(CPABC_APPOINTMENTS_TABLE_NAME, 'quantity', "VARCHAR(25) DEFAULT '1' NOT NULL");
 
-    $rows_affected = $wpdb->insert( CPABC_APPOINTMENTS_TABLE_NAME, array( 'calendar' => $selectedCalendar,
+
+    for ($n=0; $n<count($_POST["dateAndTime"]); $n++)
+    {
+        $params["DATE"] = trim( substr($_POST["Date"][$n], 0, strpos($_POST["Date"][$n],' ') ) );
+        $params["TIME"] = trim( substr($_POST["Date"][$n], strpos($_POST["Date"][$n],' ') ) );
+        $rows_affected = $wpdb->insert( CPABC_APPOINTMENTS_TABLE_NAME, array( 'calendar' => $selectedCalendar,
                                                                         'time' => current_time('mysql'),
-                                                                        'booked_time' => $_POST["Date"],
-                                                                        'booked_time_unformatted' => $_POST["dateAndTime"],
-                                                                        'name' => $_POST["name"],
-                                                                        'email' => $_POST[$to],
-                                                                        'phone' => $_POST["phone"],                                                                        
+                                                                        'booked_time' => $_POST["Date"][$n],
+                                                                        'booked_time_unformatted' => $_POST["dateAndTime"][$n],
+                                                                        'name' => @$_POST["name"],
+                                                                        'email' => @$_POST[$to],
+                                                                        'phone' => @$_POST["phone"],
                                                                         'question' => $buffer_A,
-                                                                        'quantity' => (isset($_POST["abc_capacity"])?$_POST["abc_capacity"]:1),   
+                                                                        'quantity' => (isset($_POST["abc_capacity"])?$_POST["abc_capacity"]:1),
                                                                         'buffered_date' => serialize($params)
                                                                          ) );
-    if (!$rows_affected)
-    {
-        echo 'Error saving data! Please try again.';
-        echo '<br /><br />Error debug information: '.mysql_error();
-        $sql = "ALTER TABLE  `".$wpdb->prefix.CPABC_APPOINTMENTS_TABLE_NAME_NO_PREFIX."` ADD `booked_time_unformatted` text;"; $wpdb->query($sql);
-        exit;
+        if (!$rows_affected)
+        {
+            echo 'Error saving data! Please try again.';
+            echo '<br /><br />Error debug information: '.mysql_error();
+            $sql = "ALTER TABLE  `".$wpdb->prefix.CPABC_APPOINTMENTS_TABLE_NAME_NO_PREFIX."` ADD `booked_time_unformatted` text;"; $wpdb->query($sql);
+            exit;
+        }
+
+        //$myrows = $wpdb->get_results( "SELECT MAX(id) as max_id FROM ".CPABC_APPOINTMENTS_TABLE_NAME );
+
+ 	    // save data here
+        $item_number[] = $wpdb->insert_id;
     }
-
-
-    $myrows = $wpdb->get_results( "SELECT MAX(id) as max_id FROM ".CPABC_APPOINTMENTS_TABLE_NAME );
-
- 	// save data here
-    $item_number = $myrows[0]->max_id;
+    $item_number = implode(";", $item_number);
 
 ?>
 <html>
@@ -766,8 +891,8 @@ function cpabc_appointments_check_posted_data()
 <form action="https://www.paypal.com/cgi-bin/webscr" name="ppform3" method="post">
 <input type="hidden" name="cmd" value="_xclick" />
 <input type="hidden" name="business" value="<?php echo cpabc_get_option('paypal_email', CPABC_APPOINTMENTS_DEFAULT_PAYPAL_EMAIL); ?>" />
-<input type="hidden" name="item_name" value="<?php echo cpabc_get_option('paypal_product_name', CPABC_APPOINTMENTS_DEFAULT_PRODUCT_NAME); ?>" />
-<input type="hidden" name="item_number" value="<?php echo $item_number; ?>" />
+<input type="hidden" name="item_name" value="<?php echo cpabc_get_option('paypal_product_name', CPABC_APPOINTMENTS_DEFAULT_PRODUCT_NAME).(@$_POST["services"]?": ".trim($services_formatted[1]):"").$discount_note; ?>" />
+<!--<input type="hidden" name="item_number" value="<?php echo $item_number; ?>" />-->
 <input type="hidden" name="amount" value="<?php echo $price; ?>" />
 <input type="hidden" name="page_style" value="Primary" />
 <input type="hidden" name="no_shipping" value="1" />
@@ -793,10 +918,9 @@ document.ppform3.submit();
 function cpabc_appointments_user_access_to($calendar) {
     global $wpdb;
 	$current_user = wp_get_current_user();
-	$myrows = $wpdb->get_results( "SELECT * FROM ".CPABC_APPOINTMENTS_CONFIG_TABLE_NAME." where id='".$calendar."' AND conwer<>'' AND conwer='".esc_sql($current_user->ID)."'" );         	
+	$myrows = $wpdb->get_results( "SELECT * FROM ".CPABC_APPOINTMENTS_CONFIG_TABLE_NAME." where id='".$calendar."' AND conwer<>'' AND conwer='".esc_sql($current_user->ID)."'" );
 	return count($myrows);
 }
-
 
 add_action( 'init', 'cpabc_appointments_check_IPN_verification', 11 );
 
@@ -808,7 +932,7 @@ function cpabc_appointments_check_IPN_verification() {
 		return;
 
     $item_name = $_POST['item_name'];
-    $item_number = $_POST['item_number'];
+    //$item_number = $_POST['item_number'];
     $payment_status = $_POST['payment_status'];
     $payment_amount = $_POST['mc_gross'];
     $payment_currency = $_POST['mc_currency'];
@@ -817,12 +941,20 @@ function cpabc_appointments_check_IPN_verification() {
     $payer_email = $_POST['payer_email'];
     $payment_type = $_POST['payment_type'];
 
-
+    /**
 	if ($payment_status != 'Completed' && $payment_type != 'echeck')
 	    return;
 
 	if ($payment_type == 'echeck' && $payment_status == 'Completed')
 	    return;
+    */
+    $itemnumber = explode(";",$_GET["itemnumber"]);
+    $myrows = $wpdb->get_results( "SELECT * FROM ".CPABC_TDEAPP_CALENDAR_DATA_TABLE." WHERE reference=".$itemnumber[0] );
+    if (count($myrows))
+    {
+        echo 'OK - Already processed';
+        exit;
+    }
 
     cpabc_process_ready_to_go_appointment($_GET["itemnumber"], $payer_email);
 
@@ -834,7 +966,7 @@ function cpabc_appointments_check_IPN_verification() {
 
 function cpabc_process_cancel_go_appointment()
 {
-    global $wpdb;    
+    global $wpdb;
     $itemnumber = base64_decode($_GET["i"]);
     if (is_numeric($itemnumber))
     {
@@ -848,39 +980,29 @@ function cpabc_process_ready_to_go_appointment($itemnumber, $payer_email = "")
 {
    global $wpdb;
 
-   $myrows = $wpdb->get_results( "SELECT * FROM ".CPABC_APPOINTMENTS_TABLE_NAME." WHERE id=".$itemnumber );
+   cpabc_appointments_add_field_verify(CPABC_TDEAPP_CALENDAR_DATA_TABLE, 'quantity', "VARCHAR(25) DEFAULT '1' NOT NULL");
+   cpabc_appointments_add_field_verify(CPABC_TDEAPP_CALENDAR_DATA_TABLE, 'reminder', "VARCHAR(1) DEFAULT '' NOT NULL");
+   cpabc_appointments_add_field_verify(CPABC_TDEAPP_CALENDAR_DATA_TABLE, 'reference', "VARCHAR(20) DEFAULT '' NOT NULL");   
 
-   $params = unserialize($myrows[0]->buffered_date);
-   
+   $itemnumber = explode(";",$itemnumber);
+   $myrows = $wpdb->get_results( "SELECT * FROM ".CPABC_APPOINTMENTS_TABLE_NAME." WHERE id=".$itemnumber[0] );
    $mycalendarrows = $wpdb->get_results( 'SELECT * FROM '.CPABC_APPOINTMENTS_CONFIG_TABLE_NAME .' WHERE `'.CPABC_TDEAPP_CONFIG_ID.'`='.$myrows[0]->calendar);
-
    $reminder_timeline = date( "Y-m-d H:i:s", strtotime (date("Y-m-d H:i:s")." +".$mycalendarrows[0]->reminder_hours." hours") );
-
    if (!defined('CP_CALENDAR_ID'))
         define ('CP_CALENDAR_ID',$myrows[0]->calendar);
 
    $SYSTEM_EMAIL = cpabc_get_option('notification_from_email', CPABC_APPOINTMENTS_DEFAULT_PAYPAL_EMAIL);
    $SYSTEM_RCPT_EMAIL = cpabc_get_option('notification_destination_email', CPABC_APPOINTMENTS_DEFAULT_PAYPAL_EMAIL);
 
-
    $email_subject1 = cpabc_get_option('email_subject_confirmation_to_user', CPABC_APPOINTMENTS_DEFAULT_SUBJECT_CONFIRMATION_EMAIL);
    $email_content1 = cpabc_get_option('email_confirmation_to_user', CPABC_APPOINTMENTS_DEFAULT_CONFIRMATION_EMAIL);
    $email_subject2 = cpabc_get_option('email_subject_notification_to_admin', CPABC_APPOINTMENTS_DEFAULT_SUBJECT_NOTIFICATION_EMAIL);
    $email_content2 = cpabc_get_option('email_notification_to_admin', CPABC_APPOINTMENTS_DEFAULT_NOTIFICATION_EMAIL);
 
-   $information = $mycalendarrows[0]->uname."\n".
-                  $myrows[0]->booked_time."\n".
-                  ($myrows[0]->name?$myrows[0]->name."\n":"").
-                  $myrows[0]->email."\n".
-                  ($myrows[0]->phone?$myrows[0]->phone."\n":"").
-                  $myrows[0]->question."\n";
-
-   $email_content1 = str_replace("%INFORMATION%", $information, $email_content1);
-   $email_content2 = str_replace("%INFORMATION%", $information, $email_content2);
    $email_content1 = str_replace("%CALENDAR%", $mycalendarrows[0]->uname, $email_content1);
    $email_content2 = str_replace("%CALENDAR%", $mycalendarrows[0]->uname, $email_content2);
 
-
+   $params = unserialize($myrows[0]->buffered_date);
    $attachments = array();
    foreach ($params as $item => $value)
    {
@@ -891,67 +1013,87 @@ function cpabc_process_ready_to_go_appointment($itemnumber, $payer_email = "")
        if (strpos($item,"_link"))
            $attachments[] = $value;
    }
+   $buffered_dates = array();
+   for ($n=0;$n<count($itemnumber);$n++)
+   {
+       $myrows = $wpdb->get_results( "SELECT * FROM ".CPABC_APPOINTMENTS_TABLE_NAME." WHERE id=".$itemnumber[$n] );
+       $buffered_dates[] = $myrows[0]->booked_time;
+       $information = $mycalendarrows[0]->uname."\n".
+                      $myrows[0]->booked_time."\n".
+                      ($myrows[0]->name?$myrows[0]->name."\n":"").
+                      $myrows[0]->email."\n".
+                      ($myrows[0]->phone?$myrows[0]->phone."\n":"").
+                      $myrows[0]->question."\n";
 
-        
-   if ($reminder_timeline > date("Y-m-d H:i:s", strtotime($myrows[0]->booked_time_unformatted)))
-       $reminder = '1';
-   else
-       $reminder = '';          
-    
-   cpabc_appointments_add_field_verify(CPABC_TDEAPP_CALENDAR_DATA_TABLE, 'quantity', "VARCHAR(25) DEFAULT '1' NOT NULL");
-   cpabc_appointments_add_field_verify(CPABC_TDEAPP_CALENDAR_DATA_TABLE, 'reminder', "VARCHAR(1) DEFAULT '' NOT NULL");
-   cpabc_appointments_add_field_verify(CPABC_TDEAPP_CALENDAR_DATA_TABLE, 'reference', "VARCHAR(10) DEFAULT '' NOT NULL");  
-   
-       
-   $rows_affected = $wpdb->insert( CPABC_TDEAPP_CALENDAR_DATA_TABLE, array( 'appointment_calendar_id' => $myrows[0]->calendar,
-                                                                        'datatime' => date("Y-m-d H:i:s", strtotime($myrows[0]->booked_time_unformatted)),
-                                                                        'title' => $myrows[0]->email,
-                                                                        'reminder' => $reminder,
-                                                                        'quantity' =>  (isset($myrows[0]->quantity)?$myrows[0]->quantity:1),
-                                                                        'description' => str_replace("\n","<br />", $information),
-                                                                        'reference' => $itemnumber
-                                                                         ) );
+       if ($reminder_timeline > date("Y-m-d H:i:s", strtotime($myrows[0]->booked_time_unformatted)))
+           $reminder = '1';
+       else
+           $reminder = '';
 
-   $itemnumber = $wpdb->insert_id;
-   $cancel_link = cpabc_appointment_get_FULL_site_url().'/?cpabc_c=1&i='.base64_encode($itemnumber).'&a=1';
-   
-   $email_content1 = str_replace("%CANCEL%", $cancel_link, $email_content1);
-   $email_content2 = str_replace("%CANCEL%", $cancel_link, $email_content2);                          
-                                                                         
-   // SEND EMAIL TO USER
-   if ('html' == cpabc_get_option('nuser_emailformat', CPABC_APPOINTMENTS_DEFAULT_email_format)) $content_type = "Content-Type: text/html; charset=utf-8\n"; else $content_type = "Content-Type: text/plain; charset=utf-8\n";
-   wp_mail($myrows[0]->email, $email_subject1, $email_content1,
-            "From: \"$SYSTEM_EMAIL\" <".$SYSTEM_EMAIL.">\r\n".
-            $content_type.
-            "X-Mailer: PHP/" . phpversion());
+       $rows_affected = $wpdb->insert( CPABC_TDEAPP_CALENDAR_DATA_TABLE, array( 'appointment_calendar_id' => $myrows[0]->calendar,
+                                                                            'datatime' => date("Y-m-d H:i:s", strtotime($myrows[0]->booked_time_unformatted)),
+                                                                            'title' => $myrows[0]->email,
+                                                                            'reminder' => $reminder,
+                                                                            'quantity' =>  (isset($myrows[0]->quantity)?$myrows[0]->quantity:1),
+                                                                            'description' => str_replace("\n","<br />", $information),
+                                                                            'reference' => $itemnumber[$n]
+                                                                             ) );
+       // SEND EMAILS START
+       if ($n == count($itemnumber)-1) // send emails only once
+       {
 
-   if ($payer_email && $payer_email != $myrows[0]->email)
-       wp_mail($payer_email , $email_subject1, $email_content1,
-                "From: \"$SYSTEM_EMAIL\" <".$SYSTEM_EMAIL.">\r\n".
-                $content_type.
-                "X-Mailer: PHP/" . phpversion());
+           $information = $mycalendarrows[0]->uname."\n".
+                  implode(" - ",$buffered_dates)."\n".
+                  ($myrows[0]->name?$myrows[0]->name."\n":"").
+                  $myrows[0]->email."\n".
+                  ($myrows[0]->phone?$myrows[0]->phone."\n":"").
+                  $myrows[0]->question."\n";
 
-   // SEND EMAIL TO ADMIN
-   if ('html' == cpabc_get_option('nadmin_emailformat', CPABC_APPOINTMENTS_DEFAULT_email_format)) $content_type = "Content-Type: text/html; charset=utf-8\n"; else $content_type = "Content-Type: text/plain; charset=utf-8\n";
-   $to = explode(",",$SYSTEM_RCPT_EMAIL);
-   foreach ($to as $item)
-        if (trim($item) != '')
-        {
-            wp_mail(trim($item), $email_subject2, $email_content2,
-                "From: \"$SYSTEM_EMAIL\" <".$SYSTEM_EMAIL.">\r\n".
-                $content_type.
-                "X-Mailer: PHP/" . phpversion(), $attachments);
-        }                                                                         
+           $email_content1 = str_replace("%INFORMATION%", $information, $email_content1);
+           $email_content2 = str_replace("%INFORMATION%", $information, $email_content2);
 
+           $itemnumberdb = $wpdb->insert_id;
+           $cancel_link = cpabc_appointment_get_FULL_site_url().'/?cpabc_c=1&i='.base64_encode($itemnumberdb).'&a=1';
+
+           $email_content1 = str_replace("%CANCEL%", $cancel_link, $email_content1);
+           $email_content2 = str_replace("%CANCEL%", $cancel_link, $email_content2);
+
+           // SEND EMAIL TO USER
+           if ('html' == cpabc_get_option('nuser_emailformat', CPABC_APPOINTMENTS_DEFAULT_email_format)) $content_type = "Content-Type: text/html; charset=utf-8\n"; else $content_type = "Content-Type: text/plain; charset=utf-8\n";
+           wp_mail($myrows[0]->email, $email_subject1, $email_content1,
+                    "From: \"$SYSTEM_EMAIL\" <".$SYSTEM_EMAIL.">\r\n".
+                    $content_type.
+                    "X-Mailer: PHP/" . phpversion());
+
+           if ($payer_email && $payer_email != $myrows[0]->email)
+               wp_mail($payer_email , $email_subject1, $email_content1,
+                        "From: \"$SYSTEM_EMAIL\" <".$SYSTEM_EMAIL.">\r\n".
+                        $content_type.
+                        "X-Mailer: PHP/" . phpversion());
+
+           // SEND EMAIL TO ADMIN
+           if ('html' == cpabc_get_option('nadmin_emailformat', CPABC_APPOINTMENTS_DEFAULT_email_format)) $content_type = "Content-Type: text/html; charset=utf-8\n"; else $content_type = "Content-Type: text/plain; charset=utf-8\n";
+           $to = explode(",",$SYSTEM_RCPT_EMAIL);
+           foreach ($to as $item)
+                if (trim($item) != '')
+                {
+                    wp_mail(trim($item), $email_subject2, $email_content2,
+                        "From: \"$SYSTEM_EMAIL\" <".$SYSTEM_EMAIL.">\r\n".
+                        $content_type.
+                        "X-Mailer: PHP/" . phpversion(), $attachments);
+                }
+       }
+       // SEND EMAILS END
+   }
 }
 
-function cpabc_appointments_add_field_verify ($table, $field, $type = "text") 
+function cpabc_appointments_add_field_verify ($table, $field, $type = "text")
 {
     global $wpdb;
-    $results = $wpdb->get_results("SHOW columns FROM `".$table."` where field='".$field."'");    
+    $results = $wpdb->get_results("SHOW columns FROM `".$table."` where field='".$field."'");
     if (!count($results))
-    {               
-        $sql = "ALTER TABLE  `".$table."` ADD `".$field."` ".$type; 
+    {
+        $sql = "ALTER TABLE  `".$table."` ADD `".$field."` ".$type;
         $wpdb->query($sql);
     }
 }
@@ -961,18 +1103,18 @@ function cpabc_appointments_save_options()
     global $wpdb;
     if (!defined('CP_CALENDAR_ID'))
         define ('CP_CALENDAR_ID',$_POST["cpabc_item"]);
-        
+
     if ( ! current_user_can('edit_pages') && !cpabc_appointments_user_access_to(CP_CALENDAR_ID) ) // prevent loading coupons from outside admin area
     {
         echo 'No enough privilegies to load this content.';
         exit;
-    }        
+    }
 
-    foreach ($_POST as $item => $value)    
+    foreach ($_POST as $item => $value)
         $_POST[$item] = @stripcslashes($value);
-        
+
     cpabc_appointments_add_field_verify(CPABC_APPOINTMENTS_CONFIG_TABLE_NAME, 'form_structure');
-    
+
     cpabc_appointments_add_field_verify(CPABC_APPOINTMENTS_CONFIG_TABLE_NAME, 'vs_use_validation');
     cpabc_appointments_add_field_verify(CPABC_APPOINTMENTS_CONFIG_TABLE_NAME, 'vs_text_is_required');
     cpabc_appointments_add_field_verify(CPABC_APPOINTMENTS_CONFIG_TABLE_NAME, 'vs_text_is_email');
@@ -982,9 +1124,10 @@ function cpabc_appointments_save_options()
     cpabc_appointments_add_field_verify(CPABC_APPOINTMENTS_CONFIG_TABLE_NAME, 'vs_text_digits');
     cpabc_appointments_add_field_verify(CPABC_APPOINTMENTS_CONFIG_TABLE_NAME, 'vs_text_max');
     cpabc_appointments_add_field_verify(CPABC_APPOINTMENTS_CONFIG_TABLE_NAME, 'vs_text_min');
+    cpabc_appointments_add_field_verify(CPABC_APPOINTMENTS_CONFIG_TABLE_NAME, 'vs_text_submitbtn');
     cpabc_appointments_add_field_verify(CPABC_APPOINTMENTS_CONFIG_TABLE_NAME, 'cu_user_email_field');
     cpabc_appointments_add_field_verify(CPABC_APPOINTMENTS_CONFIG_TABLE_NAME, 'cv_text_enter_valid_captcha');
-    
+
     cpabc_appointments_add_field_verify(CPABC_APPOINTMENTS_CONFIG_TABLE_NAME, 'nuser_emailformat');
     cpabc_appointments_add_field_verify(CPABC_APPOINTMENTS_CONFIG_TABLE_NAME, 'nadmin_emailformat');
     cpabc_appointments_add_field_verify(CPABC_APPOINTMENTS_CONFIG_TABLE_NAME, 'nremind_emailformat');
@@ -995,7 +1138,20 @@ function cpabc_appointments_save_options()
     cpabc_appointments_add_field_verify(CPABC_APPOINTMENTS_CONFIG_TABLE_NAME, 'reminder_content');
     cpabc_appointments_add_field_verify(CPABC_TDEAPP_CALENDAR_DATA_TABLE, 'reminder', "VARCHAR(1) DEFAULT '' NOT NULL");
     cpabc_appointments_add_field_verify(CPABC_TDEAPP_CALENDAR_DATA_TABLE, 'quantity', "VARCHAR(25) DEFAULT '1' NOT NULL");
+
+    cpabc_appointments_add_field_verify(CPABC_APPOINTMENTS_CONFIG_TABLE_NAME, 'min_slots');
+    cpabc_appointments_add_field_verify(CPABC_APPOINTMENTS_CONFIG_TABLE_NAME, 'max_slots');
+    cpabc_appointments_add_field_verify(CPABC_APPOINTMENTS_CONFIG_TABLE_NAME, 'close_fpanel');
+    cpabc_appointments_add_field_verify(CPABC_APPOINTMENTS_CONFIG_TABLE_NAME, 'quantity_field');
     
+    cpabc_appointments_add_field_verify(CPABC_APPOINTMENTS_CONFIG_TABLE_NAME, 'calendar_startyear', "VARCHAR(20) DEFAULT '' NOT NULL");
+    cpabc_appointments_add_field_verify(CPABC_APPOINTMENTS_CONFIG_TABLE_NAME, 'calendar_startmonth', "VARCHAR(20) DEFAULT '' NOT NULL");
+    cpabc_appointments_add_field_verify(CPABC_APPOINTMENTS_CONFIG_TABLE_NAME, 'calendar_theme');
+
+    $_POST["request_cost"] = '';
+    for ($k=1;$k <= intval($_POST["max_slots"]); $k++)
+        $_POST["request_cost"] .= ($k!=1?";":"").$_POST["request_cost_".$k];
+
     $data = array(
          'form_structure' => $_POST['form_structure'],
          'calendar_language' => $_POST["calendar_language"],
@@ -1005,6 +1161,14 @@ function cpabc_appointments_save_options()
          'calendar_weekday' => $_POST["calendar_weekday"],
          'calendar_mindate' => $_POST["calendar_mindate"],
          'calendar_maxdate' => $_POST["calendar_maxdate"],
+         'min_slots' => $_POST["min_slots"],
+         'max_slots' => $_POST["max_slots"],
+         'close_fpanel' => $_POST["close_fpanel"],
+         'quantity_field' => $_POST["quantity_field"],
+         
+         'calendar_startyear' => $_POST["calendar_startyear"],
+         'calendar_startmonth' => $_POST["calendar_startmonth"],
+         'calendar_theme' => $_POST["calendar_theme"],
 
          'enable_paypal' => @$_POST["enable_paypal"],
          'paypal_email' => $_POST["paypal_email"],
@@ -1018,7 +1182,7 @@ function cpabc_appointments_save_options()
          'nuser_emailformat' => $_POST["nuser_emailformat"],
          'nadmin_emailformat' => $_POST["nadmin_emailformat"],
          'nremind_emailformat' => $_POST["nremind_emailformat"],
-         
+
          'vs_use_validation' => $_POST['vs_use_validation'],
          'vs_text_is_required' => $_POST['vs_text_is_required'],
          'vs_text_is_email' => $_POST['vs_text_is_email'],
@@ -1028,9 +1192,10 @@ function cpabc_appointments_save_options()
          'vs_text_digits' => $_POST['vs_text_digits'],
          'vs_text_max' => $_POST['vs_text_max'],
          'vs_text_min' => $_POST['vs_text_min'],
+         'vs_text_submitbtn' => $_POST['vs_text_submitbtn'],
 
          'cu_user_email_field' => @$_POST["cu_user_email_field"],
-         
+
          'notification_from_email' => $_POST["notification_from_email"],
          'notification_destination_email' => $_POST["notification_destination_email"],
          'email_subject_confirmation_to_user' => $_POST["email_subject_confirmation_to_user"],
@@ -1058,6 +1223,81 @@ function cpabc_appointments_save_options()
          'cp_cal_checkboxes' => @$_POST["cp_cal_checkboxes"]
 	);
     $wpdb->update ( CPABC_APPOINTMENTS_CONFIG_TABLE_NAME, $data, array( 'id' => CP_CALENDAR_ID ));
+}
+
+function cpabc_appointments_get_field_name ($fieldid, $form)
+{
+    if (is_array($form))
+        foreach($form as $item)
+            if ($item->name == $fieldid)
+                return $item->title;
+    return $fieldid;
+}
+
+function cpabc_appointments_export_csv ()
+{
+    if (!is_admin())
+        return;
+    global $wpdb;
+
+    if (!defined('CP_CALENDAR_ID'))
+        define ('CP_CALENDAR_ID',intval($_GET["cal"]));
+
+    $form_data = json_decode(cpabc_appointment_cleanJSON(cpabc_get_option('form_structure', CPABC_APPOINTMENTS_DEFAULT_form_structure)));
+
+    $cond = '';
+    if ($_GET["search"] != '') $cond .= " AND (buffered_date like '%".esc_sql($_GET["search"])."%')";
+    if ($_GET["dfrom"] != '') $cond .= " AND (`booked_time_unformatted` >= '".esc_sql($_GET["dfrom"])."')";
+    if ($_GET["dto"] != '') $cond .= " AND (`booked_time_unformatted` <= '".esc_sql($_GET["dto"])." 23:59:59')";
+    if (CP_CALENDAR_ID != 0) $cond .= " AND calendar=".CP_CALENDAR_ID;
+
+    $events = $wpdb->get_results( "SELECT ".CPABC_APPOINTMENTS_TABLE_NAME.".* FROM ".CPABC_APPOINTMENTS_TABLE_NAME." INNER JOIN  ".CPABC_TDEAPP_CALENDAR_DATA_TABLE." on  ".CPABC_APPOINTMENTS_TABLE_NAME.".id=".CPABC_TDEAPP_CALENDAR_DATA_TABLE.".reference  WHERE 1=1 ".$cond." ORDER BY `time` DESC" );
+
+    $fields = array("Calendar ID", "Time");
+    $values = array();
+    foreach ($events as $item)
+    {
+        $value = array($item->calendar, $item->time);
+        $data = array();
+        $data = unserialize($item->buffered_date);
+
+        $end = count($fields);
+        for ($i=0; $i<$end; $i++)
+            if (isset($data[$fields[$i]]) ){
+                $value[$i] = $data[$fields[$i]];
+                unset($data[$fields[$i]]);
+            }
+
+        foreach ($data as $k => $d)
+        {
+           $fields[] = $k;
+           $value[] = $d;
+        }
+        $values[] = $value;
+    }
+
+
+    header("Content-type: application/octet-stream");
+    header("Content-Disposition: attachment; filename=export.csv");
+
+    $end = count($fields);
+    for ($i=0; $i<$end; $i++)
+        echo '"'.str_replace('"','""', cpabc_appointments_get_field_name($fields[$i],@$form_data[0])).'",';
+    echo "\n";
+    foreach ($values as $item)
+    {
+        for ($i=0; $i<$end; $i++)
+        {
+            if (!isset($item[$i]))
+                $item[$i] = '';
+            if (is_array($item[$i]))
+                $item[$i] = implode($item[$i],',');
+            echo '"'.str_replace('"','""', $item[$i]).'",';
+        }
+        echo "\n";
+    }
+
+    exit;
 }
 
 
@@ -1124,19 +1364,19 @@ function cpabc_appointments_calendar_update() {
     global $wpdb, $user_ID;
 
 	if ( ! isset( $_GET['cpabc_calendar_update'] ) || $_GET['cpabc_calendar_update'] != '1' )
-		return;		
-		
-    $calid = str_replace  (CPABC_TDEAPP_CAL_PREFIX, "",$_GET["id"]);    
+		return;
+
+    $calid = str_replace  (CPABC_TDEAPP_CAL_PREFIX, "",$_GET["id"]);
     if ( ! current_user_can('edit_pages') && !cpabc_appointments_user_access_to($calid) )
         return;
-        		
+
     cpabc_appointments_add_field_verify(CPABC_TDEAPP_CONFIG, 'specialDates');
-    
+
     @ob_clean();
     header("Cache-Control: no-store, no-cache, must-revalidate");
     header("Pragma: no-cache");
     if ( $user_ID )
-    {         
+    {
         $calid = str_replace  (CPABC_TDEAPP_CAL_PREFIX, "",$_GET["id"]);
         $wpdb->query("update  ".CPABC_TDEAPP_CONFIG." set specialDates='".$_POST["specialDates"]."',".CPABC_TDEAPP_CONFIG_WORKINGDATES."='".$_POST["workingDates"]."',".CPABC_TDEAPP_CONFIG_RESTRICTEDDATES."='".$_POST["restrictedDates"]."',".CPABC_TDEAPP_CONFIG_TIMEWORKINGDATES0."='".$_POST["timeWorkingDates0"]."',".CPABC_TDEAPP_CONFIG_TIMEWORKINGDATES1."='".$_POST["timeWorkingDates1"]."',".CPABC_TDEAPP_CONFIG_TIMEWORKINGDATES2."='".$_POST["timeWorkingDates2"]."',".CPABC_TDEAPP_CONFIG_TIMEWORKINGDATES3."='".$_POST["timeWorkingDates3"]."',".CPABC_TDEAPP_CONFIG_TIMEWORKINGDATES4."='".$_POST["timeWorkingDates4"]."',".CPABC_TDEAPP_CONFIG_TIMEWORKINGDATES5."='".$_POST["timeWorkingDates5"]."',".CPABC_TDEAPP_CONFIG_TIMEWORKINGDATES6."='".$_POST["timeWorkingDates6"]."'  where ".CPABC_TDEAPP_CONFIG_ID."=".$calid);
     }
@@ -1149,11 +1389,11 @@ function cpabc_appointments_calendar_update2() {
 
 	if ( ! isset( $_GET['cpabc_calendar_update2'] ) || $_GET['cpabc_calendar_update2'] != '1' )
 		return;
-		
-    $calid = str_replace  (CPABC_TDEAPP_CAL_PREFIX, "",$_GET["id"]);    
+
+    $calid = str_replace  (CPABC_TDEAPP_CAL_PREFIX, "",$_GET["id"]);
     if ( ! current_user_can('edit_pages') && !cpabc_appointments_user_access_to($calid) )
         return;
-        		
+
     @ob_clean();
     header("Cache-Control: no-store, no-cache, must-revalidate");
     header("Pragma: no-cache");
@@ -1248,12 +1488,12 @@ function cpabc_get_option ($field, $default_value)
     if (!defined('CP_CALENDAR_ID'))
         $id = 0;
     else
-        $id = CP_CALENDAR_ID;       
+        $id = CP_CALENDAR_ID;
     if ($cpabc_option_buffered_id == $id)
-        $value = $cpabc_option_buffered_item->$field;
-    else 
-    { 
-         
+        $value = @$cpabc_option_buffered_item->$field;
+    else
+    {
+
        $myrows = $wpdb->get_results( "SELECT * FROM ".CPABC_APPOINTMENTS_CONFIG_TABLE_NAME." WHERE id=".$id );
        $value = @$myrows[0]->$field;
        $cpabc_option_buffered_item = @$myrows[0];
@@ -1268,7 +1508,6 @@ function cpabc_appointment_is_administrator()
 {
     return current_user_can('manage_options');
 }
-
 
 
 ?>

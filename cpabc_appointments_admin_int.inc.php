@@ -20,6 +20,16 @@ $current_user = wp_get_current_user();
 
 if (cpabc_appointment_is_administrator() || $mycalendarrows[0]->conwer == $current_user->ID) { 
 
+$request_costs = explode(";",cpabc_get_option('request_cost',CPABC_APPOINTMENTS_DEFAULT_COST));
+if (!count($request_costs)) $request_costs[0] = CPABC_APPOINTMENTS_DEFAULT_COST;
+
+$request_costs_exploded = "'".str_replace("'","\'",$request_costs[0])."'";
+for ($k=1;$k<100;$k++)
+   if (isset($request_costs[$k]))
+       $request_costs_exploded .= ",'".str_replace("'","\'",$request_costs[$k])."'";
+   else
+       $request_costs_exploded .= ",'".str_replace("'","\'",$request_costs[0]*($k+1))."'";
+
 ?>
 
 <?php if (!CPABC_APPOINTMENTS_DEFAULT_DEFER_SCRIPTS_LOADING) { ?>
@@ -70,6 +80,8 @@ if (cpabc_appointment_is_administrator() || $mycalendarrows[0]->conwer == $curre
  
  <hr />
    
+ <input type="hidden" name="quantity_field" value="<?php echo esc_attr(cpabc_get_option('quantity_field','1')); ?>" />  
+   
  <div id="metabox_basic_settings" class="postbox" >
   <h3 class='hndle' style="padding:5px;"><span>Public Calendar Settings</span></h3>
   <div class="inside"> 
@@ -90,9 +102,26 @@ if (cpabc_appointment_is_administrator() || $mycalendarrows[0]->conwer == $curre
                <option value="PT" <?php if ($value == 'PT') echo ' selected="selected"'; ?>>Portuguese</option>               
                <option value="SP" <?php if ($value == 'SP') echo ' selected="selected"'; ?>>Spanish</option>
                <option value="SK" <?php if ($value == 'SK') echo ' selected="selected"'; ?>>Slovak</option>
-            </select>
+               <option value="SE" <?php if ($value == 'SE') echo ' selected="selected"'; ?>>Swedish</option>
+            </select><br />
+            * Note that this "Calendar language" setting will affect the calendar area, 
+              but the rest of the form texts are translated in the MO/PO files located in the "<em>appointment-booking-calendar/languages</em>" folder.
+              The <em>WP_LANG</em> constant into your config.php file must match the suffix of the MO/PO file to apply.
         </td>
         </tr>
+        
+        <tr valign="top">        
+        <th scope="row">Calendar visual theme</th>
+        <td>
+             <?php $value = cpabc_get_option('calendar_theme',''); ?>
+             <select name="calendar_theme">               
+               <option value="" <?php if ($value == '') echo ' selected="selected"'; ?>>Default - Classic</option>
+               <option value="light/" <?php if ($value == 'light/') echo ' selected="selected"'; ?>>Light</option>
+               <option value="blue/" <?php if ($value == 'blue/') echo ' selected="selected"'; ?>>Blue</option>
+            </select><br />
+            * This will modify the calendar appearance in the public website. For other appearance modifications <a target="_blank" href="http://wordpress.dwbooster.com/faq/appointment-booking-calendar">check the FAQ</a>.
+        </td>
+        </tr>        
         
         <tr valign="top">        
         <th scope="row">Date format</th>
@@ -168,6 +197,75 @@ if (cpabc_appointment_is_administrator() || $mycalendarrows[0]->conwer == $curre
         </td>
         </tr>
         
+        <tr valign="top">        
+        <th scope="row">Open calendar in this initial month/year</th>
+        <td>
+             <?php $value = cpabc_get_option('calendar_startmonth','0'); ?>
+             <select name="calendar_startmonth">                                                          
+               <option value="0" <?php if ($value == '0') echo ' selected="selected"'; ?>>Current month</option>
+               <option value="1" <?php if ($value == '1') echo ' selected="selected"'; ?>>January</option>
+               <option value="2" <?php if ($value == '2') echo ' selected="selected"'; ?>>February</option>
+               <option value="3" <?php if ($value == '3') echo ' selected="selected"'; ?>>March</option>         
+               <option value="4" <?php if ($value == '4') echo ' selected="selected"'; ?>>April</option>         
+               <option value="5" <?php if ($value == '5') echo ' selected="selected"'; ?>>May</option>         
+               <option value="6" <?php if ($value == '6') echo ' selected="selected"'; ?>>June</option>         
+               <option value="7" <?php if ($value == '7') echo ' selected="selected"'; ?>>July</option>
+               <option value="8" <?php if ($value == '8') echo ' selected="selected"'; ?>>August</option>
+               <option value="9" <?php if ($value == '9') echo ' selected="selected"'; ?>>September</option>
+               <option value="10" <?php if ($value == '10') echo ' selected="selected"'; ?>>October</option>
+               <option value="11" <?php if ($value == '11') echo ' selected="selected"'; ?>>November</option>
+               <option value="12" <?php if ($value == '12') echo ' selected="selected"'; ?>>December</option>
+             </select>   
+             /
+             <?php $value = cpabc_get_option('calendar_startyear','0'); ?>
+             <select name="calendar_startyear">  
+              <option value="0" <?php if ($value == '0') echo ' selected="selected"'; ?>>Current year</option>
+              <?php for ($y=date("Y")-3;$y<date("Y")+30;$y++) { ?>                                                                       
+               <option value="<?php echo $y; ?>" <?php if ($value == "".$y) echo ' selected="selected"'; ?>><?php echo $y; ?></option>
+              <?php } ?>  
+             </select> 
+                     
+        </td>
+        </tr>        
+        
+        <tr valign="top">        
+        <th scope="row">Minimum slots to be selected</th>
+        <td>
+          <?php $option = @intval (cpabc_get_option('min_slots', '1')); if ($option=='') $option = 1; ?>
+          <select name="min_slots">
+           <?php for ($k=1; $k<=22; $k++) { ?>
+           <option value="<?php echo $k; ?>"<?php if ($option == $k) echo ' selected'; ?>><?php echo $k; ?></option>
+           <?php } ?>
+          </select>
+         <em style="font-size:11px;">This is the minimum number of slots that the customer must select in the booking form.</em>
+        </td>
+        </tr>
+        
+        <tr valign="top">        
+        <th scope="row">Maximum slots to be selected</th>
+        <td>
+         <?php $option = @intval (cpabc_get_option('max_slots', '1')); if ($option=='') $option = 1;  ?>
+          <select name="max_slots" onchange="cpabc_updatemaxslots();">
+           <?php for ($k=1; $k<=22; $k++) { ?>
+           <option value="<?php echo $k; ?>"<?php if ($option == $k) echo ' selected'; ?>><?php echo $k; ?></option>
+           <?php } ?>
+          </select>
+         <em style="font-size:11px;">This is the maximum number of slots that the customer can select in the booking form.</em>
+        </td>
+        </tr>
+        
+        <tr valign="top">        
+        <th scope="row">Close floating panel after selecting a time-slot?</th>
+        <td>
+         <?php $option = cpabc_get_option('close_fpanel', 'yes'); if ($option=='') $option = 'yes';  ?>
+          <select name="close_fpanel">           
+            <option value="yes"<?php if ($option == 'yes') echo ' selected'; ?>>Yes</option>           
+            <option value="no"<?php if ($option == 'no') echo ' selected'; ?>>No</option>           
+          </select>
+         <em style="font-size:11px;">Default: "Yes". Set to "No" in the case the user have to select various slots in the same date. The price should be set for each total number of slots below (request cost setting).</em>
+        </td>
+        </tr>           
+        
    </table>   
 
   </div>    
@@ -188,6 +286,28 @@ if (cpabc_appointment_is_administrator() || $mycalendarrows[0]->conwer == $curre
  <input type="hidden" name="vs_text_min" value="<?php echo esc_attr(cpabc_get_option('vs_text_min', CPABC_APPOINTMENTS_DEFAULT_vs_text_min)); ?>" />
 
 
+
+ <div id="metabox_basic_settings" class="postbox" >
+  <h3 class='hndle' style="padding:5px;"><span>Submit Button</span></h3>
+  <div class="inside">   
+     <table class="form-table">    
+        <tr valign="top">
+        <th scope="row">Submit button label (text):</th>
+        <td><input type="text" name="vs_text_submitbtn" size="40" value="<?php $label = esc_attr(cpabc_get_option('vs_text_submitbtn', 'Continue')); echo ($label==''?'Continue':$label); ?>" /></td>
+        </tr>    
+        <tr valign="top">
+        <td colspan="2"> - The  <em>class="<?php if (get_option('CPABC_APPOINTMENTS_DEFAULT_USE_EDITOR',"1") != "1") { ?>pbSubmit<?php } else { ?>cp_subbtn<?php } ?>"</em> can be used to modify the button styles. <br />
+        - The styles can be applied into any of the CSS files of your theme or into the CSS file <em>"appointment-booking-calendar\TDE_AppCalendar\all-css.css"</em>. <br />
+        - For further modifications, the submit button is located at the end of the file <em>"<?php if (get_option('CPABC_APPOINTMENTS_DEFAULT_USE_EDITOR',"1") != "1") echo 'cpabc_internal.inc.php'; else echo 'cpabc_scheduler.inc.php'; ?>"</em>.<br />
+        <?php if (get_option('CPABC_APPOINTMENTS_DEFAULT_USE_EDITOR',"1") != "1") { ?>
+        - For general CSS styles modifications to the form and samples <a href="http://wordpress.dwbooster.com/faq/appointment-booking-calendar#q113" target="_blank">check this FAQ</a>.
+        <?php } ?>
+        </tr>
+     </table>
+  </div>    
+ </div> 
+  
+
  <div id="metabox_basic_settings" class="postbox" >
   <h3 class='hndle' style="padding:5px;"><span>Paypal Payment Configuration</span></h3>
   <div class="inside">
@@ -197,16 +317,25 @@ if (cpabc_appointment_is_administrator() || $mycalendarrows[0]->conwer == $curre
         <th scope="row">Enable Paypal Payments?</th>
         <td><input type="checkbox" readonly disabled name="enable_paypal" size="40" value="1" checked /> <em>The feature for working without PayPal is implemented/available in the <a href="http://wordpress.dwbooster.com/calendars/appointment-booking-calendar#download">pro version</a>.</em>
         </td>
-        </tr>      
+        </tr>    
     
         <tr valign="top">        
         <th scope="row">Paypal email</th>
-        <td><input type="text" name="paypal_email" size="40" value="<?php echo esc_attr(cpabc_get_option('paypal_email',CPABC_APPOINTMENTS_DEFAULT_PAYPAL_EMAIL)); ?>" /></td>
+        <td><input type="text" name="paypal_email" size="40" value="<?php echo esc_attr(cpabc_get_option('paypal_email',$current_user->user_email)); ?>" /></td>
         </tr>
          
         <tr valign="top">
-        <th scope="row">Request cost</th>
-        <td><input type="text" name="request_cost" value="<?php echo esc_attr(cpabc_get_option('request_cost',CPABC_APPOINTMENTS_DEFAULT_COST)); ?>" /></td>
+        <th scope="row">Request cost for each number of time slots</th>
+        <td>
+           <div id="cpabcslots">
+             <div id="cpabccost1" style="float:left;width:70px;">
+              1 slot:<br />
+              <input type="text" name="request_cost_1" style="width:40px;" value="<?php echo esc_attr(cpabc_get_option('request_cost',CPABC_APPOINTMENTS_DEFAULT_COST)); ?>" />
+             </div>            
+           </div>
+           <div style="clear:both"></div>
+           <em>Note: Each box should contain the TOTAL cost for the N slots related. Ex: 1 slot for $25, 2 slots for $50, 3 slots for $75, ...</em>
+        </td>
         </tr>
         
         
@@ -290,7 +419,13 @@ if (cpabc_appointment_is_administrator() || $mycalendarrows[0]->conwer == $curre
  <div id="metabox_basic_settings" class="postbox" >
   <h3 class='hndle' style="padding:5px;"><span>Email Copy to User / Auto-reply</span></h3>
   <div class="inside">
-     <table class="form-table">     
+     <table class="form-table">            
+<?php if (get_option('CPABC_APPOINTMENTS_DEFAULT_USE_EDITOR',"1") != "1") { ?>
+        <tr valign="top">
+        <th scope="row">Email field on the form</th>
+        <td><select id="cu_user_email_field" name="cu_user_email_field" def="<?php echo esc_attr(cpabc_get_option('cu_user_email_field', CPABC_APPOINTMENTS_DEFAULT_cu_user_email_field)); ?>"></select></td>
+        </tr>                
+<?php } ?>        
         <tr valign="top">
         <th scope="row">Email subject confirmation to user</th>
         <td><input type="text" name="email_subject_confirmation_to_user" size="70" value="<?php echo esc_attr(cpabc_get_option('email_subject_confirmation_to_user', CPABC_APPOINTMENTS_DEFAULT_SUBJECT_CONFIRMATION_EMAIL)); ?>" /></td>
@@ -345,7 +480,7 @@ if (cpabc_appointment_is_administrator() || $mycalendarrows[0]->conwer == $curre
          <td colspan="2" rowspan="">
            Preview:<br />
              <br />
-            <img src="<?php echo cpabc_appointment_get_site_url(); ?>/?cpabc_app=captcha"  id="captchaimg" alt="security code" border="0"  />            
+            <img src="<?php echo cpabc_appointment_get_site_url(); ?>/?cpabc_app=captcha&inAdmin=1"  id="captchaimg" alt="security code" border="0"  />            
          </td> 
         </tr>             
                 
@@ -390,10 +525,11 @@ if (cpabc_appointment_is_administrator() || $mycalendarrows[0]->conwer == $curre
         <tr valign="top">
         <th scope="row">Enable e-mail reminder?</th>
         <td><input type="checkbox" name="enable_reminder" disabled readonly size="40" value="1" <?php if (cpabc_get_option('enable_reminder',CPABC_APPOINTMENTS_DEFAULT_ENABLE_REMINDER)) echo 'checked'; ?> /> * This feature is available in the <a href="http://wordpress.dwbooster.com/calendars/appointment-booking-calendar#download">pro version</a>.</td>
-        </tr>             
+        </tr>              
         <tr valign="top">
-        <th scope="row">Send reminder:</th>
+        <th scope="row">Send reminder:</th>        
         <td><input type="text" name="reminder_hours"  disabled readonly size="2" value="<?php echo esc_attr(cpabc_get_option('reminder_hours', CPABC_APPOINTMENTS_DEFAULT_REMINDER_HOURS)); ?>" /> hours before the appointment        
+        <br /><em>Note: Hours date based in server time. Server time now is <?php echo date("Y-m-d H:i"); ?></em>
         </td>
         </tr>
         <tr valign="top">
@@ -434,7 +570,7 @@ if (cpabc_appointment_is_administrator() || $mycalendarrows[0]->conwer == $curre
         </tr>             
      </table>  
   </div>    
- </div>   
+ </div>    
  
 <?php if (!defined('CPABC_CALENDAR_ON_PUBLIC_WEBSITE')) { ?> 
  <div id="metabox_basic_settings" class="postbox" >
@@ -476,7 +612,7 @@ if (cpabc_appointment_is_administrator() || $mycalendarrows[0]->conwer == $curre
     qs += "&font="+f.dexcv_font.options[f.dexcv_font.selectedIndex].value;
     qs += "&rand="+d;
          
-    document.getElementById("captchaimg").src= "<?php echo cpabc_appointment_get_site_url(); ?>/?cpabc_app=captcha&"+qs;
+    document.getElementById("captchaimg").src= "<?php echo cpabc_appointment_get_site_url(); ?>/?cpabc_app=captcha&inAdmin=1&"+qs;
  }       
          
  generateCaptcha();
@@ -487,7 +623,7 @@ if (cpabc_appointment_is_administrator() || $mycalendarrows[0]->conwer == $curre
                     dateFormat: 'yy-mm-dd'
                  }); 	
  });
- $j('#cpabc_nocodes_availmsg').load('<?php echo cpabc_appointment_get_site_url(); ?>/?cpabc_app=cpabc_loadcoupons&cpabc_item=<?php echo CP_CALENDAR_ID; ?>');
+ $j('#cpabc_nocodes_availmsg').load('<?php echo cpabc_appointment_get_site_url(); ?>/?cpabc_app=cpabc_loadcoupons&inAdmin=1&cpabc_item=<?php echo CP_CALENDAR_ID; ?>');
  $j('#cpabc_dc_subccode').click (function() {
                                var code = $j('#cpabc_dc_code').val();
                                var discount = $j('#cpabc_dc_discount').val();
@@ -496,14 +632,33 @@ if (cpabc_appointment_is_administrator() || $mycalendarrows[0]->conwer == $curre
                                if (parseInt(discount)+"" != discount) { alert('Please numeric discount percent'); return; }
                                if (expires == '') { alert('Please enter an expiration date for the code'); return; }
                                var params = '&add=1&expires='+encodeURI(expires)+'&discount='+encodeURI(discount)+'&code='+encodeURI(code);
-                               $j('#cpabc_nocodes_availmsg').load('<?php echo cpabc_appointment_get_site_url(); ?>/?cpabc_app=cpabc_loadcoupons&cpabc_item=<?php echo CP_CALENDAR_ID; ?>'+params);
+                               $j('#cpabc_nocodes_availmsg').load('<?php echo cpabc_appointment_get_site_url(); ?>/?cpabc_app=cpabc_loadcoupons&inAdmin=1&cpabc_item=<?php echo CP_CALENDAR_ID; ?>'+params);
                                $j('#cpabc_dc_code').val();
                              });
                              
   function cpabc_delete_coupon(id)                             
   {
-     $j('#cpabc_nocodes_availmsg').load('<?php echo cpabc_appointment_get_site_url(); ?>/?cpabc_app=cpabc_loadcoupons&cpabc_item=<?php echo CP_CALENDAR_ID; ?>&delete=1&code='+id);
+     $j('#cpabc_nocodes_availmsg').load('<?php echo cpabc_appointment_get_site_url(); ?>/?cpabc_app=cpabc_loadcoupons&inAdmin=1&cpabc_item=<?php echo CP_CALENDAR_ID; ?>&delete=1&code='+id);
   }
+  
+  function cpabc_updatemaxslots()
+  {
+      try
+      {
+          var default_request_cost = new Array(<?php echo $request_costs_exploded; ?>);
+          var f = document.dexconfigofrm;  
+          var slots = f.max_slots.options[f.max_slots.selectedIndex].value;  
+          var buffer = "";
+          for(var i=1; i<=slots; i++)
+              buffer += '<div id="cpabccost'+i+'" style="float:left;width:70px;font-size:10px;">'+i+' slot'+(i>1?'s':'')+':<br />'+
+                         '<input type="text" name="request_cost_'+i+'" style="width:40px;" value="'+default_request_cost[i-1]+'" /></div>';
+          document.getElementById("cpabcslots").innerHTML = buffer;
+      }
+      catch(e)
+      {
+      }
+  }
+  cpabc_updatemaxslots();
          
 </script>
 

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: app book cal\n"
 "POT-Creation-Date: 2013-04-19 10:48+0100\n"
-"PO-Revision-Date: 2013-06-19 12:13+0100\n"
+"PO-Revision-Date: 2013-09-18 20:19+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -90,3 +90,17 @@ msgstr "Adres e-mail"
 #: cpabc_scheduler.inc.php:73
 msgid "Comments/Questions"
 msgstr "Pytania/uwagi"
+
+msgid ""
+"Please select at least %1 time-slots. Currently selected: %2 time-slots."
+msgstr "Wybierz co najmniej %1 czas. Aktualnie wybrany: %2 czas"
+
+msgid ""
+"Please select a maximum of %1 time-slots. Currently selected: %2 time-slots."
+msgstr "Proszę wybrać maksymalnie %1 czas. Aktualnie wybrany: %2 czas"
+
+msgid "Cancel"
+msgstr "Anulować"
+
+msgid "Previous"
+msgstr "Poprzedni"

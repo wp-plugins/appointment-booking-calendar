@@ -11,11 +11,18 @@ if (!defined('CP_CALENDAR_ID'))
 
 global $wpdb;
 
+//  $wpdb->query('ALTER TABLE `'.CPABC_APPOINTMENTS_CALENDARS_TABLE_NAME.'` CHANGE `reference` `reference` VARCHAR(20)  NOT NULL');  
+
 $message = "";
 if (isset($_GET['ld']) && $_GET['ld'] != '')
 {
     $wpdb->query('DELETE FROM `'.CPABC_APPOINTMENTS_CALENDARS_TABLE_NAME.'` WHERE id='.$_GET['ld']);       
     $message = "Item deleted";
+} 
+else if (isset($_GET['del']) && $_GET['del'] == 'all')
+{    
+    $wpdb->query('DELETE FROM `'.CPABC_APPOINTMENTS_CALENDARS_TABLE_NAME.'` WHERE appointment_calendar_id='.CP_CALENDAR_ID);           
+    $message = "All items deleted";
 }
 
 
@@ -52,6 +59,13 @@ if ($message) echo "<div id='setting-error-settings_updated' class='updated sett
         document.location = 'admin.php?page=cpabc_appointments&cal=<?php echo $_GET["cal"]; ?>&list=1&ld='+id+'&r='+Math.random();
     }
  }
+ function do_dexapp_deleteall()
+ {
+    if (confirm('Are you sure that you want to delete ALL bookings for this calendar?'))
+    {        
+        document.location = 'admin.php?page=cpabc_appointments&cal=<?php echo $_GET["cal"]; ?>&list=1&del=all&r='+Math.random();
+    }    
+ }
 </script>
 <div class="wrap">
 <h2>Appointment Booking Calendar - Bookings List</h2>
@@ -71,8 +85,10 @@ if ($message) echo "<div id='setting-error-settings_updated' class='updated sett
  <input type="hidden" name="list" value="1" />
  Search for: <input type="text" name="search" value="<?php echo esc_attr($_GET["search"]); ?>" /> &nbsp; &nbsp; &nbsp; 
  From: <input type="text" id="dfrom" name="dfrom" value="<?php echo esc_attr($_GET["dfrom"]); ?>" /> &nbsp; &nbsp; &nbsp; 
- To: <input type="text" id="dto" name="dto" value="<?php echo esc_attr($_GET["dto"]); ?>" /> &nbsp; &nbsp; &nbsp; 
- <span class="submit"><input type="submit" name="ds" value="Filter" /></span>
+ To: <input type="text" id="dto" name="dto" value="<?php echo esc_attr($_GET["dto"]); ?>" /> &nbsp; &nbsp; &nbsp;  
+<nobr><span class="submit"><input type="submit" name="ds" value="Filter" /></span> &nbsp; &nbsp; &nbsp; 
+ <span class="submit"><input type="submit" name="cpabc_appointments_csv" value="Export to CSV" /></span></nobr>
+  
 </form>
 
 <br />
@@ -125,6 +141,8 @@ echo paginate_links(  array(
 </div>
 
 <p class="submit"><input type="button" name="pbutton" value="Print" onclick="do_dexapp_print();" /></p>
+
+<p class="submit"><input type="button" name="pbutton" value="Delete All Bookings" onclick="do_dexapp_deleteall();" /></p>
 
 </div>
 

@@ -111,7 +111,10 @@ function initAppCalendar(calendarId,pages,type,lang,m)
 	try {
 	  if (cpabc_global_maxdate != '') mCfg.MAXDATE = cpabc_global_maxdate;
 	} catch(e)   {}
-
+	mCfg.PAGEDATE = "";  
+	try {
+	  if (cpabc_global_pagedate != '') mCfg.PAGEDATE = cpabc_global_pagedate;
+	} catch(e)   {}
 	mCfg.close_mode = 3; /** 1: Close by clicking the "close" button. */
 					/** 2: Close automatically when you move the mouse out of the calendar */
 					/** 3: Close automatically when you move the mouse out of the cell */
@@ -127,7 +130,7 @@ function initAppCalendar(calendarId,pages,type,lang,m)
 	if (YAHOO.TDE.AppCalendar.typeCalendar[calendarId]==1)
 		YAHOO.util.Event.onDOMReady(YAHOO.TDE.tabView.init,calendarId);  /** only Admin */
 	else if (YAHOO.TDE.AppCalendar.typeCalendar[calendarId]==2)
-		YAHOO.TDE.AppCalendar.reservedDate[calendarId] = "";  /** only reservation */
+		YAHOO.TDE.AppCalendar.reservedDate[calendarId] = new Array();  /** only reservation */
 
 	YAHOO.TDE.AppCalendar.workingDates[calendarId] = new Array();
 	YAHOO.TDE.AppCalendar.restrictedDates[calendarId] = new Array();
@@ -300,7 +303,8 @@ YAHOO.TDE.AppCalendar.appoiments = new Array();
 	}
 	YAHOO.TDE.calendar.onClick = function(type,args,calendarId) {
 
-	   this.getText = function(dt,cell,d) {
+	   this.getText = function(dt,cell,d) { 
+	       
 	          var idx = YAHOO.TDE.calendar.getSpecialDatesIndex(calendarId,dt);
               if (idx>-1)
                   var t = YAHOO.TDE.AppCalendar.specialDates[calendarId][idx].slice(1);
@@ -344,11 +348,7 @@ YAHOO.TDE.AppCalendar.appoiments = new Array();
 				  str += '<a href="javascript:createEditorCell(\'editorCell'+cell+time+'\', \''+time+'\', \''+d+'\', \'button'+cell+time+'\', \''+calendarId+'\');" class="acell" ><div class="'+class1+'" id="button'+cell+time+'">'+getTimeWithAMPM(calendarId,time)+'</div></a>';
 				  else if (capacityOccupied+people <= t[i].reservations)
 				  {
-
-				  	  if (YAHOO.TDE.AppCalendar.reservedDate[calendarId] != "" && dt.toString()==YAHOO.TDE.AppCalendar.reservedDate[calendarId].d.toString() && time==YAHOO.TDE.AppCalendar.reservedDate[calendarId].t)
-						 str += '<a href="javascript:selectAppointment(\'editorCell'+cell+time+'\', \''+time+'\', \''+d+'\', \'button'+cell+time+'\', \''+calendarId+'\');" class="acell" ><div class="cellReserved" id="button'+(cell+time)+'">'+getTimeWithAMPM(calendarId,time)+'</div></a>';
-					  else
-						  str += '<a href="javascript:selectAppointment(\'editorCell'+cell+time+'\', \''+time+'\', \''+d+'\', \'button'+cell+time+'\', \''+calendarId+'\');" class="acell" ><div class="'+class1+'" id="button'+(cell+time)+'">'+getTimeWithAMPM(calendarId,time)+'</div></a>';
+                      str += '<a href="javascript:selectAppointment(\'editorCell'+cell+time+'\', \''+time+'\', \''+d+'\', \'button'+cell+time+'\', \''+calendarId+'\');" class="acell" ><div class="'+(  (inArray(d+" "+time,YAHOO.TDE.AppCalendar.reservedDate[calendarId]))?"cellReserved"+((cal.mCfg.MILITARY_TIME!=1)?"12":""):class1  )+'" id="button'+(cell+time)+'">'+getTimeWithAMPM(calendarId,time)+'</div></a>';
 				  }
 
 			  }
@@ -454,7 +454,15 @@ YAHOO.TDE.AppCalendar.appoiments = new Array();
 						ws = ["Ne", "Po", "&Uacute;t", "St", "&Scirc;t", "Pi", "So"];
 						wm = ["Ned", "Pon", "&Uacute;to", "Str", "&Scirc;tv", "Pia", "Sob"];
 						wl = ["Nedela", "Pondelok", "&Uacute;torok", "Streda", "&Scirc;tvrtok", "Piatok", "Sobota"];
-					break;					
+					break;
+					case "SE":
+						ms = ["Jan","Feb","Mar","Apr","Maj","Jun","Jul","Aug","Sep","Okt","Nov","Dec"];
+						ml = ["Januari","Februari","Mars","April","Maj","Juni","Juli","Augusti","September","Oktober","November","December"];
+						wc = ["D", "M", "T", "O", "T", "F", "L"];
+						ws = ["S&ouml;", "M&aring;", "Ti", "On", "To", "Fr", "L&ouml;"];
+						wm = ["S&ouml;n", "M&aring;n", "Tis", "Ons", "Tor", "Fre", "L&ouml;r"];
+						wl = ["S&ouml;ndag", "M&aring;ndag", "Tisdag", "Onsdag", "Torsdag", "Fredag", "L&ouml;rdag"];
+					break;
 					default:
 						return;
 					break;
@@ -484,6 +492,7 @@ YAHOO.TDE.AppCalendar.appoiments = new Array();
 		cal.cfg.setProperty("START_WEEKDAY",cal.mCfg.START_WEEKDAY);
 		cal.cfg.setProperty("MINDATE",cal.mCfg.MINDATE);
 		cal.cfg.setProperty("MAXDATE",cal.mCfg.MAXDATE);
+		cal.cfg.setProperty("PAGEDATE",cal.mCfg.PAGEDATE);
 
 		if (YAHOO.TDE.AppCalendar.typeCalendar[calendarId]==4) /** override function */
 		{
@@ -538,11 +547,21 @@ YAHOO.TDE.AppCalendar.appoiments = new Array();
 		if (YAHOO.TDE.AppCalendar.typeCalendar[calendarId]==2)
 		{
 			 var r = YAHOO.TDE.AppCalendar.reservedDate[calendarId];
-			 if (r!="")
+			 
+			 var strList = "";
+			 var strDates = "";
+			 if (r.length>0)
 			 {
-			 	k = r.d;
-				YAHOO.TDE.calendar.calendarArray[calendarId].addRenderer((k.getMonth()+ 1) + "/" + k.getDate() + "/" + k.getFullYear(), YAHOO.TDE.calendar.myCustomReserveddate);
+			    for (var i=0;i<r.length;i++)
+			    {
+			 	    k = r[i].d;
+			 	    strList += '<div>'+ ((cpabc_global_date_format == '1')?k.getDate() + "/" + (k.getMonth()+ 1):(k.getMonth()+ 1) + "/" + k.getDate())+"/" + k.getFullYear()+" "+getTimeWithAMPM(calendarId,r[i].t)+' <div class="cancel-btn"><a href="javascript:removeAppointment(\''+calendarId+'\',\''+r[i].str+'\');"><span>'+cpabc_global_cancel_text+'</span></a></div></div>';
+			 	    strDates += ";"+r[i].str;
+				    YAHOO.TDE.calendar.calendarArray[calendarId].addRenderer((k.getMonth()+ 1) + "/" + k.getDate() + "/" + k.getFullYear(), YAHOO.TDE.calendar.myCustomReserveddate);
+			    }
 			 }
+	         try{document.getElementById("selDay"+calendarId).value=strDates}catch(e){}
+			 try{document.getElementById("list"+calendarId).innerHTML=strList}catch(e){}
 		}
 		
 		if (YAHOO.TDE.AppCalendar.typeCalendar[calendarId]==2)
@@ -1556,39 +1575,38 @@ function closeEventShow(evt, conf){
 		}
 	}catch(e){}
 }
-
 function selectAppointment(id_in, t, day, context_in, calendarId){
-	var popup = id_in.replace("editorCell", "PanelRemark");
+    dayString = day+" "+t;
+    var popup = id_in.replace("editorCell", "PanelRemark");
 	popup = popup.replace(t.toString(), "");
-	if (YAHOO.TDE.AppCalendar.reservedDate[calendarId]!="") /** remove last selection */
-	{
-		var obj = document.getElementById(YAHOO.TDE.AppCalendar.reservedDate[calendarId].cell);
-		var cal = YAHOO.TDE.calendar.calendarArray[calendarId];
-		if (cal.mCfg.MILITARY_TIME!=1)
-			obj.className = "cell12";
-		else
-			obj.className = "cell";
-	}
-	var obj = document.getElementById(context_in);
-
-	obj.className = "cellReserved";
-	day = day.split(",");
-	day = new Date(day[0],(day[1]-1),day[2]);
-	YAHOO.TDE.AppCalendar.reservedDate[calendarId] = {d:day,t:t,cell:context_in};
-	YAHOO.TDE.calendar.refresh(calendarId);
-	obj = document.getElementById("selDay"+calendarId);
-	obj.value = day.getDate();
-	obj = document.getElementById("selMonth"+calendarId);
-	obj.value = (day.getMonth()+1);
-	obj = document.getElementById("selYear"+calendarId);
-	obj.value = day.getFullYear();
-	t = t.split(":");
-	obj = document.getElementById("selHour"+calendarId);
-	obj.value = parseInt(t[0]);
-	obj = document.getElementById("selMinute"+calendarId);
-	obj.value = parseInt(t[1]);
-
-	YAHOO.TDE.panel.panels[popup][0].hide();
+    if (!inArray(dayString,YAHOO.TDE.AppCalendar.reservedDate[calendarId]))
+    {
+	     
+	     var obj = document.getElementById(context_in);
+         
+	     obj.className = "cellReserved";
+	     day = day.split(",");
+	     day = new Date(day[0],(day[1]-1),day[2]);
+	     YAHOO.TDE.AppCalendar.reservedDate[calendarId][YAHOO.TDE.AppCalendar.reservedDate[calendarId].length] = {d:day,t:t,cell:context_in,str:dayString};
+	     YAHOO.TDE.calendar.refresh(calendarId);	     
+    }
+    if (cpabc_global_close_on_select)
+	    YAHOO.TDE.panel.panels[popup][0].hide();
+}
+function removeAppointment(calendarId,needle)
+{
+    r = YAHOO.TDE.AppCalendar.reservedDate[calendarId];
+    for(var i = 0; i < YAHOO.TDE.AppCalendar.reservedDate[calendarId].length; i++) {
+        if(YAHOO.TDE.AppCalendar.reservedDate[calendarId][i].str == needle) 
+            YAHOO.TDE.AppCalendar.reservedDate[calendarId].splice(i,1);;
+    }
+    YAHOO.TDE.calendar.refresh(calendarId);
+}
+function inArray(needle, haystack) {
+     for(var i = 0; i < haystack.length; i++) {
+         if(haystack[i].str == needle) return true;
+     }
+     return false;
 }
 function changeEditorSelect(id,d,t)
 	{
