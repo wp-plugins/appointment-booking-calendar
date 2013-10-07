@@ -105,13 +105,13 @@ A: Open the file "wp-content/plugins/appointment-booking-calendar/TDE_AppCalenda
 
 = Q: After booking appointment I'm not receiving the emails with the appointment data. =
 
-Please check if after the completing the payment at Paypal the appointment appears registered in the appointment calendar (some time slot unavailable):
+Please check if after the completing the payment at PayPal the appointment appears registered in the appointment calendar (some time slot unavailable):
 
 * **If the appointment purchase is registered**, then the problem is that you server has some additional configuration requirements to send emails from PHP. The Appointment Booking Calendar plugin uses the settings specified into the WordPress website to deliver the emails, if your hosting has some specific requirements like a fixed "from" address or a custom "SMTP" server those settings must be configured into the WordPress website.
 
 * **If the appointment purchase isn't registered**, first check if you are testing the appointment booking form on a local website or in an online website. Note you should test this feature into an online website (local websites cannot receive PayPal IPN connections).
 
-* **If the appointment purchase isn't registered and you are testing it on an online website**, then check if the payment appears as "completed" at the Paypal seller account (no red flags, no pending mark). Check also if your Paypal account is setup to automatically accept payments in the selected currency. The payment must be "accepted" and "completed" in the PayPal seller account.
+* **If the appointment purchase isn't registered and you are testing it on an online website**, then check if the payment appears as "completed" at the PayPal seller account (no red flags, no pending mark). Check also if your PayPal account is setup to automatically accept payments in the selected currency. The payment must be "accepted" and "completed" in the PayPal seller account.
 
 
 == Other Notes ==
@@ -129,7 +129,7 @@ There are also two fields related to the iCal settings: the "iCal time zone diff
 
 The "Restricted Dates" tab into the calendar settings lets you to completely disable selected dates from the appointment calendar. This is useful for excluding public holidays or other specific dates where no appointments will be offered.
 
-To restrict a date just click it into the date picker calendar that appears in this tab. To remove an already restricted date just click it again.
+To restrict a date just click it into the date picker calendar that appears in this tab. To remove an already restricted date, just click it again.
 
 = The Special Dates Tab =
 
@@ -207,7 +207,7 @@ These settings fields are available for each appointment calendar:
 
 * **Maximum slots to be selected:** This is the maximum number of slots that the customer can select in the booking form.
 
-* <strong>Close floating panel after selecting a time-slot?:</strong> Default: "Yes". Set to "No" in the case the user have to select various slots in the same date. The price should be set for each total number of slots below (request cost setting).
+* <strong>Close floating panel after selecting a time-slot?:</strong> Default: "Yes". Set to "No" in the case the user has to select various slots in the same date. The price should be set for each total number of slots below (request cost setting).
 
 Note that the **request cost** field will be automatically updated for allowing entering the price for each number of time-slots, giving total freedom at this price setting.
 
@@ -225,7 +225,7 @@ The current Appointment Booking Calendar version has three pre-built CSS themes:
 * Light
 * Blue
 
-The theme can be selected into the administration area, below the calendar on the settings field labeled "Calendar visual theme". Once selected a new theme, the CSS file "all-css.css" will be loaded frmo a different subfolder, be sure to edit the related CSS file if you need further modifications to the appointment booking calendar theme styles.
+The theme can be selected into the administration area, below the calendar on the settings field labeled "Calendar visual theme". Once selected a new theme, the CSS file "all-css.css" will be loaded from a different subfolder, be sure to edit the related CSS file if you need further modifications to the appointment booking calendar theme styles.
  
 = Other Versions and Features = 
  
@@ -259,6 +259,7 @@ Please note that the pro features aren't advised as part of the free plugin in t
 * Compatible with WP 3.6
 * More features added
 * Fixing tags in wp directory
+* Two additional calendar themes added
 
 == Upgrade Notice ==
 
