@@ -181,6 +181,7 @@ There is also a "group" attribute to join the names of the appointments made on 
 
 The "fields" can be used to modify the columns to display, that field accepts the following items (uppercase):
 
+    CALENDAR
     DATE
     TIME
     NAME

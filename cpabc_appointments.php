@@ -395,6 +395,7 @@ function cpabc_appointments_filter_list($atts) {
     $mycalendarrows = $wpdb->get_results( "SELECT * FROM ".CPABC_TDEAPP_CALENDAR_DATA_TABLE ." INNER JOIN  ".CPABC_APPOINTMENTS_TABLE_NAME." on  ".CPABC_APPOINTMENTS_TABLE_NAME.".id=".CPABC_TDEAPP_CALENDAR_DATA_TABLE.".reference WHERE datatime>='".$from."' AND datatime<='".$to."' AND appointment_calendar_id=".CP_CALENDAR_ID." ORDER BY datatime ASC");
     for($f=0; $f<count($mycalendarrows); $f++) {        
         $params = unserialize($mycalendarrows[$f]->buffered_date);    
+        $params["CALENDAR"] = $mycalendarrows[$f]->appointment_calendar_id;
         $newline = ($last_date != $mycalendarrows[$f]->booked_time_unformatted);
         if ($group != 'yes' || $newline) 
         {
