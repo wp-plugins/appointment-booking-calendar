@@ -211,13 +211,12 @@ if ($message) echo "<div id='setting-error-settings_updated' class='updated sett
         <option value="latin1_swedish_ci">latin1_swedish_ci</option>
        </select><br />
        <em>* Update the charset if you are getting problems displaying special/non-latin characters. After updated you need to edit the special characters again.</em>
-      
-       
+             
        <br /><br />
        iCal timezone difference vs server time:<br />
        <select id="icaltimediff" name="icaltimediff">
         <?php for ($i=-23;$i<24; $i++) { ?>        
-        <option value="<?php $text = " ".($i<0?"":"+").$i." hours"; echo $text; ?>" <?php if (get_option('CPABC_CAL_TIME_ZONE_MODIFY_SET'," +2 hours") == $text) echo ' selected'; ?>><?php echo $text; ?></option>
+        <option value="<?php $text = " ".($i<0?"":"+").$i." hours"; echo urlencode($text); ?>" <?php if (get_option('CPABC_CAL_TIME_ZONE_MODIFY_SET'," +2 hours") == $text) echo ' selected'; ?>><?php echo $text; ?></option>
         <?php } ?>
        </select><br />
        <em>* Update this, if needed, to match the desired timezone. The difference is calculated referred to the server time.</em>
