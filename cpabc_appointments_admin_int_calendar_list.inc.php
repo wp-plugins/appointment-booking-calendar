@@ -145,9 +145,9 @@ if ($message) echo "<div id='setting-error-settings_updated' class='updated sett
         <td nowrap>
         <?php echo $current_user->user_login; ?>
         </td>
-    <?php } ?>
+    <?php }  ?>
        
-    <td nowrap><a href="<?php get_site_url(); ?>?cpabc_app=calfeed&id=<?php echo $item->id; ?>">iCal Feed</a></td>
+    <td nowrap><a href="<?php get_site_url(); ?>?cpabc_app=calfeed&id=<?php echo $item->id; ?>&verify=<?php echo substr(md5($item->id.$_SERVER["DOCUMENT_ROOT"]),0,10); ?>">iCal Feed</a></td>
     <td nowrap>&nbsp; &nbsp; 
                              <?php if (cpabc_appointment_is_administrator()) { ?> 
                                <input style="font-size:11px;" type="button" name="calupdate_<?php echo $item->id; ?>" value="Update" onclick="cp_updateItem(<?php echo $item->id; ?>);" /> &nbsp; 

@@ -735,8 +735,17 @@ function cpabc_appointments_check_posted_data()
     global $wpdb;
 
     if(isset($_GET) && array_key_exists('cpabc_app',$_GET)) {
-        if ( $_GET["cpabc_app"] == 'calfeed')
-            cpabc_export_iCal();
+        if ( $_GET["cpabc_app"] == 'calfeed' )
+        {            
+            if ($_GET["id"] != '' && substr(md5($_GET["id"].$_SERVER["DOCUMENT_ROOT"]),0,10) == $_GET["verify"])
+                cpabc_export_iCal();
+            else
+            {
+                echo 'Access denied - verify value is not correct.';
+                exit;
+            }    
+               
+        }    
 
         if ($_GET["cpabc_app"] == 'captcha')
         {
@@ -816,7 +825,16 @@ function cpabc_appointments_check_posted_data()
 
     
     $price = explode(";",cpabc_get_option('request_cost', CPABC_APPOINTMENTS_DEFAULT_COST));
-    $price = $price[count($_POST["dateAndTime"])-1];
+    foreach ($price as $item => $value)
+       $price[$item] = trim(str_replace(',','', str_replace(CPABC_APPOINTMENTS_DEFAULT_CURRENCY_SYMBOL,'',
+                                                 str_replace(CPABC_APPOINTMENTS_GBP_CURRENCY_SYMBOL,'',
+                                                 str_replace(CPABC_APPOINTMENTS_EUR_CURRENCY_SYMBOL_A, '',
+                                                 str_replace(CPABC_APPOINTMENTS_EUR_CURRENCY_SYMBOL_B,'', $value )))) ));
+                                                 
+    if (isset($price[count($_POST["dateAndTime"])-1]))
+        $price = $price[count($_POST["dateAndTime"])-1];
+    else 
+        $price = $price[0] * count($_POST["dateAndTime"]);
     
 
     // check discount codes
@@ -1311,7 +1329,7 @@ function cpabc_appointments_calendar_load() {
     global $wpdb;
 	if ( ! isset( $_GET['cpabc_calendar_load'] ) || $_GET['cpabc_calendar_load'] != '1' )
 		return;
-    @ob_clean();
+    //@ob_clean();
     header("Cache-Control: no-store, no-cache, must-revalidate");
     header("Pragma: no-cache");
     $calid = str_replace  (CPABC_TDEAPP_CAL_PREFIX, "",$_GET["id"]);
@@ -1338,7 +1356,7 @@ function cpabc_appointments_calendar_load2() {
     global $wpdb;
 	if ( ! isset( $_GET['cpabc_calendar_load2'] ) || $_GET['cpabc_calendar_load2'] != '1' )
 		return;
-    @ob_clean();
+    //@ob_clean();
     header("Cache-Control: no-store, no-cache, must-revalidate");
     header("Pragma: no-cache");
     $calid = str_replace  (CPABC_TDEAPP_CAL_PREFIX, "",$_GET["id"]);
@@ -1373,7 +1391,7 @@ function cpabc_appointments_calendar_update() {
 
     cpabc_appointments_add_field_verify(CPABC_TDEAPP_CONFIG, 'specialDates');
 
-    @ob_clean();
+    //@ob_clean();
     header("Cache-Control: no-store, no-cache, must-revalidate");
     header("Pragma: no-cache");
     if ( $user_ID )
@@ -1395,7 +1413,7 @@ function cpabc_appointments_calendar_update2() {
     if ( ! current_user_can('edit_pages') && !cpabc_appointments_user_access_to($calid) )
         return;
 
-    @ob_clean();
+    //@ob_clean();
     header("Cache-Control: no-store, no-cache, must-revalidate");
     header("Pragma: no-cache");
     if ( $user_ID )
