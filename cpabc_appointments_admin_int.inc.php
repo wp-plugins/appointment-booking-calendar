@@ -101,9 +101,11 @@ for ($k=1;$k<100;$k++)
                <option value="IT" <?php if ($value == 'IT') echo ' selected="selected"'; ?>>Italian</option>
                <option value="JP" <?php if ($value == 'JP') echo ' selected="selected"'; ?>>Japanese</option>
                <option value="PT" <?php if ($value == 'PT') echo ' selected="selected"'; ?>>Portuguese</option>               
+               <option value="RU" <?php if ($value == 'RU') echo ' selected="selected"'; ?>>Russian</option>
                <option value="SP" <?php if ($value == 'SP') echo ' selected="selected"'; ?>>Spanish</option>
                <option value="SK" <?php if ($value == 'SK') echo ' selected="selected"'; ?>>Slovak</option>
                <option value="SE" <?php if ($value == 'SE') echo ' selected="selected"'; ?>>Swedish</option>
+               <option value="TR" <?php if ($value == 'TR') echo ' selected="selected"'; ?>>Turkish</option>
             </select><br />
             * Note that this "Calendar language" setting will affect the calendar area, 
               but the rest of the form texts are translated in the MO/PO files located in the "<em>appointment-booking-calendar/languages</em>" folder.

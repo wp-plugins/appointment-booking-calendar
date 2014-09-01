@@ -430,6 +430,14 @@ YAHOO.TDE.AppCalendar.appoiments = new Array();
 						wm = ["\u65E5", "\u6708", "\u706B", "\u6C34", "\u6728", "\u91D1", "\u571F"];
 						wl = ["\u65E5", "\u6708", "\u706B", "\u6C34", "\u6728", "\u91D1", "\u571F"];
 					break;
+					case "RU":					
+                        ms = ["\u042F\u041D\u0412", "\u0424\u0415\u0412", "\u041C\u0410\u0420", "\u0410\u041F\u0420", "\u041C\u0410\u0419", "\u0418\u042E\u041D", "\u0418\u042E\u041B", "\u0410\u0412\u0413", "\u0421\u0415\u041D", "\u041E\u041A\u0422", "\u041D\u041E\u042F", "\u0414\u0415\u041A"];
+                        ml=  ["\u042F\u043D\u0432\u0430\u0440\u044C", "\u0424\u0435\u0432\u0440\u0430\u043B\u044C", "\u041C\u0430\u0440\u0442", "\u0410\u043F\u0440\u0435\u043B\u044C", "\u041C\u0430\u0439", "\u0418\u044E\u043D\u044C", "\u0418\u044E\u043B\u044C", "\u0410\u0432\u0433\u0443\u0441\u0442", "\u0421\u0435\u043D\u0442\u044F\u0431\u0440\u044C", "\u041E\u043A\u0442\u044F\u0431\u0440\u044C", "\u041D\u043E\u044F\u0431\u0440\u044C", "\u0414\u0435\u043A\u0430\u0431\u0440\u044C"];
+                        wc = ["\u0412", "\u041F", "\u0412", "\u0421", "\u0427", "\u041F", "\u0421"];
+                        ws = ["\u0412\u0441", "\u041F\u043D", "\u0412\u0442", "\u0421\u0440", "\u0427\u0442", "\u041F\u0442", "\u0421\u0431"];
+                        wm = ["\u0412\u043E\u0441", "\u041F\u043E\u043D", "\u0412\u0442\u0440", "\u0421\u0440\u0434", "\u0427\u0442\u0432", "\u041F\u0442\u043D", "\u0421\u0443\u0431"];
+                        wl = ["\u0412\u043E\u0441\u043A\u0440\u0435\u0441\u0435\u043D\u044C\u0435", "\u041F\u043E\u043D\u0435\u0434\u0435\u043B\u044C\u043D\u0438\u043A", "\u0412\u0442\u043E\u0440\u043D\u0438\u043A", "\u0421\u0440\u0435\u0434\u0430", "\u0427\u0435\u0442\u0432\u0435\u0440\u0433", "\u041F\u044F\u0442\u043D\u0438\u0446\u0430", "\u0421\u0443\u0431\u0431\u043E\u0442\u0430"];
+					break;					
 					case "DU":
 						ms = ["Jan", "Feb", "Maa", "Apr", "Mei", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dec"];
 						ml = ["Januari", "Februari", "Maart", "April", "Mei", "Juni", "Juli", "Augustus", "September", "Oktober", "November", "December"];
@@ -463,6 +471,14 @@ YAHOO.TDE.AppCalendar.appoiments = new Array();
 						wm = ["S&ouml;n", "M&aring;n", "Tis", "Ons", "Tor", "Fre", "L&ouml;r"];
 						wl = ["S&ouml;ndag", "M&aring;ndag", "Tisdag", "Onsdag", "Torsdag", "Fredag", "L&ouml;rdag"];
 					break;
+					case "TR":
+						ms = ["Oca","&THORN;ub","Mar","Nis","May","Haz","Tem","A&eth;u","Eyl","Eki","Kas","Ara"];
+						ml = ["Ocak","&THORN;ubat","Mart","Nisan","May&yacute;s","Haziran","Temmuz","A&eth;ustos","Eyl&uuml;l","Ekim","Kas&yacute;m","Aral&yacute;k"];
+						wc = ["P", "P", "S", "&Ccedil;", "P", "C", "C"];
+						ws = ["Pz", "Pt", "Sa", "&Ccedil;a", "Pe", "Cu", "Ct"];
+						wm = ["Paz", "Pat", "Sal", "&Ccedil;ar", "Per", "Cum", "Cut"];
+						wl = ["Pazar","Pazartesi","Sal&yacute;","&Ccedil;ar&thorn;amba","Per&thorn;embe","Cuma","Cumartesi"];
+					break;					
 					default:
 						return;
 					break;
