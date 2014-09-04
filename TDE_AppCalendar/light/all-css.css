@@ -625,4 +625,6 @@ color:#ffffff;
 		width: 245px;
 	}
 }
+.yui-calcontainer table,.yui-calcontainer th,.yui-calcontainer td{border:inherit}
+.yui-calcontainer .calheader a{text-decoration:none}
 #listcal1{color:#ED1F24}

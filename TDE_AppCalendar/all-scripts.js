@@ -473,7 +473,7 @@ YAHOO.TDE.AppCalendar.appoiments = new Array();
 					break;
 					case "TR":
 						ms = ["Oca","&THORN;ub","Mar","Nis","May","Haz","Tem","A&eth;u","Eyl","Eki","Kas","Ara"];
-						ml = ["Ocak","&THORN;ubat","Mart","Nisan","May&yacute;s","Haziran","Temmuz","A&eth;ustos","Eyl&uuml;l","Ekim","Kas&yacute;m","Aral&yacute;k"];
+						ml = ["Ocak","&THORN;ubat","Mart","Nisan","May&yacute;s","Haziran","Temmuz","A&eth;ustos","Eyl&uuml;l","Ekim","Kas&#305;m","Aral&yacute;k"];
 						wc = ["P", "P", "S", "&Ccedil;", "P", "C", "C"];
 						ws = ["Pz", "Pt", "Sa", "&Ccedil;a", "Pe", "Cu", "Ct"];
 						wm = ["Paz", "Pat", "Sal", "&Ccedil;ar", "Per", "Cum", "Cut"];
