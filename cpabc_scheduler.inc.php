@@ -18,29 +18,29 @@
  {
     if (form.phone.value == '')
     {
-        alert('<?php _e('Please enter a valid phone number'); ?>.');
+        alert('<?php echo str_replace("'","\'",__('Please enter a valid phone number')); ?>.');
         return false;
     }
     if (form.email.value == '')
     {
-        alert('<?php _e('Please enter a valid email address'); ?>.');
+        alert('<?php echo str_replace("'","\'",__('Please enter a valid email address')); ?>.');
         return false;
     }
     if (form.name.value == '')
     {
-        alert('<?php _e('Please write your name'); ?>.');
+        alert('<?php echo str_replace("'","\'",__('Please write your name')); ?>.');
         return false;
     }
     var selst = ""+document.getElementById("selDaycal"+cpabc_current_calendar_item).value;    
     if (selst == '')
     {
-        alert('<?php _e('Please select date and time'); ?>.');
+        alert('<?php echo str_replace("'","\'",__('Please select date and time')); ?>.');
         return false;
     }
     selst = selst.match(/;/g);selst = selst.length;
     if (selst < <?php $opt = cpabc_get_option('min_slots', '1'); if ($opt == '') $opt = '1'; echo $opt; ?>)
     {
-        var almsg = '<?php _e('Please select at least %1 time-slots. Currently selected: %2 time-slots.'); ?>';
+        var almsg = '<?php echo str_replace("'","\'",__('Please select at least %1 time-slots. Currently selected: %2 time-slots.')); ?>';
         almsg = almsg.replace('%1','<?php echo $opt; ?>');
         almsg = almsg.replace('%2',selst);
         alert(almsg);
@@ -48,7 +48,7 @@
     }
     if (selst > <?php $opt = cpabc_get_option('max_slots', '1'); if ($opt == '') $opt = '1'; echo $opt; ?>)
     {
-        var almsg = '<?php _e('Please select a maximum of %1 time-slots. Currently selected: %2 time-slots.'); ?>';
+        var almsg = '<?php echo str_replace("'","\'",__('Please select a maximum of %1 time-slots. Currently selected: %2 time-slots.')); ?>';
         almsg = almsg.replace('%1','<?php echo $opt; ?>');
         almsg = almsg.replace('%2',selst);
         alert(almsg);
@@ -56,7 +56,7 @@
     } 
     <?php if (cpabc_get_option('dexcv_enable_captcha', CPABC_TDEAPP_DEFAULT_dexcv_enable_captcha) != 'false') { ?> if (form.hdcaptcha.value == '')
     {
-        alert('<?php _e('Please enter the captcha verification code'); ?>.');
+        alert('<?php echo str_replace("'","\'",__('Please enter the captcha verification code')); ?>.');
         return false;
     }
     $dexQuery = jQuery.noConflict();
@@ -68,7 +68,7 @@
     if (result == "captchafailed")
     {
         $dexQuery("#captchaimg").attr('src', $dexQuery("#captchaimg").attr('src')+'&'+Date());
-        alert('Incorrect captcha code. Please try again.');
+        alert('<?php echo str_replace("'","\'",__('Incorrect captcha code. Please try again.')); ?>');
         return false;
     }
     else <?php } ?>
