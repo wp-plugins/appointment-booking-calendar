@@ -1,7 +1,7 @@
 === Appointment Booking Calendar ===
 Contributors: codepeople
 Donate link: http://wordpress.dwbooster.com/calendars/appointment-booking-calendar
-Tags: booking form,booking calendar,appointment,appointment calendar,paypal calendar,paypal bookings,paypal appointments,booking,bookings,meeting,meet
+Tags: booking form,booking calendar,appointment,appointment calendar,paypal calendar,plugin,calendar,paypal bookings,paypal appointments,booking,bookings,meeting,meet
 Requires at least: 3.0.5
 Tested up to: 4.0
 Stable tag: trunk
