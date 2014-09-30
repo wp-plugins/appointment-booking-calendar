@@ -1,7 +1,7 @@
 === Appointment Booking Calendar ===
 Contributors: codepeople
 Donate link: http://wordpress.dwbooster.com/calendars/appointment-booking-calendar
-Tags: booking form,booking calendar,appointment,appointment calendar,paypal calendar,plugin,calendar,paypal bookings,paypal appointments,booking,bookings,meeting,meet
+Tags: booking form,booking calendar,appointment,appointment calendar,page,paypal calendar,plugin,calendar,paypal bookings,paypal appointments,booking,bookings,meeting,meet
 Requires at least: 3.0.5
 Tested up to: 4.0
 Stable tag: trunk
@@ -101,6 +101,17 @@ A: Open the file "wp-content/plugins/appointment-booking-calendar/TDE_AppCalenda
     .yui-calendar td.calcell.reserveddate { background-color:#B6EA59; }
 
 ...and replace the background color that appears there.
+
+
+= Q: How can I export the calendar iCal link with Google Calendar on a regular basis? =
+
+A: Please read the instructions on this Google page:
+
+https://support.google.com/calendar/answer/37100?hl=en
+
+To get the iCal feed URL right click the "iCal" link on the calendar list and click "Copy Link Address" or "Copy Link Location" (depending of the browser you are using).
+
+Note: This will automatically export the bookings stored in the calendar plugin to the Google Calendar. The inverse process (import the items on Google Calendar into the plugin) isn't currently available.
 
 
 = Q: After booking appointment I'm not receiving the emails with the appointment data. =
