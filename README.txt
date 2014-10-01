@@ -91,7 +91,7 @@ Open the file "appointment-booking-calendar\TDE_AppCalendar\all-css.css" and abo
 
 = Q: Can I put an "acknowledgment / thank you message" after submitting an appointment and completing the PayPal payment? =
 
-The "acknowledgment / thank you message" shown to the user after submitting the appointment form should be placed at the page indicated in the field "URL to return after successful payment". Note that after the submission the user is redirected first to PayPal and then to the "thank you" page once the payment for the booking has been completed.
+A: The "acknowledgment / thank you message" shown to the user after submitting the appointment form should be placed at the page indicated in the field "URL to return after successful payment". Note that after the submission the user is redirected first to PayPal and then to the "thank you" page once the payment for the booking has been completed.
 
 
 = Q: How do I change the background color of the selected date on the appointment calendar? =
@@ -116,7 +116,7 @@ Note: This will automatically export the bookings stored in the calendar plugin 
 
 = Q: After booking appointment I'm not receiving the emails with the appointment data. =
 
-Please check if after the completing the payment at PayPal the appointment appears registered in the appointment calendar (some time slot unavailable):
+A: Please check if after the completing the payment at PayPal the appointment appears registered in the appointment calendar (some time slot unavailable):
 
 * **If the appointment purchase is registered**, then the problem is that you server has some additional configuration requirements to send emails from PHP. The Appointment Booking Calendar plugin uses the settings specified into the WordPress website to deliver the emails, if your hosting has some specific requirements like a fixed "from" address or a custom "SMTP" server those settings must be configured into the WordPress website.
 
