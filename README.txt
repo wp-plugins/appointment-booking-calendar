@@ -124,6 +124,12 @@ A: Please check if after the completing the payment at PayPal the appointment ap
 
 * **If the appointment purchase isn't registered and you are testing it on an online website**, then check if the payment appears as "completed" at the PayPal seller account (no red flags, no pending mark). Check also if your PayPal account is setup to automatically accept payments in the selected currency. The payment must be "accepted" and "completed" in the PayPal seller account.
 
+= Q: How to make the appointment calendar 100% width? =
+
+A: Add this CSS rule at the end of the file "wp-content/plugins/appointment-booking-calendar/css/stylepublic.css":
+
+        .yui-calcontainer{width:98%}        
+
 
 == Other Notes ==
 
