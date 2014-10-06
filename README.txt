@@ -257,6 +257,7 @@ The free version published in this WordPress directory is a fully-functional ver
 
 Please note that the pro features aren't advised as part of the free plugin in the description shown in this WordPress directory. If you are interested in more information about the pro features go to the plugin's page: http://wordpress.dwbooster.com/calendars/appointment-booking-calendar
  
+The Appointment Booking Calendar plugin has recently reached **28,000 installations** and we would like to **thank you all the people** that have supported the development of the plugin with feedback messages or by acquiring the pro / developer versions. We are working in a new set of features for all the distributions of the plugin that will be published soon. 
  
 == Screenshots ==
 
