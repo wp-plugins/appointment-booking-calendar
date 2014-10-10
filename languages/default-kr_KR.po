@@ -1,0 +1,111 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: app book cal\n"
+"POT-Creation-Date: 2013-04-19 10:48+0100\n"
+"PO-Revision-Date: 2014-10-08 23:26+0900\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.9\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;_e\n"
+"X-Poedit-Basepath: C:\\TORRE_F\\WorkII\\Developers4Web\\DWBooster.wordpress"
+"\\components\\Appointment Booking Calendar\\pro-version\\appointment-booking-"
+"calendar\\\n"
+"Language: ko_KR\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: cpabc_appointments.php:375
+msgid "Quantity"
+msgstr "수량"
+
+#: cpabc_appointments.php:411
+msgid "Please select the appointment time."
+msgstr ""
+"예약가능한 공연타임을 선택해주세요.※ 1타임당 한분만 예약가능합니다.※ 연극관"
+"람 후 리무진 복귀 서비스도 신청가능합니다."
+
+#: cpabc_appointments.php:444
+msgid "Selected date"
+msgstr "선택된 "
+
+#: cpabc_internal.inc.php:8 cpabc_scheduler.inc.php:6
+msgid "Calendar"
+msgstr "예약시스템"
+
+#: cpabc_internal.inc.php:12 cpabc_scheduler.inc.php:10
+msgid "Select date and time"
+msgstr "날짜/시간 "
+
+#: cpabc_internal.inc.php:24 cpabc_scheduler.inc.php:37
+msgid "Please select date and time"
+msgstr "날짜와 시간을 선택해주세요."
+
+#: cpabc_internal.inc.php:62 cpabc_scheduler.inc.php:79
+msgid "Coupon code (optional)"
+msgstr "쿠폰코드(옵션)"
+
+#: cpabc_internal.inc.php:67 cpabc_scheduler.inc.php:84
+msgid "Service"
+msgstr "Služby"
+
+#: cpabc_internal.inc.php:73 cpabc_scheduler.inc.php:90
+msgid "Please enter the security code:"
+msgstr "보안코드를 입력해주세요."
+
+#: cpabc_internal.inc.php:76 cpabc_scheduler.inc.php:93
+msgid "Security Code (lowercase letters):"
+msgstr "보안코드(소문자)"
+
+#: cpabc_internal.inc.php:84 cpabc_scheduler.inc.php:101
+msgid "Continue"
+msgstr "Pokračovať"
+
+#: cpabc_scheduler.inc.php:22
+msgid "Please enter a valid phone number"
+msgstr "휴대폰 번호 형식이 올바르지 않습니다."
+
+#: cpabc_scheduler.inc.php:27
+msgid "Please enter a valid email address"
+msgstr "이메일 형식이 틀리셨습니다."
+
+#: cpabc_scheduler.inc.php:32
+msgid "Please write your name"
+msgstr "성명을 입력해주세요."
+
+#: cpabc_scheduler.inc.php:42
+msgid "Please enter the captcha verification code"
+msgstr "보안코드 번호를 입력해주세요."
+
+#: cpabc_scheduler.inc.php:64
+msgid "Your phone number"
+msgstr "휴대폰번호(010은 빼고 입력해주세요!)"
+
+#: cpabc_scheduler.inc.php:67
+msgid "Your name"
+msgstr "성명"
+
+#: cpabc_scheduler.inc.php:70
+msgid "Your email"
+msgstr "e-Mail"
+
+#: cpabc_scheduler.inc.php:73
+msgid "Comments/Questions"
+msgstr "내용"
+
+msgid ""
+"Please select at least %1 time-slots. Currently selected: %2 time-slots."
+msgstr ""
+"죄송합니다. 예약은 최소 1타임만 가능합니다. 현재, 2타임을 선택하셨습니다. "
+
+msgid ""
+"Please select a maximum of %1 time-slots. Currently selected: %2 time-slots."
+msgstr "죄송합니다. 예약은 1타임만 가능합니다. "
+
+msgid "Cancel"
+msgstr "취소"
+
+msgid "Previous"
+msgstr "이전"
