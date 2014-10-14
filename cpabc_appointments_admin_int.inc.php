@@ -100,7 +100,8 @@ for ($k=1;$k<100;$k++)
                <option value="FR" <?php if ($value == 'FR') echo ' selected="selected"'; ?>>French</option>
                <option value="IT" <?php if ($value == 'IT') echo ' selected="selected"'; ?>>Italian</option>
                <option value="JP" <?php if ($value == 'JP') echo ' selected="selected"'; ?>>Japanese</option>
-               <option value="PT" <?php if ($value == 'PT') echo ' selected="selected"'; ?>>Portuguese</option>               
+               <option value="PL" <?php if ($value == 'PL') echo ' selected="selected"'; ?>>Polish</option>
+               <option value="PT" <?php if ($value == 'PT') echo ' selected="selected"'; ?>>Portuguese</option>
                <option value="RU" <?php if ($value == 'RU') echo ' selected="selected"'; ?>>Russian</option>
                <option value="SP" <?php if ($value == 'SP') echo ' selected="selected"'; ?>>Spanish</option>
                <option value="SK" <?php if ($value == 'SK') echo ' selected="selected"'; ?>>Slovak</option>

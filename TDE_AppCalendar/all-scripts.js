@@ -414,6 +414,14 @@ YAHOO.TDE.AppCalendar.appoiments = new Array();
 						wm = ["Dom", "Lun", "Mar", "Mer", "Gio", "Ven", "Sab"];
 						wl = ["Domenica", "Luned&igrave;", "Marted&igrave;", "Mercoled&igrave;", "Gioved&igrave;", "Venerd&igrave;", "Sabato"];
 					break;
+					case "PL":
+						ms = ["Sty", "Lut", "Mar", "Kwi", "Maj", "Cze", "Lip", "Sie", "Wrz", "Pa&#378;", "Lis", "Gru"];
+						ml = ["Stycze&#324;", "Luty", "Marzec", "Kwiecie&#324;", "Maj", "Czerwiec", "Lipiec", "Sierpie&#324;", "Wrzesie&#324;", "Pa&#378;dziernik", "Listopad", "Grudzie&#324;"];
+						wc = ["N", "P", "W", "&#346;", "C", "P", "S"];
+						ws = ["Ni", "Po", "Wt", "&#346;r", "Cz", "Pi", "So"];
+						wm = ["Nie", "Pon", "Wto", "&#346;ro", "Czw", "Pi&#261;", "Sob"];
+						wl = ["Niedziela", "Poniedzia&#322;ek", "Wtorek", "&#346;roda", "Czwartek", "Pi&#261;tek", "Sobota"];
+					break;					
 					case "PT":
 						ms = ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"];
 						ml = ["Janeiro", "Fevereiro", "Mar&ccedil;o", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
