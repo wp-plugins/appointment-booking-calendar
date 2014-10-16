@@ -607,48 +607,6 @@ function cpabc_appointments_html_post_page() {
 }
 
 function set_cpabc_apps_insert_button() {
-    /**
-    global $wpdb;
-    $options = '';
-    $calendars = $wpdb->get_results( 'SELECT * FROM '.$wpdb->prefix.CPABC_APPOINTMENTS_CONFIG_TABLE_NAME_NO_PREFIX);     
-    foreach($calendars as $item)
-        $options .= '<option value="'.$item->id.'">'.$item->uname.'</option>';    
-        
-    wp_enqueue_style('wp-jquery-ui-dialog');
-    wp_enqueue_script('jquery-ui-dialog');    
-    ?>
-    <script type="text/javascript">     
-      var cpabc_appointments_fpanel = function($){
-        var cpabc_counter = 0;
-      	function loadWindow(){
-      	    cpabc_counter++;
-      		$(' <div title="Appointment Booking Calendar"><div style="padding:20px;">'+
-      		   'Select Calendar:<br /><select id="cpabc_calendar_sel'+cpabc_counter+'" name="cpabc_calendar_sel'+cpabc_counter+'"><?php echo $options; ?></select>'+      		   
-      		   '</div></div>'
-      		  ).dialog({
-      			dialogClass: 'wp-dialog',
-                  modal: true,
-                  closeOnEscape: true,
-                  buttons: [
-                      {text: "Insert", click: function() {
-      						if(send_to_editor){
-      							var id = $('#cpabc_calendar_sel'+cpabc_counter)[0].options[$('#cpabc_calendar_sel'+cpabc_counter)[0].options.selectedIndex].value;
-                                send_to_editor('[CPABC_APPOINTMENT_CALENDAR calendar="'+id+'"]');
-      						}
-      						$(this).dialog("close"); 
-      				}}
-                  ]
-              });
-      	}
-      	var obj = {};
-      	obj.open = loadWindow;
-      	return obj;
-      }(jQuery);  
-     </script>   
-    <?php
-
-    print '<a href="javascript:cpabc_appointments_fpanel.open()" title="'.__('Insert Appointment Booking Calendar').'"><img hspace="5" src="'.plugins_url('/images/cpabc_apps.gif', __FILE__).'" alt="'.__('Insert  Appointment Booking Calendar').'" /></a>';    
-    */
     print '<a href="javascript:send_to_editor(\'[CPABC_APPOINTMENT_CALENDAR calendar=&quot;1&quot;]\');" title="'.__('Insert Appointment Booking Calendar').'"><img hspace="5" src="'.plugins_url('/images/cpabc_apps.gif', __FILE__).'" alt="'.__('Insert  Appointment Booking Calendar').'" /></a>';    
 }
 
