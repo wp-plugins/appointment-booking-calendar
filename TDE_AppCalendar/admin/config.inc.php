@@ -1,3 +1,3 @@
 <?php
-$filename = "database/calendars.php";
+// not longer used, verify for deletion
 ?>
