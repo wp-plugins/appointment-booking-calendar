@@ -566,6 +566,11 @@ if ( is_admin() ) {
     function cpabc_appointments_admin_menu() {
         add_options_page('Appointment Booking Calendar Options', 'Appointment Booking Calendar', 'manage_options', 'cpabc_appointments', 'cpabc_appointments_html_post_page' );
         add_menu_page( 'Appointment Booking Calendar Options', 'Appointment Booking Calendar', 'edit_pages', 'cpabc_appointments', 'cpabc_appointments_html_post_page' );
+        
+        add_submenu_page( 'cpabc_appointments', 'Manage Calendar', 'Manage Calendar', 'edit_pages', "cpabc_appointments",  'cpabc_appointments_html_post_page' );
+        add_submenu_page( 'cpabc_appointments', 'Help: Online demo', 'Help: Online demo', 'edit_pages', "cpabc_appointments_demo", 'cpabc_appointments_html_post_page' );       
+        add_submenu_page( 'cpabc_appointments', 'Upgrade', 'Upgrade', 'edit_pages', "cpabc_appointments_upgrade", 'cpabc_appointments_html_post_page' );
+         
     }
 }
 else
@@ -603,7 +608,20 @@ function cpabc_appointments_html_post_page() {
             @include_once dirname( __FILE__ ) . '/cpabc_appointments_admin_int.inc.php';
     }
     else
-        @include_once dirname( __FILE__ ) . '/cpabc_appointments_admin_int_calendar_list.inc.php';
+    {
+        if (isset($_GET["page"]) &&$_GET["page"] == 'cpabc_appointments_upgrade')
+        {
+            echo("Redirecting to upgrade page...<script type='text/javascript'>document.location='http://wordpress.dwbooster.com/calendars/appointment-booking-calendar#download';</script>");
+            exit;
+        } 
+        else if (isset($_GET["page"]) &&$_GET["page"] == 'cpabc_appointments_demo')
+        {
+            echo("Redirecting to demo page...<script type='text/javascript'>document.location='http://wordpress.dwbooster.com/calendars/appointment-booking-calendar#demo';</script>");
+            exit;
+        } 
+        else                
+            @include_once dirname( __FILE__ ) . '/cpabc_appointments_admin_int_calendar_list.inc.php';
+    }
 }
 
 function set_cpabc_apps_insert_button() {
