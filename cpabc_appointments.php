@@ -899,7 +899,7 @@ function cpabc_appointments_check_posted_data()
 <input type="hidden" name="bn" value="PP-BuyNowBF" />
 <input type="hidden" name="notify_url" value="<?php echo cpabc_appointment_get_FULL_site_url(); ?>/?cpabc_ipncheck=1&itemnumber=<?php echo $item_number; ?>" />
 <input type="hidden" name="ipn_test" value="1" />
-<input class="pbutton" type="hidden" value="Buy Now" /></div>
+<input class="pbutton" type="hidden" value="Buy Now" />
 </form>
 <script type="text/javascript">
 document.ppform3.submit();
