@@ -65,7 +65,7 @@
         url: "<?php echo cpabc_appointment_get_site_url(); ?>?inAdmin=1&abcc=1&hdcaptcha="+form.hdcaptcha.value,
         async: false
     }).responseText;
-    if (result == "captchafailed")
+    if (result.indexOf("captchafailed") != -1)
     {
         $dexQuery("#captchaimg").attr('src', $dexQuery("#captchaimg").attr('src')+'&'+Date());
         alert('<?php echo str_replace("'","\'",__('Incorrect captcha code. Please try again.')); ?>');
