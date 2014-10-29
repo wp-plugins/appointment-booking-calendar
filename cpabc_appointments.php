@@ -937,6 +937,7 @@ function cpabc_appointments_check_IPN_verification() {
     $payment_type = $_POST['payment_type'];
 
     /**
+    // uncomment the following lines to process echecks only after cleared
 	if ($payment_status != 'Completed' && $payment_type != 'echeck')
 	    return;
 
