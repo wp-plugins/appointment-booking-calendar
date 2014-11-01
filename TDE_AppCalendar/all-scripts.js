@@ -445,15 +445,22 @@ YAHOO.TDE.AppCalendar.appoiments = new Array();
                         ws = ["\u0412\u0441", "\u041F\u043D", "\u0412\u0442", "\u0421\u0440", "\u0427\u0442", "\u041F\u0442", "\u0421\u0431"];
                         wm = ["\u0412\u043E\u0441", "\u041F\u043E\u043D", "\u0412\u0442\u0440", "\u0421\u0440\u0434", "\u0427\u0442\u0432", "\u041F\u0442\u043D", "\u0421\u0443\u0431"];
                         wl = ["\u0412\u043E\u0441\u043A\u0440\u0435\u0441\u0435\u043D\u044C\u0435", "\u041F\u043E\u043D\u0435\u0434\u0435\u043B\u044C\u043D\u0438\u043A", "\u0412\u0442\u043E\u0440\u043D\u0438\u043A", "\u0421\u0440\u0435\u0434\u0430", "\u0427\u0435\u0442\u0432\u0435\u0440\u0433", "\u041F\u044F\u0442\u043D\u0438\u0446\u0430", "\u0421\u0443\u0431\u0431\u043E\u0442\u0430"];
-					break;					
+					break;	
+					case "DA":
+						ms = ["Jan", "Feb", "Mar", "Apr", "Maj", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dec"];
+						ml = ["Januar", "Februar", "Marts", "April", "Maj", "Juni", "Juli", "August", "September", "Oktober", "November", "December"];
+						wc = ["S", "M", "T", "O", "T", "F", "L"];
+						ws = ["S&oslash;","Ma", "Ti", "On", "To", "Fr", "L&oslash;"];
+						wm = ["S&oslash;n", "Man", "Tir", "Ons", "Tor", "Fre", "L&oslash;r"];
+						wl = ["S&oslash;ndag", "Mandag", "Tirsdag", "Onsdag", "Torsdag", "Fredag", "L&oslash;rdag"];					
+					break;							
 					case "DU":
 						ms = ["Jan", "Feb", "Maa", "Apr", "Mei", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dec"];
 						ml = ["Januari", "Februari", "Maart", "April", "Mei", "Juni", "Juli", "Augustus", "September", "Oktober", "November", "December"];
 						wc = ["Z", "M", "D", "W", "D", "V", "Z"];
 						ws = ["Zo", "Ma", "Di", "Wo", "Do", "Vr", "Za"];
 						wm = ["Zon", "Maa", "Din", "Woe", "Don", "Vri", "Zat"];
-						wl = ["Zondag", "Maandag", "Dinsdag", "Woensdag", "Donderdag", "Vrijdag", "Zaterdag"];
-						
+						wl = ["Zondag", "Maandag", "Dinsdag", "Woensdag", "Donderdag", "Vrijdag", "Zaterdag"];						
 					break;
 					case "CZ":
 						ms = ["Led", "&Uacute;no", "B&#x159;e", "Dub", "Kv&#x11b;", "&#x10c;er", "&#x10c;ec", "Srp", "Z&aacute;&#x159;", "&#x159;&iacute;j", "Lis", "Pro"];

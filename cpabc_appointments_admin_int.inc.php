@@ -95,6 +95,7 @@ for ($k=1;$k<100;$k++)
              <select name="calendar_language">               
                <option value="CZ" <?php if ($value == 'CZ') echo ' selected="selected"'; ?>>Czech</option>
                <option value="DE" <?php if ($value == 'DE') echo ' selected="selected"'; ?>>German</option>
+               <option value="DA" <?php if ($value == 'DA') echo ' selected="selected"'; ?>>Danish</option>
                <option value="DU" <?php if ($value == 'DU') echo ' selected="selected"'; ?>>Dutch</option>
                <option value="EN" <?php if ($value == 'EN') echo ' selected="selected"'; ?>>English</option>
                <option value="FR" <?php if ($value == 'FR') echo ' selected="selected"'; ?>>French</option>
