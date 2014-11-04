@@ -793,8 +793,16 @@ function cpabc_appointments_check_posted_data()
     array_shift($_POST["dateAndTime"]);
 
     $military_time = cpabc_get_option('calendar_militarytime', CPABC_APPOINTMENTS_DEFAULT_CALENDAR_MILITARYTIME);
-    if (cpabc_get_option('calendar_militarytime', CPABC_APPOINTMENTS_DEFAULT_CALENDAR_MILITARYTIME) == '0') $format = "g:i A"; else $format = "H:i";
-    if (cpabc_get_option('calendar_dateformat', CPABC_APPOINTMENTS_DEFAULT_CALENDAR_DATEFORMAT) == '0') $format = "m/d/Y ".$format; else $format = "d/m/Y ".$format;
+    if (cpabc_get_option('calendar_militarytime', CPABC_APPOINTMENTS_DEFAULT_CALENDAR_MILITARYTIME) == '0') $format = "g:i A"; else $format = "H:i";   
+    
+    $calendar_dformat = cpabc_get_option('calendar_dateformat', CPABC_APPOINTMENTS_DEFAULT_CALENDAR_DATEFORMAT);
+    if ($calendar_dformat == '2') 
+        $format = "d.m.Y ".$format; 
+    else if ($calendar_dformat == '1')
+        $format = "d/m/Y ".$format;
+    else 
+        $format = "m/d/Y ".$format; 
+            
     for($n=0;$n<count($_POST["dateAndTime"]); $n++)
     {
         $_POST["dateAndTime"][$n] = date("Y-m-d H:i:s",strtotime($_POST["dateAndTime"][$n]));

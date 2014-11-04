@@ -89,6 +89,12 @@ function initAppCalendar(calendarId,pages,type,lang,m)
 		  mCfg.MDY_DAY_POSITION = 1;
 		  mCfg.MDY_MONTH_POSITION = 2;
 		  mCfg.MDY_YEAR_POSITION = 3;
+	  } else if (cpabc_global_date_format == '2')
+	  {
+		  mCfg.MDY_DAY_POSITION = 1;
+		  mCfg.MDY_MONTH_POSITION = 2;
+		  mCfg.MDY_YEAR_POSITION = 3;
+		  mCfg.DATE_FIELD_DELIMITER = ".";
 	  }
 	} catch(e)   {}
 
@@ -586,7 +592,16 @@ YAHOO.TDE.AppCalendar.appoiments = new Array();
 			    for (var i=0;i<r.length;i++)
 			    {
 			 	    k = r[i].d;
-			 	    strList += '<div>'+ ((cpabc_global_date_format == '1')?k.getDate() + "/" + (k.getMonth()+ 1):(k.getMonth()+ 1) + "/" + k.getDate())+"/" + k.getFullYear()+" "+getTimeWithAMPM(calendarId,r[i].t)+' <div class="cancel-btn"><a href="javascript:removeAppointment(\''+calendarId+'\',\''+r[i].str+'\');"><span>'+cpabc_global_cancel_text+'</span></a></div></div>';
+			 	    
+			        var sel_fdate = " "+getTimeWithAMPM(calendarId,r[i].t);
+			        if (cpabc_global_date_format == '1')
+                        sel_fdate = k.getDate() + "/" + (k.getMonth()+ 1) +"/" + k.getFullYear() + sel_fdate;
+                    else if (cpabc_global_date_format == '2')
+                        sel_fdate = k.getDate() + "." + (k.getMonth()+ 1) +"." + k.getFullYear() + sel_fdate;
+                    else  
+                        sel_fdate = (k.getMonth()+ 1) + "/" + k.getDate() +"/" + k.getFullYear() + sel_fdate;
+                        			 	    
+			 	    strList += '<div>'+ sel_fdate +' <div class="cancel-btn"><a href="javascript:removeAppointment(\''+calendarId+'\',\''+r[i].str+'\');"><span>'+cpabc_global_cancel_text+'</span></a></div></div>';
 			 	    strDates += ";"+r[i].str;
 				    YAHOO.TDE.calendar.calendarArray[calendarId].addRenderer((k.getMonth()+ 1) + "/" + k.getDate() + "/" + k.getFullYear(), YAHOO.TDE.calendar.myCustomReserveddate);
 			    }

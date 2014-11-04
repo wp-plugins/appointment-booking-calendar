@@ -134,7 +134,8 @@ for ($k=1;$k<100;$k++)
              <?php $value = cpabc_get_option('calendar_dateformat',CPABC_APPOINTMENTS_DEFAULT_CALENDAR_DATEFORMAT); ?>
              <select name="calendar_dateformat">               
                <option value="0" <?php if ($value == '0') echo ' selected="selected"'; ?>>mm/dd/yyyy</option>
-               <option value="1" <?php if ($value == '1') echo ' selected="selected"'; ?>>dd/mm/yyyy</option>         
+               <option value="1" <?php if ($value == '1') echo ' selected="selected"'; ?>>dd/mm/yyyy</option>  
+               <option value="2" <?php if ($value == '2') echo ' selected="selected"'; ?>>dd.mm.yyyy</option>       
              </select>           
         </td>
         </tr>
