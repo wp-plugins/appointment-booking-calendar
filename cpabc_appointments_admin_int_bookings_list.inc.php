@@ -11,8 +11,6 @@ if (!defined('CP_CALENDAR_ID'))
 
 global $wpdb;
 
-//  $wpdb->query('ALTER TABLE `'.CPABC_APPOINTMENTS_CALENDARS_TABLE_NAME.'` CHANGE `reference` `reference` VARCHAR(20)  NOT NULL');  
-
 $message = "";
 if (isset($_GET['ld']) && $_GET['ld'] != '')
 {
