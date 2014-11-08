@@ -126,8 +126,8 @@ echo paginate_links(  array(
 	 <?php for ($i=($current_page-1)*$records_per_page; $i<$current_page*$records_per_page; $i++) if (isset($events[$i])) { ?>
 	  <tr class='<?php if (!($i%2)) { ?>alternate <?php } ?>author-self status-draft format-default iedit' valign="top">
 		<td><?php echo substr($events[$i]->datatime,0,16); ?></td>
-		<td><?php echo $events[$i]->title; ?></td>
-		<td><?php echo $events[$i]->description; ?></td>
+		<td><?php echo str_replace('<','&lt;',$events[$i]->title); ?></td>
+		<td><?php echo str_replace('<','&lt;',$events[$i]->description); ?></td>
 		<td><?php echo $events[$i]->quantity; ?></td>
 		<td>
 		  <input type="button" name="caldelete_<?php echo $events[$i]->id; ?>" value="Delete" onclick="cp_deleteMessageItem(<?php echo $events[$i]->id; ?>);" />                             
