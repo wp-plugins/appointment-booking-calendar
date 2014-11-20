@@ -1243,18 +1243,24 @@ YAHOO.TDE.tabView.weekdaytag = function(day,calendarId) {
 		str += '<option value="10">10</option>';
 		str += '<option value="15">15</option>';
 		str += '<option value="20">20</option>';
+		str += '<option value="25">25</option>';
 		str += '<option value="30">30</option>';
+		str += '<option value="35">35</option>';
+		str += '<option value="40">40</option>';
 		str += '<option value="45">45</option>';
+		str += '<option value="50">50</option>';
 		str += '<option value="60">60</option>';
 		str += '<option value="90">90</option>';
 		str += '<option value="120">120</option>';
+		str += '<option value="180">180</option>';
+		str += '<option value="240">240</option>';
 		str += '</select>';
 		return str;
 
 	}
 	selectN = function(name){
 		var str = '<select name="'+name+'" id="'+name+'">';
-		for (var i=2;i<21;i++)
+		for (var i=2;i<51;i++)
 			str += '<option value="'+i+'">'+i+'</option>';
 		str += '</select>';
 		return str;
