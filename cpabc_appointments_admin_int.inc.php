@@ -323,7 +323,7 @@ for ($k=1;$k<100;$k++)
         <th scope="row">Enable Paypal Payments?</th>
         <td><input type="checkbox" readonly disabled name="enable_paypal" size="40" value="1" checked /> <em>The feature for working without PayPal is implemented/available in the <a href="http://wordpress.dwbooster.com/calendars/appointment-booking-calendar#download">pro version</a>.</em>
         </td>
-        </tr>    
+        </tr>                   
     
         <tr valign="top">        
         <th scope="row">Paypal email</th>
@@ -370,6 +370,17 @@ for ($k=1;$k<100;$k++)
         <th scope="row">Paypal language</th>
         <td><input type="text" name="paypal_language" value="<?php echo esc_attr(cpabc_get_option('paypal_language',CPABC_APPOINTMENTS_DEFAULT_PAYPAL_LANGUAGE)); ?>" /></td>
         </tr>  
+        
+        <tr valign="top">        
+        <th scope="row">Paypal Mode</th>
+        <td><select name="paypal_mode">
+             <option value="production" <?php if (cpabc_get_option('paypal_mode','production') != 'sandbox') echo 'selected'; ?>>Production - real payments processed</option> 
+             <option value="sandbox" <?php if (cpabc_get_option('paypal_mode','production') == 'sandbox') echo 'selected'; ?>>SandBox - PayPal testing sandbox area</option> 
+            </select>
+            <br />
+           <em> * Note that if you are testing it in a <strong>localhost</strong> site the PayPal IPN notification won't reach to your website and the appointment won't be processed.</em>
+        </td>
+        </tr>          
         
         <tr valign="top">
         <th scope="row">Discount Codes</th>

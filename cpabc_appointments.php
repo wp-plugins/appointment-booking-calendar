@@ -238,6 +238,8 @@ function _cpabc_appointments_install() {
     $sql = "ALTER TABLE  `".$wpdb->prefix.CPABC_APPOINTMENTS_CONFIG_TABLE_NAME."` ADD `max_slots` VARCHAR(10) DEFAULT '' NOT NULL AFTER  `timeWorkingDates6`;"; $wpdb->query($sql);
     $sql = "ALTER TABLE  `".$wpdb->prefix.CPABC_APPOINTMENTS_CONFIG_TABLE_NAME."` ADD `close_fpanel` VARCHAR(10) DEFAULT '' NOT NULL AFTER  `timeWorkingDates6`;"; $wpdb->query($sql);
     $sql = "ALTER TABLE  `".$wpdb->prefix.CPABC_APPOINTMENTS_CONFIG_TABLE_NAME."` ADD `quantity_field` VARCHAR(10) DEFAULT '' NOT NULL AFTER  `timeWorkingDates6`;"; $wpdb->query($sql);
+    $sql = "ALTER TABLE  `".$wpdb->prefix.CPABC_APPOINTMENTS_CONFIG_TABLE_NAME."` ADD `paypal_mode` VARCHAR(10) DEFAULT '' NOT NULL AFTER  `timeWorkingDates6`;"; $wpdb->query($sql);
+    
 
     $sql = "ALTER TABLE  `".$wpdb->prefix.CPABC_APPOINTMENTS_CONFIG_TABLE_NAME."` ADD `enable_paypal` text AFTER  `timeWorkingDates6`;"; $wpdb->query($sql);
     $sql = "ALTER TABLE  `".$wpdb->prefix.CPABC_APPOINTMENTS_CONFIG_TABLE_NAME."` ADD `paypal_email` text AFTER  `timeWorkingDates6`;"; $wpdb->query($sql);
@@ -891,11 +893,16 @@ function cpabc_appointments_check_posted_data()
     }
     $item_number = implode(";", $item_number);
 
+    if (cpabc_get_option('paypal_mode','production') == "sandbox")
+        $ppurl = 'https://www.sandbox.paypal.com/cgi-bin/webscr';
+    else
+        $ppurl = 'https://www.paypal.com/cgi-bin/webscr';
+
 ?>
 <html>
 <head><title>Redirecting to Paypal...</title></head>
 <body>
-<form action="https://www.paypal.com/cgi-bin/webscr" name="ppform3" method="post">
+<form action="<?php echo $ppurl; ?>" name="ppform3" method="post">
 <input type="hidden" name="cmd" value="_xclick" />
 <input type="hidden" name="business" value="<?php echo cpabc_get_option('paypal_email', CPABC_APPOINTMENTS_DEFAULT_PAYPAL_EMAIL); ?>" />
 <input type="hidden" name="item_name" value="<?php echo iconv("utf-8","iso-8859-1",cpabc_get_option('paypal_product_name', CPABC_APPOINTMENTS_DEFAULT_PRODUCT_NAME).(@$_POST["services"]?": ".trim($services_formatted[1]):"").$discount_note); ?>" />
@@ -1155,6 +1162,9 @@ function cpabc_appointments_save_options()
     cpabc_appointments_add_field_verify(CPABC_APPOINTMENTS_CONFIG_TABLE_NAME, 'calendar_startyear', "VARCHAR(20) DEFAULT '' NOT NULL");
     cpabc_appointments_add_field_verify(CPABC_APPOINTMENTS_CONFIG_TABLE_NAME, 'calendar_startmonth', "VARCHAR(20) DEFAULT '' NOT NULL");
     cpabc_appointments_add_field_verify(CPABC_APPOINTMENTS_CONFIG_TABLE_NAME, 'calendar_theme');
+    
+    cpabc_appointments_add_field_verify(CPABC_APPOINTMENTS_CONFIG_TABLE_NAME, 'paypal_mode');
+    
 
     $_POST["request_cost"] = '';
     for ($k=1;$k <= intval($_POST["max_slots"]); $k++)
@@ -1173,6 +1183,7 @@ function cpabc_appointments_save_options()
          'max_slots' => $_POST["max_slots"],
          'close_fpanel' => $_POST["close_fpanel"],
          'quantity_field' => $_POST["quantity_field"],
+         'paypal_mode' => $_POST["paypal_mode"],         
          
          'calendar_startyear' => $_POST["calendar_startyear"],
          'calendar_startmonth' => $_POST["calendar_startmonth"],
