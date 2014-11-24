@@ -281,8 +281,10 @@ The Appointment Booking Calendar plugin has recently reached **28,000 installati
 * Fixing tags in wp directory
 * Two additional calendar themes added
 * Tested and fully compatible with WordPress 3.7.x
+* Language updates to make them compatible with the latest WP versions
 
 == Upgrade Notice ==
 
 = 1.0.1 =
  Interface modifications.
+ Language updates to make them compatible with the latest WP versions
