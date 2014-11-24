@@ -143,7 +143,7 @@ define('CPABC_APPOINTMENTS_DEFAULT_vs_text_min', 'Please enter a value greater t
 register_activation_hook(__FILE__,'cpabc_appointments_install');
 
 function cpabc_plugin_init() {
-  load_plugin_textdomain( 'default', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+   load_plugin_textdomain( 'cpabc', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 }
 add_action('plugins_loaded', 'cpabc_plugin_init');
 
@@ -450,8 +450,8 @@ function cpabc_appointments_get_public_form() {
     $button_label = cpabc_get_option('vs_text_submitbtn', 'Continue');
     $button_label = ($button_label==''?'Continue':$button_label);
 
-    $previous_label = __("Previous");
-    $next_label = __("Next");
+    $previous_label = __("Previous",'cpabc');
+    $next_label = __("Next",'cpabc');
 
     wp_enqueue_script( 'jquery' );  
 
@@ -468,7 +468,7 @@ function cpabc_appointments_get_public_form() {
     $quant_buffer = '';
     if (CPABC_APPOINTMENTS_ENABLE_QUANTITY_FIELD)
     {
-        $quant_buffer = __('Quantity').':<br /><select id="abc_capacity" name="abc_capacity" onchange="apc_clear_date();">';
+        $quant_buffer = __('Quantity','cpabc').':<br /><select id="abc_capacity" name="abc_capacity" onchange="apc_clear_date();">';
         for ($i=1; $i<=CPABC_APPOINTMENTS_ENABLE_QUANTITY_FIELD; $i++)
             $quant_buffer .= '<option'.($i==1?' selected="selected"':'').'>'.$i.'</option>';
         $quant_buffer .= '</select><br />';
@@ -485,7 +485,7 @@ var cpabc_global_start_weekday = '<?php echo cpabc_get_option('calendar_weekday'
 var cpabc_global_mindate = '<?php $value = cpabc_get_option('calendar_mindate', CPABC_APPOINTMENTS_DEFAULT_CALENDAR_MINDATE); if ($value != '') echo date("n/j/Y", strtotime($value)); ?>';
 var cpabc_global_maxdate = '<?php $value = cpabc_get_option('calendar_maxdate', CPABC_APPOINTMENTS_DEFAULT_CALENDAR_MAXDATE); if ($value != '') echo date("n/j/Y",strtotime($value)); ?>';
 var cpabc_global_close_on_select = <?php $value = cpabc_get_option('close_fpanel', 'yes'); if ($value == '' || $value == 'yes') echo 'true'; else echo 'false'; ?>;
-var cpabc_global_cancel_text = '<?php _e("Cancel"); ?>';
+var cpabc_global_cancel_text = '<?php _e("Cancel",'cpabc'); ?>';
 var cpabc_global_pagedate = '<?php 
     $sm = cpabc_get_option('calendar_startmonth', date("n"));
     $sy = cpabc_get_option('calendar_startyear', date("Y")); 
@@ -513,7 +513,7 @@ var cpabc_global_pagedate = '<?php
  {
     cpabc_current_calendar_item = id;
     document.getElementById("calarea_"+cpabc_current_calendar_item).style.display = "";
-    initAppCalendar("cal"+cpabc_current_calendar_item,<?php echo cpabc_get_option('calendar_pages', CPABC_APPOINTMENTS_DEFAULT_CALENDAR_PAGES); ?>,2,"<?php echo cpabc_get_option('calendar_language', CPABC_APPOINTMENTS_DEFAULT_CALENDAR_LANGUAGE); ?>",{m1:"<?php _e('Please select the appointment time.'); ?>"});
+    initAppCalendar("cal"+cpabc_current_calendar_item,<?php echo cpabc_get_option('calendar_pages', CPABC_APPOINTMENTS_DEFAULT_CALENDAR_PAGES); ?>,2,"<?php echo cpabc_get_option('calendar_language', CPABC_APPOINTMENTS_DEFAULT_CALENDAR_LANGUAGE); ?>",{m1:"<?php _e('Please select the appointment time.','cpabc'); ?>"});
  }
  function updatedate()
  {
@@ -583,20 +583,20 @@ else
 }
 
 function cpabc_settingsLink($links) {
-    $settings_link = '<a href="options-general.php?page=cpabc_appointments">'.__('Settings').'</a>';
+    $settings_link = '<a href="options-general.php?page=cpabc_appointments">'.__('Settings','cpabc').'</a>';
 	array_unshift($links, $settings_link);
 	return $links;
 }
 
 
 function cpabc_helpLink($links) {
-    $help_link = '<a href="http://wordpress.dwbooster.com/calendars/appointment-booking-calendar">'.__('Help').'</a>';
+    $help_link = '<a href="http://wordpress.dwbooster.com/calendars/appointment-booking-calendar">'.__('Help','cpabc').'</a>';
 	array_unshift($links, $help_link);
 	return $links;
 }
 
 function cpabc_customAdjustmentsLink($links) {
-    $customAdjustments_link = '<a href="http://wordpress.dwbooster.com/contact-us">'.__('Request custom changes').'</a>';
+    $customAdjustments_link = '<a href="http://wordpress.dwbooster.com/contact-us">'.__('Request custom changes','cpabc').'</a>';
 	array_unshift($links, $customAdjustments_link);
 	return $links;
 }
@@ -627,7 +627,7 @@ function cpabc_appointments_html_post_page() {
 }
 
 function set_cpabc_apps_insert_button() {
-    print '<a href="javascript:send_to_editor(\'[CPABC_APPOINTMENT_CALENDAR calendar=&quot;1&quot;]\');" title="'.__('Insert Appointment Booking Calendar').'"><img hspace="5" src="'.plugins_url('/images/cpabc_apps.gif', __FILE__).'" alt="'.__('Insert  Appointment Booking Calendar').'" /></a>';    
+    print '<a href="javascript:send_to_editor(\'[CPABC_APPOINTMENT_CALENDAR calendar=&quot;1&quot;]\');" title="'.__('Insert Appointment Booking Calendar').'"><img hspace="5" src="'.plugins_url('/images/cpabc_apps.gif', __FILE__).'" alt="'.__('Insert  Appointment Booking Calendar','cpabc').'" /></a>';    
 }
 
 function set_cpabc_apps_insert_adminScripts($hook) {

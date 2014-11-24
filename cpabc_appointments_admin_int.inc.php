@@ -594,7 +594,7 @@ for ($k=1;$k<100;$k++)
   <h3 class='hndle' style="padding:5px;"><span>Note</span></h3>
   <div class="inside">
    To insert the calendar booking form in a post/page, use the dedicated icon 
-   <?php print '<img hspace="5" src="'.plugins_url('/images/cpabc_apps.gif', __FILE__).'" alt="'.__('Insert CP Contact Form with Paypal').'" />';     ?>
+   <?php print '<img hspace="5" src="'.plugins_url('/images/cpabc_apps.gif', __FILE__).'" alt="'.__('Insert Appointment Booking Calendar','cpabc').'" />';     ?>
    which has been added to your Upload/Insert Menu, just below the title of your Post/Page.
    <br /><br />
   </div>
