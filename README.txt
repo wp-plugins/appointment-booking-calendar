@@ -172,6 +172,7 @@ The current translations are already available for both the appointment calendar
 - Russian
 - Spanish
 - Slovak
+- Slovenian
 - Swedish
 - Turkish
 - Finnish
