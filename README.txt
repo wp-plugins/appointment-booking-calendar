@@ -168,6 +168,7 @@ The current translations are already available for both the appointment calendar
 - Japanese
 - Polish
 - Portuguese
+- Portuguese(Brasil)
 - Russian
 - Spanish
 - Slovak
