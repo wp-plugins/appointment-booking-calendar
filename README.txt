@@ -186,7 +186,8 @@ The current translations are already available for both the appointment calendar
 * Belarusian (be_BY)
 * Bulgarian (bg_BG) 
 * Central Kurdish (ckb)
-* Chinese (China zh_CN) 
+* Chinese (China zh_CN)
+* Chinese (Taiwan zh_TW)
 
 If you want to add a new translation you can add a new PO/MO file into the "languages" folder. If you want to provide the translation for a new language you can send us the texts and we will create the PO/MO files for you. We will appreciate if you allow sharing your translation with other WordPress users.
 
