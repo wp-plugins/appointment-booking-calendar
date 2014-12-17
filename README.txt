@@ -158,33 +158,34 @@ To use this section click a date into the date picker that appears on the "Restr
 
 The current translations are already available for both the appointment calendar and public booking form:
 
-- English
-- Czech
-- German
-- Danish
-- Dutch
-- French
-- Italian
-- Japanese
-- Polish
-- Portuguese
-- Portuguese(Brasil)
-- Russian
-- Spanish
-- Slovak
-- Slovenian
-- Swedish
-- Turkish
-- Finnish
-- Catalan
-- Afrikaans (af)
-- Albanian (sq)
-- Arabic (ar)
-- Armenian (hy_AM)
-- Azerbaijani (az)
-- Basque (eu)
-- Belarusian (be_BY)
-- Bulgarian (bg_BG)
+* English
+* Czech
+* German
+* Danish
+* Dutch
+* French
+* Italian
+* Japanese
+* Polish
+* Portuguese
+* Portuguese(Brasil)
+* Russian
+* Spanish
+* Slovak
+* Slovenian
+* Swedish
+* Turkish
+* Finnish
+* Catalan
+* Afrikaans (af)
+* Albanian (sq)
+* Arabic (ar)
+* Armenian (hy_AM)
+* Azerbaijani (az)
+* Basque (eu)
+* Belarusian (be_BY)
+* Bulgarian (bg_BG) 
+* Central Kurdish (ckb) 
 
 If you want to add a new translation you can add a new PO/MO file into the "languages" folder. If you want to provide the translation for a new language you can send us the texts and we will create the PO/MO files for you. We will appreciate if you allow sharing your translation with other WordPress users.
 
