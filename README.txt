@@ -159,10 +159,7 @@ To use this section click a date into the date picker that appears on the "Restr
 The current translations are already available for both the appointment calendar and public booking form:
 
 * English
-* Czech
 * German
-* Danish
-* Dutch
 * French
 * Italian
 * Japanese
@@ -189,6 +186,9 @@ The current translations are already available for both the appointment calendar
 * Chinese (China zh_CN)
 * Chinese (Taiwan zh_TW)
 * Croatian (hr)
+* Czech (cs_CZ)
+* Danish (da_DK)
+* Dutch (nl_NL)
 
 If you want to add a new translation you can add a new PO/MO file into the "languages" folder. If you want to provide the translation for a new language you can send us the texts and we will create the PO/MO files for you. We will appreciate if you allow sharing your translation with other WordPress users.
 
