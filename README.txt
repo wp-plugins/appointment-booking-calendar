@@ -3,7 +3,7 @@ Contributors: codepeople
 Donate link: http://wordpress.dwbooster.com/calendars/appointment-booking-calendar
 Tags: booking form,booking calendar,appointment,appointment calendar,page,paypal calendar,plugin,calendar,paypal bookings,paypal appointments,booking,bookings,meeting,meet
 Requires at least: 3.0.5
-Tested up to: 4.0
+Tested up to: 4.1
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -159,8 +159,6 @@ To use this section click a date into the date picker that appears on the "Restr
 The current translations are already available for both the appointment calendar and public booking form:
 
 * English
-* German
-* French
 * Italian
 * Japanese
 * Polish
@@ -172,8 +170,6 @@ The current translations are already available for both the appointment calendar
 * Slovenian
 * Swedish
 * Turkish
-* Finnish
-* Catalan
 * Afrikaans (af)
 * Albanian (sq)
 * Arabic (ar)
@@ -181,7 +177,8 @@ The current translations are already available for both the appointment calendar
 * Azerbaijani (az)
 * Basque (eu)
 * Belarusian (be_BY)
-* Bulgarian (bg_BG) 
+* Bulgarian (bg_BG)
+* Catalan (ca)
 * Central Kurdish (ckb)
 * Chinese (China zh_CN)
 * Chinese (Taiwan zh_TW)
@@ -190,9 +187,12 @@ The current translations are already available for both the appointment calendar
 * Danish (da_DK)
 * Dutch (nl_NL)
 * Esperanto (eo_EO)
-* Estonian
+* Estonian (et)
+* Finnish (fi)
+* French (fr_FR)
 * Galician (gl_ES)
 * Georgian (ka_GE)
+* German (de_DE)
 
 If you want to add a new translation you can add a new PO/MO file into the "languages" folder. If you want to provide the translation for a new language you can send us the texts and we will create the PO/MO files for you. We will appreciate if you allow sharing your translation with other WordPress users.
 
