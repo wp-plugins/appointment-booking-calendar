@@ -209,6 +209,7 @@ The current translations are already available for both the appointment calendar
 * Malayalam (ml_IN)
 * Maltese (mt_MT)
 * Norwegian (nb_NO)
+* Persian (fa_IR)
 
 If you want to add a new translation you can add a new PO/MO file into the "languages" folder. If you want to provide the translation for a new language you can send us the texts and we will create the PO/MO files for you. We will appreciate if you allow sharing your translation with other WordPress users.
 
