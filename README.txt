@@ -159,10 +159,6 @@ To use this section click a date into the date picker that appears on the "Restr
 The current translations are already available for both the appointment calendar and public booking form:
 
 * English
-* Spanish
-* Slovak
-* Slovenian
-* Swedish
 * Turkish
 * Afrikaans (af)
 * Albanian (sq)
@@ -213,6 +209,10 @@ The current translations are already available for both the appointment calendar
 * Russian (ru_RU)
 * Romanian (ro_RO)
 * Serbian (sr_RS)
+* Slovak (sk_SK)
+* Slovene (sl_SI)
+* Spanish (es_ES)
+* Swedish (sv_SE)
 
 If you want to add a new translation you can add a new PO/MO file into the "languages" folder. If you want to provide the translation for a new language you can send us the texts and we will create the PO/MO files for you. We will appreciate if you allow sharing your translation with other WordPress users.
 
