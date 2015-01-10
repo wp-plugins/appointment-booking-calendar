@@ -42,6 +42,73 @@ Features:
 
 Please note that this is a plugin originally designed to accept appointment bookings linked to PayPal payments. The feature for accepting appointments without PayPal is implemented/available in the Pro version: http://wordpress.dwbooster.com/calendars/appointment-booking-calendar#download
 
+= Available Languages and Adding New Languages / Translations = 
+
+The current translations are already available in the appointment calendar plugin:
+
+* English
+* Turkish
+* Afrikaans (af)
+* Albanian (sq)
+* Arabic (ar)
+* Armenian (hy_AM)
+* Azerbaijani (az)
+* Basque (eu)
+* Belarusian (be_BY)
+* Bulgarian (bg_BG)
+* Catalan (ca)
+* Central Kurdish (ckb)
+* Chinese (China zh_CN)
+* Chinese (Taiwan zh_TW)
+* Croatian (hr)
+* Czech (cs_CZ)
+* Danish (da_DK)
+* Dutch (nl_NL)
+* Esperanto (eo_EO)
+* Estonian (et)
+* Finnish (fi)
+* French (fr_FR)
+* Galician (gl_ES)
+* Georgian (ka_GE)
+* German (de_DE)
+* Greek (el)
+* Gujarati (gu_IN)
+* Hebrew (he_IL)
+* Hindi (hi_IN)
+* Hungarian (hu_HU)
+* Indian Bengali (bn_IN)
+* Indonesian (id_ID)
+* Irish (ga_IE)
+* Italian (it_IT)
+* Japanese (ja)
+* Korean (ko_KR)
+* Latvian (lv)
+* Lithuanian (lt_LT)
+* Macedonian (mk_MK)
+* Malay (ms_MY)
+* Malayalam (ml_IN)
+* Maltese (mt_MT)
+* Norwegian (nb_NO)
+* Persian (fa_IR)
+* Polish (pl_PL)
+* Portuguese Brazil(pt_BR)
+* Portuguese (pt_PT)
+* Punjabi (pa_IN)
+* Russian (ru_RU)
+* Romanian (ro_RO)
+* Serbian (sr_RS)
+* Slovak (sk_SK)
+* Slovene (sl_SI)
+* Spanish (es_ES)
+* Swedish (sv_SE)
+* Tagalog (tl) 
+* Tamil (ta)
+* Thai (th)
+* Ukrainian (uk)
+
+If you want to add a new translation you can add a new PO/MO file into the "languages" folder. If you want to provide the translation for a new language you can send us the texts and we will create the PO/MO files for you. We will appreciate if you allow sharing your translation with other WordPress users.
+
+
 == Installation ==
 
 To install **Appointment Booking Calendar**, follow these steps:
@@ -154,72 +221,6 @@ The "Restricted Dates" tab into the calendar settings lets you use a different t
 
 To use this section click a date into the date picker that appears on the "Restricted Dates" tab and a floating panel will appear for editing the available time-slots for the selected date.
  
-= Available Languages and Adding New Languages / Translations = 
-
-The current translations are already available for both the appointment calendar and public booking form:
-
-* English
-* Turkish
-* Afrikaans (af)
-* Albanian (sq)
-* Arabic (ar)
-* Armenian (hy_AM)
-* Azerbaijani (az)
-* Basque (eu)
-* Belarusian (be_BY)
-* Bulgarian (bg_BG)
-* Catalan (ca)
-* Central Kurdish (ckb)
-* Chinese (China zh_CN)
-* Chinese (Taiwan zh_TW)
-* Croatian (hr)
-* Czech (cs_CZ)
-* Danish (da_DK)
-* Dutch (nl_NL)
-* Esperanto (eo_EO)
-* Estonian (et)
-* Finnish (fi)
-* French (fr_FR)
-* Galician (gl_ES)
-* Georgian (ka_GE)
-* German (de_DE)
-* Greek (el)
-* Gujarati (gu_IN)
-* Hebrew (he_IL)
-* Hindi (hi_IN)
-* Hungarian (hu_HU)
-* Indian Bengali (bn_IN)
-* Indonesian (id_ID)
-* Irish (ga_IE)
-* Italian (it_IT)
-* Japanese (ja)
-* Korean (ko_KR)
-* Latvian (lv)
-* Lithuanian (lt_LT)
-* Macedonian (mk_MK)
-* Malay (ms_MY)
-* Malayalam (ml_IN)
-* Maltese (mt_MT)
-* Norwegian (nb_NO)
-* Persian (fa_IR)
-* Polish (pl_PL)
-* Portuguese Brazil(pt_BR)
-* Portuguese (pt_PT)
-* Punjabi (pa_IN)
-* Russian (ru_RU)
-* Romanian (ro_RO)
-* Serbian (sr_RS)
-* Slovak (sk_SK)
-* Slovene (sl_SI)
-* Spanish (es_ES)
-* Swedish (sv_SE)
-* Tagalog (tl) 
-* Tamil (ta)
-* Thai (th)
-* Ukrainian (uk)
-
-If you want to add a new translation you can add a new PO/MO file into the "languages" folder. If you want to provide the translation for a new language you can send us the texts and we will create the PO/MO files for you. We will appreciate if you allow sharing your translation with other WordPress users.
-
 = The Notification Emails =
 
 The notification emails with the appointment data entered in the booking form can sent in "Plain Text" format (default) or in "HTML" format. If you select "HTML" format, be sure to use the BR or P tags for the line breaks into the text and to use the proper formatting.
