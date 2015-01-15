@@ -63,7 +63,7 @@ The current translations are already available in the appointment calendar plugi
 * Czech (cs_CZ)
 * Danish (da_DK)
 * Dutch (nl_NL)
-* Esperanto (eo_EO)
+* Esperanto (eo_EO) 
 * Estonian (et)
 * Finnish (fi)
 * French (fr_FR)
