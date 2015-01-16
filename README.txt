@@ -46,7 +46,6 @@ Please note that this is a plugin originally designed to accept appointment book
 
 The current translations are already available in the appointment calendar plugin:
 
-* English
 * Afrikaans (af)
 * Albanian (sq)
 * Arabic (ar)
