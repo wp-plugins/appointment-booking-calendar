@@ -328,8 +328,15 @@ The Appointment Booking Calendar plugin has recently reached **28,000 installati
 * Tested and fully compatible with WordPress 3.7.x
 * Language updates to make them compatible with the latest WP versions
 
+Important note: If you are using the Professional version don't update via the WP dashboard but using your personal update link. Contact us if you need further information: http://wordpress.dwbooster.com/support
+
+
 == Upgrade Notice ==
 
+Very Important note: If you are using the Professional version don't update via the WP dashboard but using your personal update link. Contact us if you need further information: http://wordpress.dwbooster.com/support
+
 = 1.0.1 =
- Interface modifications.
- Language updates to make them compatible with the latest WP versions
+* Interface modifications.
+* Language updates to make them compatible with the latest WP versions
+ 
+Important note: If you are using the Professional version don't update via the WP dashboard but using your personal update link. Contact us if you need further information: http://wordpress.dwbooster.com/support
