@@ -1,0 +1,122 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: app book cal\n"
+"POT-Creation-Date: 2013-04-19 10:48+0100\n"
+"PO-Revision-Date: 2014-12-07 22:40+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.10\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;_e\n"
+"X-Poedit-Basepath: C:\\TORRE_F\\WorkII\\Developers4Web\\DWBooster.wordpress"
+"\\components\\Appointment Booking Calendar\\pro-version\\appointment-booking-"
+"calendar\\\n"
+"Language: pa_IN\n"
+"X-Poedit-SearchPath-0: .\n"
+
+# RevTran=NO QUERY SPECIFIED. EXAMPLE REQUEST: GET?Q=HELLO&LANGPAIR=EN|IT
+#: cpabc_appointments.php:375
+msgid "Quantity"
+msgstr ""
+
+# RevTran=Please select appointment times.
+#: cpabc_appointments.php:411
+msgid "Please select the appointment time."
+msgstr "ਨਿਯੁਕਤੀ ਵਾਰ ਦੀ ਚੋਣ ਕਰੋ ਜੀ."
+
+# RevTran=my partner should select: (pick one or more)
+#: cpabc_appointments.php:444
+msgid "Selected date"
+msgstr "Selected date"
+
+#: cpabc_internal.inc.php:8 cpabc_scheduler.inc.php:6
+msgid "Calendar"
+msgstr "ਕੈਲੰਡਰ"
+
+# RevTran=Select Date and Time
+#: cpabc_internal.inc.php:12 cpabc_scheduler.inc.php:10
+msgid "Select date and time"
+msgstr "ਚੁਣੋ ਮਿਤੀ ਅਤੇ ਟਾਈਮ"
+
+# RevTran=Please select the date and time
+#: cpabc_internal.inc.php:24 cpabc_scheduler.inc.php:37
+msgid "Please select date and time"
+msgstr "ਮਿਤੀ ਅਤੇ ਟਾਈਮ ਦੀ ਚੋਣ ਕਰੋ ਜੀ"
+
+#: cpabc_internal.inc.php:62 cpabc_scheduler.inc.php:79
+msgid "Coupon code (optional)"
+msgstr "ਕੂਪਨ ਕੋਡ (ਵਿਕਲਪਿਕ)"
+
+#: cpabc_internal.inc.php:67 cpabc_scheduler.inc.php:84
+msgid "Service"
+msgstr "ਸੇਵਾ"
+
+#: cpabc_internal.inc.php:73 cpabc_scheduler.inc.php:90
+msgid "Please enter the security code:"
+msgstr "ਸੁਰੱਖਿਆ ਕੋਡ ਦਿਓ ਜੀ:"
+
+#: cpabc_internal.inc.php:76 cpabc_scheduler.inc.php:93
+msgid "Security Code (lowercase letters):"
+msgstr "ਸੁਰੱਖਿਆ ਕੋਡ (ਛੋਟੇ ਅੱਖਰ):"
+
+#: cpabc_internal.inc.php:84 cpabc_scheduler.inc.php:101
+msgid "Continue"
+msgstr "ਜਾਰੀ ਰੱਖੋ"
+
+# RevTran=Ik Onkar
+#: cpabc_scheduler.inc.php:22
+msgid "Please enter a valid phone number"
+msgstr "Please enter a valid phone number"
+
+# RevTran=Ik Onkar
+#: cpabc_scheduler.inc.php:27
+msgid "Please enter a valid email address"
+msgstr "Please enter a valid email address"
+
+# RevTran=expository pre-write
+#: cpabc_scheduler.inc.php:32
+msgid "Please write your name"
+msgstr "hi"
+
+# RevTran=Enter the verification code CAPTCHA
+#: cpabc_scheduler.inc.php:42
+msgid "Please enter the captcha verification code"
+msgstr "ਕੈਪਟਚਾ ਤਸਦੀਕ ਕੋਡ ਦਰਜ ਕਰੋ"
+
+#: cpabc_scheduler.inc.php:64
+msgid "Your phone number"
+msgstr "ਆਪਣੇ ਫ਼ੋਨ ਨੰਬਰ"
+
+#: cpabc_scheduler.inc.php:67
+msgid "Your name"
+msgstr "ਤੁਹਾਡਾ ਨਾਮ"
+
+# RevTran=Email
+#: cpabc_scheduler.inc.php:70
+msgid "Your email"
+msgstr "ਈ-ਮੇਲ"
+
+#: cpabc_scheduler.inc.php:73
+msgid "Comments/Questions"
+msgstr "Comments/Questions"
+
+# RevTran=NO QUERY SPECIFIED. EXAMPLE REQUEST: GET?Q=HELLO&LANGPAIR=EN|IT
+msgid ""
+"Please select at least %1 time-slots. Currently selected: %2 time-slots."
+msgstr "&#39;ਤੇ ਘੱਟੋ ਘੱਟ% 1 ਵਾਰ-ਸਲੋਟ ਦੀ ਚੋਣ ਕਰੋ. ਵਰਤਮਾਨ ਵਿੱਚ ਚੁਣਿਆ:% 2 ਵਾਰ-ਸਲੋਟ."
+
+# RevTran=Please enjoy my video and share the adventure.
+msgid ""
+"Please select a maximum of %1 time-slots. Currently selected: %2 time-slots."
+msgstr ""
+"Please select a maximum of %1 time-slots. Currently selected: %2 time-slots."
+
+# RevTran=Please enjoy my video and share the adventure.
+msgid "Cancel"
+msgstr "Cancel"
+
+# RevTran=Back
+msgid "Previous"
+msgstr "ਪਿੱਛੇ"

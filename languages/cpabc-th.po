@@ -1,0 +1,129 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: app book cal\n"
+"POT-Creation-Date: 2013-04-19 10:48+0100\n"
+"PO-Revision-Date: 2014-12-07 22:36+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.10\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;_e\n"
+"X-Poedit-Basepath: C:\\TORRE_F\\WorkII\\Developers4Web\\DWBooster.wordpress"
+"\\components\\Appointment Booking Calendar\\pro-version\\appointment-booking-"
+"calendar\\\n"
+"Language: th\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: cpabc_appointments.php:375
+msgid "Quantity"
+msgstr "ปริมาณ"
+
+# RevTran=Please select the time appointed
+# RevTran=Please select the time appointed
+msgid "Please select the appointment time."
+msgstr "กรุณาเลือกเวลาที่ได้รับการแต่งตั้ง"
+
+# RevTran=Selected dates
+# RevTran=Selected dates
+msgid "Selected date"
+msgstr "วันที่ที่เลือก"
+
+#: cpabc_internal.inc.php:8 cpabc_scheduler.inc.php:6
+msgid "Calendar"
+msgstr "ปฏิทิน"
+
+# RevTran=Select a date and time.
+# RevTran=Select a date and time.
+msgid "Select date and time"
+msgstr "เลือกวันที่และเวลา"
+
+# RevTran=Please select a date and time.
+# RevTran=Please select a date and time.
+msgid "Please select date and time"
+msgstr "กรุณาเลือกวันที่และเวลา"
+
+#: cpabc_internal.inc.php:62 cpabc_scheduler.inc.php:79
+msgid "Coupon code (optional)"
+msgstr "รหัสคูปอง (อุปกรณ์เสริม)"
+
+# RevTran=Privacy Policy
+# RevTran=Privacy Policy
+msgid "Service"
+msgstr "บริการ"
+
+# RevTran=Please enter the security code.
+# RevTran=Please enter the security code.
+msgid "Please enter the security code:"
+msgstr "กรุณากรอกรหัสรักษาความปลอดภัย:"
+
+# RevTran=Security Code (Lowercase letters).
+# RevTran=Security Code (Lowercase letters).
+msgid "Security Code (lowercase letters):"
+msgstr "รหัสความปลอดภัย (ตัวอักษรตัวพิมพ์เล็ก):"
+
+# RevTran=Wasp
+# RevTran=Wasp
+msgid "Continue"
+msgstr "ต่อ"
+
+# RevTran=Please enter a valid phone number.
+# RevTran=Please enter a valid phone number.
+msgid "Please enter a valid phone number"
+msgstr "กรุณาใส่หมายเลขโทรศัพท์ที่ถูกต้อง"
+
+#: cpabc_scheduler.inc.php:27
+msgid "Please enter a valid email address"
+msgstr "กรุณาป้อนอีเมลที่ถูกต้อง"
+
+# RevTran=MYMEMORY WARNING: YOU USED ALL AVAILABLE FREE TRANSLATIONS FOR TODAY. VISIT HTTP://MYMEMORY.TRANSLATED.NET/DOC/QUOTAREACHED TO TRANSLATE MORE
+msgid "Please write your name"
+msgstr "กรุณาเขียนชื่อของคุณ"
+
+# RevTran=MYMEMORY WARNING: YOU USED ALL AVAILABLE FREE TRANSLATIONS FOR TODAY. VISIT HTTP://MYMEMORY.TRANSLATED.NET/DOC/QUOTAREACHED TO TRANSLATE MORE
+# RevTran=Please check the comments.
+msgid "Please enter the captcha verification code"
+msgstr "กรุณาใส่รหัสตรวจสอบแจ้งลบความคิดเห็น"
+
+# RevTran=MYMEMORY WARNING: YOU USED ALL AVAILABLE FREE TRANSLATIONS FOR TODAY. VISIT HTTP://MYMEMORY.TRANSLATED.NET/DOC/QUOTAREACHED TO TRANSLATE MORE
+# RevTran=Phone Numbers
+msgid "Your phone number"
+msgstr "หมายเลขโทรศัพท์"
+
+# RevTran=MYMEMORY WARNING: YOU USED ALL AVAILABLE FREE TRANSLATIONS FOR TODAY. VISIT HTTP://MYMEMORY.TRANSLATED.NET/DOC/QUOTAREACHED TO TRANSLATE MORE
+# RevTran=First Name *
+msgid "Your name"
+msgstr "ชื่อ *"
+
+# RevTran=MYMEMORY WARNING: YOU USED ALL AVAILABLE FREE TRANSLATIONS FOR TODAY. VISIT HTTP://MYMEMORY.TRANSLATED.NET/DOC/QUOTAREACHED TO TRANSLATE MORE
+# RevTran=Your email address
+msgid "Your email"
+msgstr "อีเมล์ของคุณ"
+
+# RevTran=MYMEMORY WARNING: YOU USED ALL AVAILABLE FREE TRANSLATIONS FOR TODAY. VISIT HTTP://MYMEMORY.TRANSLATED.NET/DOC/QUOTAREACHED TO TRANSLATE MORE
+# RevTran=Comments \\ / questions
+msgid "Comments/Questions"
+msgstr "ความคิดเห็น / คำถาม"
+
+# RevTran=MYMEMORY WARNING: YOU USED ALL AVAILABLE FREE TRANSLATIONS FOR TODAY. VISIT HTTP://MYMEMORY.TRANSLATED.NET/DOC/QUOTAREACHED TO TRANSLATE MORE
+# RevTran=Please select at least % 1-channel time The currently selected channel at 2%.
+msgid ""
+"Please select at least %1 time-slots. Currently selected: %2 time-slots."
+msgstr "โปรดเลือกอย่างน้อย %1-ช่องเวลานั้น เลือกในปัจจุบัน: ช่องเวลา %2"
+
+# RevTran=MYMEMORY WARNING: YOU USED ALL AVAILABLE FREE TRANSLATIONS FOR TODAY. VISIT HTTP://MYMEMORY.TRANSLATED.NET/DOC/QUOTAREACHED TO TRANSLATE MORE
+# RevTran=Please select a maximum of 1% of the time the current selection:% 2 time slots.
+msgid ""
+"Please select a maximum of %1 time-slots. Currently selected: %2 time-slots."
+msgstr "กรุณาเลือกได้สูงสุด 1% ช่องเวลา ที่เลือกในปัจจุบัน:% 2 ช่องเวลา"
+
+# RevTran=MYMEMORY WARNING: YOU USED ALL AVAILABLE FREE TRANSLATIONS FOR TODAY. VISIT HTTP://MYMEMORY.TRANSLATED.NET/DOC/QUOTAREACHED TO TRANSLATE MORE
+# RevTran=Canceled
+msgid "Cancel"
+msgstr "ยกเลิก"
+
+# RevTran=MYMEMORY WARNING: YOU USED ALL AVAILABLE FREE TRANSLATIONS FOR TODAY. VISIT HTTP://MYMEMORY.TRANSLATED.NET/DOC/QUOTAREACHED TO TRANSLATE MORE
+# RevTran=Before
+msgid "Previous"
+msgstr "ก่อน"

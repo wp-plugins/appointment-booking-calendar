@@ -1,0 +1,127 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: app book cal\n"
+"POT-Creation-Date: 2013-04-19 10:48+0100\n"
+"PO-Revision-Date: 2014-12-07 22:39+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.10\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;_e\n"
+"X-Poedit-Basepath: C:\\TORRE_F\\WorkII\\Developers4Web\\DWBooster.wordpress"
+"\\components\\Appointment Booking Calendar\\pro-version\\appointment-booking-"
+"calendar\\\n"
+"Language: ga_IE\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: cpabc_appointments.php:375
+msgid "Quantity"
+msgstr "Cainníocht"
+
+# RevTran=Choose the appointment time please.
+#: cpabc_appointments.php:411
+msgid "Please select the appointment time."
+msgstr "Roghnaigh an t-am coinne le do thoil."
+
+# RevTran=selected distribution
+#: cpabc_appointments.php:444
+msgid "Selected date"
+msgstr "Dáta Roghnaithe"
+
+# RevTran=List of historical anniversaries
+#: cpabc_internal.inc.php:8 cpabc_scheduler.inc.php:6
+msgid "Calendar"
+msgstr "Féilire"
+
+# RevTran=Select a date and time
+#: cpabc_internal.inc.php:12 cpabc_scheduler.inc.php:10
+msgid "Select date and time"
+msgstr "Roghnaigh dáta agus am"
+
+# RevTran=Choose the date and time please
+#: cpabc_internal.inc.php:24 cpabc_scheduler.inc.php:37
+msgid "Please select date and time"
+msgstr "Roghnaigh an dáta agus am le do thoil"
+
+#: cpabc_internal.inc.php:62 cpabc_scheduler.inc.php:79
+msgid "Coupon code (optional)"
+msgstr "Cód Cúpón (roghnach)"
+
+#: cpabc_internal.inc.php:67 cpabc_scheduler.inc.php:84
+msgid "Service"
+msgstr "Seirbhís"
+
+# RevTran=Please
+#: cpabc_internal.inc.php:73 cpabc_scheduler.inc.php:90
+msgid "Please enter the security code:"
+msgstr "Please enter the security code:"
+
+# RevTran=letters rogatory
+#: cpabc_internal.inc.php:76 cpabc_scheduler.inc.php:93
+msgid "Security Code (lowercase letters):"
+msgstr "litreacha rogáide"
+
+#: cpabc_internal.inc.php:84 cpabc_scheduler.inc.php:101
+msgid "Continue"
+msgstr "Leanúint ar aghaidh"
+
+#: cpabc_scheduler.inc.php:22
+msgid "Please enter a valid phone number"
+msgstr "Iontráil uimhir theileafóin bailí"
+
+# RevTran=Type your email address.
+#: cpabc_scheduler.inc.php:27
+msgid "Please enter a valid email address"
+msgstr "Clóscríobh do sheoladh rphoist"
+
+# RevTran=INVALID LANGUAGE PAIR SPECIFIED. EXAMPLE: LANGPAIR=EN|IT USING 2 LETTER ISO OR RFC3066 LIKE ZH-CN. ALMOST ALL LANGUAGES SUPPORTED BUT SOME MAY HAVE NO CONTENT
+#: cpabc_scheduler.inc.php:32
+msgid "Please write your name"
+msgstr "Scríobh d&#39;ainm"
+
+# RevTran=Enter the verification code captcha
+#: cpabc_scheduler.inc.php:42
+msgid "Please enter the captcha verification code"
+msgstr "Cuir isteach an Cód fíorú captcha"
+
+# RevTran=INVALID LANGUAGE PAIR SPECIFIED. EXAMPLE: LANGPAIR=EN|IT USING 2 LETTER ISO OR RFC3066 LIKE ZH-CN. ALMOST ALL LANGUAGES SUPPORTED BUT SOME MAY HAVE NO CONTENT
+#: cpabc_scheduler.inc.php:64
+msgid "Your phone number"
+msgstr "D&#39;uimhir theileafóin"
+
+# RevTran=INVALID LANGUAGE PAIR SPECIFIED. EXAMPLE: LANGPAIR=EN|IT USING 2 LETTER ISO OR RFC3066 LIKE ZH-CN. ALMOST ALL LANGUAGES SUPPORTED BUT SOME MAY HAVE NO CONTENT
+#: cpabc_scheduler.inc.php:67
+msgid "Your name"
+msgstr "D&#39;ainm"
+
+#: cpabc_scheduler.inc.php:70
+msgid "Your email"
+msgstr "Do chuidse rphoist"
+
+# RevTran=Comments \\ / Questions
+#: cpabc_scheduler.inc.php:73
+msgid "Comments/Questions"
+msgstr "Comments / Ceisteanna"
+
+# RevTran=Select
+msgid ""
+"Please select at least %1 time-slots. Currently selected: %2 time-slots."
+msgstr ""
+"Please select at least %1 time-slots. Currently selected: %2 time-slots."
+
+# RevTran=Choose a maximum of one time-slot% please. Currently selected:% 2 time slots.
+msgid ""
+"Please select a maximum of %1 time-slots. Currently selected: %2 time-slots."
+msgstr ""
+"Roghnaigh uasmhéid de% 1 uair-sliotán le do thoil. Faoi láthair roghnaithe:% "
+"2 ama sliotán."
+
+# RevTran=cancellation
+msgid "Cancel"
+msgstr "cur ar ceal"
+
+# RevTran=Back
+msgid "Previous"
+msgstr "Ar ais"

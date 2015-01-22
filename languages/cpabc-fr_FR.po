@@ -1,0 +1,108 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: app book cal\n"
+"POT-Creation-Date: 2013-04-19 10:48+0100\n"
+"PO-Revision-Date: 2014-01-13 11:06+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.5\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;_e\n"
+"X-Poedit-Basepath: C:\\TORRE_F\\\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: cpabc_appointments.php:375
+msgid "Quantity"
+msgstr "Quantité"
+
+#: cpabc_appointments.php:411
+msgid "Please select the appointment time."
+msgstr "Sélectionnez l'heure du rendez-vous."
+
+#: cpabc_appointments.php:444
+msgid "Selected date"
+msgstr "La date est sélectionnée"
+
+#: cpabc_internal.inc.php:8 cpabc_scheduler.inc.php:6
+msgid "Calendar"
+msgstr "Calendrier"
+
+#: cpabc_internal.inc.php:12 cpabc_scheduler.inc.php:10
+msgid "Select date and time"
+msgstr "Sélectionnez la date et l'heure"
+
+#: cpabc_internal.inc.php:24 cpabc_scheduler.inc.php:37
+msgid "Please select date and time"
+msgstr "Sélectionnez la date et l'heure"
+
+#: cpabc_internal.inc.php:62 cpabc_scheduler.inc.php:79
+msgid "Coupon code (optional)"
+msgstr "Code promo (option)"
+
+#: cpabc_internal.inc.php:67 cpabc_scheduler.inc.php:84
+msgid "Service"
+msgstr "Service"
+
+#: cpabc_internal.inc.php:73 cpabc_scheduler.inc.php:90
+msgid "Please enter the security code:"
+msgstr "Entrez le code de sécurité :"
+
+#: cpabc_internal.inc.php:76 cpabc_scheduler.inc.php:93
+msgid "Security Code (lowercase letters):"
+msgstr "Code de sécurité (lettres minuscules):"
+
+#: cpabc_internal.inc.php:84 cpabc_scheduler.inc.php:101
+msgid "Continue"
+msgstr "Continuez"
+
+#: cpabc_scheduler.inc.php:22
+msgid "Please enter a valid phone number"
+msgstr "Entrez un numéro de téléphone valide"
+
+#: cpabc_scheduler.inc.php:27
+msgid "Please enter a valid email address"
+msgstr "Entrez une adresse e-mail valide"
+
+#: cpabc_scheduler.inc.php:32
+msgid "Please write your name"
+msgstr "Inscrivez votre nom"
+
+#: cpabc_scheduler.inc.php:42
+msgid "Please enter the captcha verification code"
+msgstr "Entrez le code de vérification captcha"
+
+#: cpabc_scheduler.inc.php:64
+msgid "Your phone number"
+msgstr "Votre numéro de téléphone"
+
+#: cpabc_scheduler.inc.php:67
+msgid "Your name"
+msgstr "Votre nom"
+
+#: cpabc_scheduler.inc.php:70
+msgid "Your email"
+msgstr "Votre e-mail"
+
+#: cpabc_scheduler.inc.php:73
+msgid "Comments/Questions"
+msgstr "Commentaires/Questions"
+
+msgid ""
+"Please select at least %1 time-slots. Currently selected: %2 time-slots."
+msgstr ""
+"Sélectionnez au moins 1% des créneaux horaires. Actuellement sélectionné :% "
+"2 tranches de temps."
+
+msgid ""
+"Please select a maximum of %1 time-slots. Currently selected: %2 time-slots."
+msgstr ""
+"Sélectionnez un maximum de 1% des créneaux horaires. Actuellement "
+"sélectionné :% 2 tranches de temps."
+
+msgid "Cancel"
+msgstr "Annuler"
+
+msgid "Previous"
+msgstr "Précédent"

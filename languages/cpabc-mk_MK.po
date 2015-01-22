@@ -1,0 +1,124 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: app book cal\n"
+"POT-Creation-Date: 2013-04-19 10:48+0100\n"
+"PO-Revision-Date: 2014-12-07 22:40+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.10\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;_e\n"
+"X-Poedit-Basepath: C:\\TORRE_F\\WorkII\\Developers4Web\\DWBooster.wordpress"
+"\\components\\Appointment Booking Calendar\\pro-version\\appointment-booking-"
+"calendar\\\n"
+"Language: mk_MK\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: cpabc_appointments.php:375
+msgid "Quantity"
+msgstr "Количество"
+
+# RevTran=Please select new default dictionary:
+#: cpabc_appointments.php:411
+msgid "Please select the appointment time."
+msgstr "Ве молиме изберете нов стандарден речник:"
+
+# RevTran=The selected date
+#: cpabc_appointments.php:444
+msgid "Selected date"
+msgstr "Избраниот датум"
+
+#: cpabc_internal.inc.php:8 cpabc_scheduler.inc.php:6
+msgid "Calendar"
+msgstr "Календар"
+
+# RevTran=Select
+#: cpabc_internal.inc.php:12 cpabc_scheduler.inc.php:10
+msgid "Select date and time"
+msgstr "Избери"
+
+# RevTran=Please select new default dictionary:
+#: cpabc_internal.inc.php:24 cpabc_scheduler.inc.php:37
+msgid "Please select date and time"
+msgstr "Ве молиме, датумот и времето изберете"
+
+#: cpabc_internal.inc.php:62 cpabc_scheduler.inc.php:79
+msgid "Coupon code (optional)"
+msgstr "Забава кодот (опционално)"
+
+# RevTran=service
+#: cpabc_internal.inc.php:67 cpabc_scheduler.inc.php:84
+msgid "Service"
+msgstr "услуга"
+
+#: cpabc_internal.inc.php:73 cpabc_scheduler.inc.php:90
+msgid "Please enter the security code:"
+msgstr "Ве молиме внесете го безбедносниот код:"
+
+# RevTran=Security code (case sensitive):
+#: cpabc_internal.inc.php:76 cpabc_scheduler.inc.php:93
+msgid "Security Code (lowercase letters):"
+msgstr "Безбедносен код (мали букви):"
+
+#: cpabc_internal.inc.php:84 cpabc_scheduler.inc.php:101
+msgid "Continue"
+msgstr "Продолжи"
+
+# RevTran=Please enter a valid e-mail address
+#: cpabc_scheduler.inc.php:22
+msgid "Please enter a valid phone number"
+msgstr "Ве молиме внесете валидна електронска адреса"
+
+#: cpabc_scheduler.inc.php:27
+msgid "Please enter a valid email address"
+msgstr "Ве молиме внесете валидна е-мејл адреса"
+
+# RevTran=Please enter master password
+#: cpabc_scheduler.inc.php:32
+msgid "Please write your name"
+msgstr "Ве молиме, напишете го вашето име"
+
+# RevTran=Please enter master password
+#: cpabc_scheduler.inc.php:42
+msgid "Please enter the captcha verification code"
+msgstr "Ве молиме внесете го кодот за верификација captcha"
+
+# RevTran=Insert your phone
+#: cpabc_scheduler.inc.php:64
+msgid "Your phone number"
+msgstr "Вметнете вашиот телефон"
+
+# RevTran=You?
+#: cpabc_scheduler.inc.php:67
+msgid "Your name"
+msgstr "Вие"
+
+# RevTran=Email
+#: cpabc_scheduler.inc.php:70
+msgid "Your email"
+msgstr "Електронско писмо"
+
+# RevTran=Q \\ / Comments
+#: cpabc_scheduler.inc.php:73
+msgid "Comments/Questions"
+msgstr "Прашања / Коментари"
+
+# RevTran=Please select at least 1% times. Currently selected:% 2 times.
+msgid ""
+"Please select at least %1 time-slots. Currently selected: %2 time-slots."
+msgstr ""
+"Ве молам изберете најмалку 1% Часовите. Во моментов избрани:% 2 Часовите."
+
+# RevTran=Please select a maximum of 1% times. Currently selected:% 2 times.
+msgid ""
+"Please select a maximum of %1 time-slots. Currently selected: %2 time-slots."
+msgstr ""
+"Ве молиме изберете максимум% 1 Часовите. Во моментов избрани:% 2 Часовите."
+
+msgid "Cancel"
+msgstr "Откажи"
+
+msgid "Previous"
+msgstr "Претходна"

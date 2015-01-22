@@ -1,0 +1,127 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: app book cal\n"
+"POT-Creation-Date: 2013-04-19 10:48+0100\n"
+"PO-Revision-Date: 2014-12-07 22:39+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.10\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;_e\n"
+"X-Poedit-Basepath: C:\\TORRE_F\\WorkII\\Developers4Web\\DWBooster.wordpress"
+"\\components\\Appointment Booking Calendar\\pro-version\\appointment-booking-"
+"calendar\\\n"
+"Language: ckb\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: cpabc_appointments.php:375
+msgid "Quantity"
+msgstr "Qas"
+
+# RevTran=Please select the driver directory.
+#: cpabc_appointments.php:411
+msgid "Please select the appointment time."
+msgstr "Please select the appointment time."
+
+# RevTran=DATE
+#: cpabc_appointments.php:444
+msgid "Selected date"
+msgstr "DÎROK"
+
+#: cpabc_internal.inc.php:8 cpabc_scheduler.inc.php:6
+msgid "Calendar"
+msgstr "Salname"
+
+# RevTran=Date and time
+#: cpabc_internal.inc.php:12 cpabc_scheduler.inc.php:10
+msgid "Select date and time"
+msgstr "Roj û wext"
+
+# RevTran=Date and time
+#: cpabc_internal.inc.php:24 cpabc_scheduler.inc.php:37
+msgid "Please select date and time"
+msgstr "Roj û wext"
+
+# RevTran=First coupon
+#: cpabc_internal.inc.php:62 cpabc_scheduler.inc.php:79
+msgid "Coupon code (optional)"
+msgstr "kopunê yekemîn"
+
+# RevTran=~Service
+#: cpabc_internal.inc.php:67 cpabc_scheduler.inc.php:84
+msgid "Service"
+msgstr "~Xizmet"
+
+# RevTran=Please enter the fax number.
+#: cpabc_internal.inc.php:73 cpabc_scheduler.inc.php:90
+msgid "Please enter the security code:"
+msgstr "Numra faksê bidine."
+
+# RevTran=Lowercase
+#: cpabc_internal.inc.php:76 cpabc_scheduler.inc.php:93
+msgid "Security Code (lowercase letters):"
+msgstr "Security Code:"
+
+#: cpabc_internal.inc.php:84 cpabc_scheduler.inc.php:101
+msgid "Continue"
+msgstr "Bidomîne"
+
+# RevTran=Please enter the fax number.
+#: cpabc_scheduler.inc.php:22
+msgid "Please enter a valid phone number"
+msgstr "Please enter a valid phone number"
+
+# RevTran=The DTD could not be found. Please enter a valid path.
+#: cpabc_scheduler.inc.php:27
+msgid "Please enter a valid email address"
+msgstr "Please enter a valid email address"
+
+# RevTran=Write your message here
+#: cpabc_scheduler.inc.php:32
+msgid "Please write your name"
+msgstr "Peyama xwe li vira binivisîne"
+
+# RevTran=Please enter the fax number.
+#: cpabc_scheduler.inc.php:42
+msgid "Please enter the captcha verification code"
+msgstr "Numra faksê bidine."
+
+# RevTran=Numerical
+#: cpabc_scheduler.inc.php:64
+msgid "Your phone number"
+msgstr "Your phone number"
+
+# RevTran=Name
+#: cpabc_scheduler.inc.php:67
+msgid "Your name"
+msgstr "ناو Nav"
+
+# RevTran=Email
+#: cpabc_scheduler.inc.php:70
+msgid "Your email"
+msgstr "E-peyam"
+
+# RevTran=Comment
+#: cpabc_scheduler.inc.php:73
+msgid "Comments/Questions"
+msgstr "Şirove"
+
+# RevTran=Please select a setup type.
+msgid ""
+"Please select at least %1 time-slots. Currently selected: %2 time-slots."
+msgstr ""
+"Please select at least %1 time-slots. Currently selected: %2 time-slots."
+
+# RevTran=Please select a type of address book.
+msgid ""
+"Please select a maximum of %1 time-slots. Currently selected: %2 time-slots."
+msgstr ""
+"Please select a maximum of %1 time-slots. Currently selected: %2 time-slots."
+
+msgid "Cancel"
+msgstr "Betal"
+
+msgid "Previous"
+msgstr "A Berê"
