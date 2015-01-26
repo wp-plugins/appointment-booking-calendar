@@ -62,12 +62,12 @@
     $dexQuery = jQuery.noConflict();
     var result = $dexQuery.ajax({
         type: "GET",
-        url: "<?php echo cpabc_appointment_get_site_url(); ?>?inAdmin=1&abcc=1&hdcaptcha="+form.hdcaptcha.value,
+        url: "<?php echo cpabc_appointment_get_site_url(); ?>?inAdmin=1"+String.fromCharCode(38)+"abcc=1"+String.fromCharCode(38)+"hdcaptcha="+form.hdcaptcha.value,
         async: false
     }).responseText;
     if (result.indexOf("captchafailed") != -1)
     {
-        $dexQuery("#captchaimg").attr('src', $dexQuery("#captchaimg").attr('src')+'&'+Date());
+        $dexQuery("#captchaimg").attr('src', $dexQuery("#captchaimg").attr('src')+String.fromCharCode(38)+Date());
         alert('<?php echo str_replace("'","\'",__('Incorrect captcha code. Please try again.','cpabc')); ?>');
         return false;
     }
