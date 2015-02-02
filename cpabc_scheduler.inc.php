@@ -76,20 +76,14 @@
  }
 </script>
 <br />
-
 <?php _e('Your phone number','cpabc'); ?>:<br />
 <input type="text" name="phone" value=""><br />
-
 <?php _e('Your name','cpabc'); ?>:<br />
 <input type="text" name="name" value="<?php if (isset($current_user->user_firstname)) echo $current_user->user_firstname." ".$current_user->user_lastname; ?>"><br />
-
 <?php _e('Your email','cpabc'); ?>:<br />
 <input type="text" name="email" value="<?php if (isset($current_user->user_email)) echo $current_user->user_email; ?>"><br />
-
 <?php _e('Comments/Questions','cpabc'); ?>:<br />
 <textarea name="question" style="width:100%"></textarea><br />
-
-
 <?php if (cpabc_get_option('dexcv_enable_captcha', CPABC_TDEAPP_DEFAULT_dexcv_enable_captcha) != 'false') { ?>
   <?php _e('Please enter the security code:','cpabc'); ?><br />
   <img src="<?php echo cpabc_appointment_get_site_url().'/?cpabc_app=captcha&inAdmin=1&width='.cpabc_get_option('dexcv_width', CPABC_TDEAPP_DEFAULT_dexcv_width).'&height='.cpabc_get_option('dexcv_height', CPABC_TDEAPP_DEFAULT_dexcv_height).'&letter_count='.cpabc_get_option('dexcv_chars', CPABC_TDEAPP_DEFAULT_dexcv_chars).'&min_size='.cpabc_get_option('dexcv_min_font_size', CPABC_TDEAPP_DEFAULT_dexcv_min_font_size).'&max_size='.cpabc_get_option('dexcv_max_font_size', CPABC_TDEAPP_DEFAULT_dexcv_max_font_size).'&noise='.cpabc_get_option('dexcv_noise', CPABC_TDEAPP_DEFAULT_dexcv_noise).'&noiselength='.cpabc_get_option('dexcv_noise_length', CPABC_TDEAPP_DEFAULT_dexcv_noise_length).'&bcolor='.cpabc_get_option('dexcv_background', CPABC_TDEAPP_DEFAULT_dexcv_background).'&border='.cpabc_get_option('dexcv_border', CPABC_TDEAPP_DEFAULT_dexcv_border).'&font='.cpabc_get_option('dexcv_font', CPABC_TDEAPP_DEFAULT_dexcv_font); ?>"  id="captchaimg" alt="security code" border="0"  />
@@ -101,7 +95,6 @@
   </div>
   <br />
 <?php } ?>
-
 <input type="submit" name="subbtn" class="cp_subbtn" value="<?php _e($button_label,'cpabc'); ?>">
 </form>
 
