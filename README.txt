@@ -334,6 +334,7 @@ The Appointment Booking Calendar plugin has recently reached **28,000 installati
 * New translations added
 * Fixed bug in multisite installations
 * PayPal Sandbox mode added
+* Fixed warning that appeared with PHP safe mode restrictions 
 
 Important note: If you are using the Professional version don't update via the WP dashboard but using your personal update link. Contact us if you need further information: http://wordpress.dwbooster.com/support
 
@@ -348,5 +349,6 @@ Very Important note: If you are using the Professional version don't update via 
 * New translations added
 * Fixed bug in multisite installations
 * PayPal Sandbox mode added
+* Fixed warning that appeared with PHP safe mode restrictions 
  
 Important note: If you are using the Professional version don't update via the WP dashboard but using your personal update link. Contact us if you need further information: http://wordpress.dwbooster.com/support
