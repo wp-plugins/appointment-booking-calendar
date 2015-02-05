@@ -12,7 +12,18 @@ if (!defined('CP_CALENDAR_ID'))
 global $wpdb;
 
 $message = "";
-if (isset($_GET['ld']) && $_GET['ld'] != '')
+
+$records_per_page = 50;                                                                                  
+
+
+if (isset($_GET['delmark']) && $_GET['delmark'] != '')
+{
+    for ($i=0; $i<=$records_per_page; $i++)
+    if (isset($_GET['c'.$i]) && $_GET['c'.$i] != '')   
+        $wpdb->query('DELETE FROM `'.CPABC_APPOINTMENTS_CALENDARS_TABLE_NAME.'` WHERE id='.intval($_GET['c'.$i]));       
+    $message = "Marked items deleted";
+}
+else if (isset($_GET['ld']) && $_GET['ld'] != '')
 {
     $wpdb->query('DELETE FROM `'.CPABC_APPOINTMENTS_CALENDARS_TABLE_NAME.'` WHERE id='.$_GET['ld']);       
     $message = "Item deleted";
@@ -35,7 +46,6 @@ if (cpabc_appointment_is_administrator() || $mycalendarrows[0]->conwer == $curre
 
 $current_page = intval($_GET["p"]);
 if (!$current_page) $current_page = 1;
-$records_per_page = 50;                                                                                  
 
 $cond = '';
 if ($_GET["search"] != '') $cond .= " AND (title like '%".esc_sql($_GET["search"])."%' OR description LIKE '%".esc_sql($_GET["search"])."%')";
@@ -112,9 +122,15 @@ echo paginate_links(  array(
 ?>
 
 <div id="cpabc_printable_contents">
+<form name="dex_table_form" id="dex_table_form" action="admin.php" method="get">
+ <input type="hidden" name="page" value="cpabc_appointments" />
+ <input type="hidden" name="cal" value="<?php echo $_GET["cal"]; ?>" />
+ <input type="hidden" name="list" value="1" />
+ <input type="hidden" name="delmark" value="1" />
 <table class="wp-list-table widefat fixed pages" cellspacing="0">
 	<thead>
 	<tr>
+	  <th width="30"></th>
 	  <th style="padding-left:7px;font-weight:bold;">Date</th>
 	  <th style="padding-left:7px;font-weight:bold;">Title</th>
 	  <th style="padding-left:7px;font-weight:bold;">Description</th>
@@ -125,9 +141,10 @@ echo paginate_links(  array(
 	<tbody id="the-list">
 	 <?php for ($i=($current_page-1)*$records_per_page; $i<$current_page*$records_per_page; $i++) if (isset($events[$i])) { ?>
 	  <tr class='<?php if (!($i%2)) { ?>alternate <?php } ?>author-self status-draft format-default iedit' valign="top">
+	    <td width="1%"><input type="checkbox" name="c<?php echo $i-($current_page-1)*$records_per_page; ?>" value="<?php echo $events[$i]->id; ?>" /></td>
 		<td><?php echo substr($events[$i]->datatime,0,16); ?></td>
 		<td><?php echo str_replace('<','&lt;',$events[$i]->title); ?></td>
-		<td><?php echo str_replace('<','&lt;',$events[$i]->description); ?></td>
+		<td><?php echo str_replace('--br />','<br />',str_replace('<','&lt;',str_replace('<br />','--br />',$events[$i]->description))); ?></td>
 		<td><?php echo $events[$i]->quantity; ?></td>
 		<td>
 		  <input type="button" name="caldelete_<?php echo $events[$i]->id; ?>" value="Delete" onclick="cp_deleteMessageItem(<?php echo $events[$i]->id; ?>);" />                             
@@ -136,11 +153,15 @@ echo paginate_links(  array(
      <?php } ?>
 	</tbody>
 </table>
+</form>
 </div>
 
-<p class="submit"><input type="button" name="pbutton" value="Print" onclick="do_dexapp_print();" /></p>
+<br /><input type="button" name="pbutton" value="Print" onclick="do_dexapp_print();" />
+<div style="clear:both"></div>
+<p class="submit" style="float:left;"><input type="button" name="pbutton" value="Delete marked items" onclick="do_dexapp_deletemarked();" /> &nbsp; &nbsp; &nbsp; </p>
 
-<p class="submit"><input type="button" name="pbutton" value="Delete All Bookings" onclick="do_dexapp_deleteall();" /></p>
+<p class="submit" style="float:left;"><input type="button" name="pbutton" value="Delete All Bookings" onclick="do_dexapp_deleteall();" /></p>
+
 
 </div>
 
@@ -152,7 +173,10 @@ echo paginate_links(  array(
       w.document.write("<style>table{border:2px solid black;width:100%;}th{border-bottom:2px solid black;text-align:left}td{padding-left:10px;border-bottom:1px solid black;}</style>"+document.getElementById('cpabc_printable_contents').innerHTML);
       w.print();     
  }
- 
+ function do_dexapp_deletemarked()
+ {
+    document.dex_table_form.submit();
+ }  
  var $j = jQuery.noConflict();
  $j(function() {
  	$j("#dfrom").datepicker({     	                
