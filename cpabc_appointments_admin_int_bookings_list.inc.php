@@ -25,7 +25,7 @@ if (isset($_GET['delmark']) && $_GET['delmark'] != '')
 }
 else if (isset($_GET['ld']) && $_GET['ld'] != '')
 {
-    $wpdb->query('DELETE FROM `'.CPABC_APPOINTMENTS_CALENDARS_TABLE_NAME.'` WHERE id='.$_GET['ld']);       
+    $wpdb->query('DELETE FROM `'.CPABC_APPOINTMENTS_CALENDARS_TABLE_NAME.'` WHERE id='.intval($_GET['ld']));       
     $message = "Item deleted";
 } 
 else if (isset($_GET['del']) && $_GET['del'] == 'all')
