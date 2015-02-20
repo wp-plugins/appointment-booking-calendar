@@ -108,6 +108,9 @@ The current translations are already available in the appointment calendar plugi
 
 If you want to add a new translation you can add a new PO/MO file into the "languages" folder. If you want to provide the translation for a new language you can send us the texts and we will create the PO/MO files for you. We will appreciate if you allow sharing your translation with other WordPress users.
 
+= Updates =
+
+New features has been published in the current Appointment Booking Calendar version 1.1.3 based on the feedback received and we would like to thank you all the people that have supported the development, provided feedback and feature requests. The plugin is currently over the 37,000 downloads/installations and a new set of updates is already being prepared, any feature requests will be welcome. Thank you!
 
 == Installation ==
 
