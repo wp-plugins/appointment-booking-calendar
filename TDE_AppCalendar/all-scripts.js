@@ -824,6 +824,9 @@ YAHOO.TDE.AppCalendar.initData= function(calendarId ) {
 				http_request.open('GET', pathCalendar+'/?cpabc_calendar_load=1&id='+calendarId+'&nocache='+Math.random(), false);
 			http_request.send(null);
 			var text = http_request.responseText;
+			var cp_startheader = "--***--***--***---!";			
+			if (text.indexOf(cp_startheader) >= 0)
+			    text = text.substr(text.indexOf(cp_startheader)+cp_startheader.length);
 			text = text.replace(/%26/g, "&");
 			var tmp = text.split(";");
 			if (!YAHOO.TDE.AppCalendar.workingDates[calendarId])

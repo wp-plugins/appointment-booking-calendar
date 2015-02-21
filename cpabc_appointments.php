@@ -1330,14 +1330,28 @@ function cpabc_appointments_calendar_load() {
 	if ( ! isset( $_GET['cpabc_calendar_load'] ) || $_GET['cpabc_calendar_load'] != '1' )
 		return;
     //@ob_clean();
-    header("Cache-Control: no-store, no-cache, must-revalidate");
-    header("Pragma: no-cache");
+    @header("Cache-Control: no-store, no-cache, must-revalidate");
+    @header("Pragma: no-cache");
     $calid = str_replace  (CPABC_TDEAPP_CAL_PREFIX, "",$_GET["id"]);
     $query = "SELECT * FROM ".CPABC_TDEAPP_CONFIG." where ".CPABC_TDEAPP_CONFIG_ID."='".$calid."'";
     $row = $wpdb->get_results($query,ARRAY_A);
     if ($row[0])
     {
-        echo $row[0][CPABC_TDEAPP_CONFIG_WORKINGDATES].";";
+        // New header to mark init of calendar output
+        echo '--***--***--***---!';
+        // START:: new code to clean corrupted data 
+        $working_dates = explode(",",$row[0][CPABC_TDEAPP_CONFIG_WORKINGDATES]);
+        for($i=0;$i<count($working_dates); $i++)
+            if (is_numeric($working_dates[$i]))
+                $working_dates[$i] = intval($working_dates[$i]);
+            else            
+                $working_dates[$i] = ''; 
+        $working_dates = array_unique($working_dates);        
+        $working_dates = implode(",",$working_dates); 
+        while (!(strpos($working_dates,",,") === false))
+            $working_dates = str_replace(",,",",",$working_dates);       
+        echo $working_dates.";";
+        // END:: new code to clean corrupted data
         echo $row[0][CPABC_TDEAPP_CONFIG_RESTRICTEDDATES].";";
         echo $row[0][CPABC_TDEAPP_CONFIG_TIMEWORKINGDATES0].";";
         echo $row[0][CPABC_TDEAPP_CONFIG_TIMEWORKINGDATES1].";";
@@ -1478,17 +1492,29 @@ function cpabc_appointment_cleanJSON($str)
 
 
 
-function cpabc_appointment_get_site_url()
+function cpabc_appointment_get_site_url($admin = false)
 {
-    $url = parse_url(get_site_url());
+    $blog = get_current_blog_id();
+    if( $admin ) 
+        $url = get_admin_url( $blog );	
+    else 
+        $url = get_home_url( $blog );	
+
+    $url = parse_url($url);
     $url = rtrim(@$url["path"],"/");
     return $url;
 }
 
 
-function cpabc_appointment_get_FULL_site_url()
+function cpabc_appointment_get_FULL_site_url($admin = false)
 {
-    $url = parse_url(get_site_url());
+    $blog = get_current_blog_id();
+    if( $admin ) 
+        $url = get_admin_url( $blog );	
+    else 
+        $url = get_home_url( $blog );
+            
+    $url = parse_url($url);
     $url = rtrim(@$url["path"],"/");
     $pos = strpos($url, "://");
     if ($pos === false)

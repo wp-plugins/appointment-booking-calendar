@@ -62,7 +62,7 @@ for ($k=1;$k<100;$k++)
    <link rel="stylesheet" type="text/css" href="<?php echo plugins_url('TDE_AppCalendar/simpleeditor.css', __FILE__); ?>" />
    <link rel="stylesheet" type="text/css" href="<?php echo plugins_url('TDE_AppCalendar/tabview.css', __FILE__); ?>" />
    <script>
-   var pathCalendar = "<?php echo cpabc_appointment_get_site_url(); ?>";
+   var pathCalendar = "<?php echo cpabc_appointment_get_site_url(true); ?>";
    var cpabc_global_start_weekday = '<?php echo cpabc_get_option('calendar_weekday', CPABC_APPOINTMENTS_DEFAULT_CALENDAR_WEEKDAY); ?>';
    </script>
    <script type="text/javascript" src="<?php echo plugins_url('TDE_AppCalendar/all-scripts.js', __FILE__); ?>"></script>
@@ -497,7 +497,7 @@ for ($k=1;$k<100;$k++)
          <td colspan="2" rowspan="">
            Preview:<br />
              <br />
-            <img src="<?php echo cpabc_appointment_get_site_url(); ?>/?cpabc_app=captcha&inAdmin=1"  id="captchaimg" alt="security code" border="0"  />            
+            <img src="<?php echo cpabc_appointment_get_site_url(true); ?>/?cpabc_app=captcha&inAdmin=1"  id="captchaimg" alt="security code" border="0"  />            
          </td> 
         </tr>             
                 
@@ -629,7 +629,7 @@ for ($k=1;$k<100;$k++)
     qs += "&font="+f.dexcv_font.options[f.dexcv_font.selectedIndex].value;
     qs += "&rand="+d;
          
-    document.getElementById("captchaimg").src= "<?php echo cpabc_appointment_get_site_url(); ?>/?cpabc_app=captcha&inAdmin=1&"+qs;
+    document.getElementById("captchaimg").src= "<?php echo cpabc_appointment_get_site_url(true); ?>/?cpabc_app=captcha&inAdmin=1&"+qs;
  }       
          
  generateCaptcha();
@@ -640,7 +640,7 @@ for ($k=1;$k<100;$k++)
                     dateFormat: 'yy-mm-dd'
                  }); 	
  });
- $j('#cpabc_nocodes_availmsg').load('<?php echo cpabc_appointment_get_site_url(); ?>/?cpabc_app=cpabc_loadcoupons&inAdmin=1&cpabc_item=<?php echo CP_CALENDAR_ID; ?>');
+ $j('#cpabc_nocodes_availmsg').load('<?php echo cpabc_appointment_get_site_url(true); ?>/?cpabc_app=cpabc_loadcoupons&inAdmin=1&cpabc_item=<?php echo CP_CALENDAR_ID; ?>');
  $j('#cpabc_dc_subccode').click (function() {
                                var code = $j('#cpabc_dc_code').val();
                                var discount = $j('#cpabc_dc_discount').val();
@@ -649,13 +649,13 @@ for ($k=1;$k<100;$k++)
                                if (parseInt(discount)+"" != discount) { alert('Please numeric discount percent'); return; }
                                if (expires == '') { alert('Please enter an expiration date for the code'); return; }
                                var params = '&add=1&expires='+encodeURI(expires)+'&discount='+encodeURI(discount)+'&code='+encodeURI(code);
-                               $j('#cpabc_nocodes_availmsg').load('<?php echo cpabc_appointment_get_site_url(); ?>/?cpabc_app=cpabc_loadcoupons&inAdmin=1&cpabc_item=<?php echo CP_CALENDAR_ID; ?>'+params);
+                               $j('#cpabc_nocodes_availmsg').load('<?php echo cpabc_appointment_get_site_url(true); ?>/?cpabc_app=cpabc_loadcoupons&inAdmin=1&cpabc_item=<?php echo CP_CALENDAR_ID; ?>'+params);
                                $j('#cpabc_dc_code').val();
                              });
                              
   function cpabc_delete_coupon(id)                             
   {
-     $j('#cpabc_nocodes_availmsg').load('<?php echo cpabc_appointment_get_site_url(); ?>/?cpabc_app=cpabc_loadcoupons&inAdmin=1&cpabc_item=<?php echo CP_CALENDAR_ID; ?>&delete=1&code='+id);
+     $j('#cpabc_nocodes_availmsg').load('<?php echo cpabc_appointment_get_site_url(true); ?>/?cpabc_app=cpabc_loadcoupons&inAdmin=1&cpabc_item=<?php echo CP_CALENDAR_ID; ?>&delete=1&code='+id);
   }
   
   function cpabc_updatemaxslots()
