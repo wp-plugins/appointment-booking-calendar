@@ -193,7 +193,7 @@ function _cpabc_appointments_install() {
          name VARCHAR(250) DEFAULT '' NOT NULL,
          email VARCHAR(250) DEFAULT '' NOT NULL,
          phone VARCHAR(250) DEFAULT '' NOT NULL,
-         question text,
+         question mediumtext,
          quantity VARCHAR(25) DEFAULT '1' NOT NULL,
          buffered_date text,
          UNIQUE KEY id (id)
@@ -206,7 +206,7 @@ function _cpabc_appointments_install() {
     $wpdb->query($sql);
     $sql = "ALTER TABLE  `".$wpdb->prefix.CPABC_APPOINTMENTS_CONFIG_TABLE_NAME."` ADD `conwer` INT NOT NULL AFTER  `id`;"; 
 
-    $sql = "ALTER TABLE  `".$wpdb->prefix.CPABC_APPOINTMENTS_CONFIG_TABLE_NAME."` ADD `form_structure` text AFTER  `id`;";     $wpdb->query($sql);
+    $sql = "ALTER TABLE  `".$wpdb->prefix.CPABC_APPOINTMENTS_CONFIG_TABLE_NAME."` ADD `form_structure` mediumtext AFTER  `id`;";     $wpdb->query($sql);
 
     $sql = "ALTER TABLE  `".$wpdb->prefix.CPABC_APPOINTMENTS_CONFIG_TABLE_NAME."` ADD `specialDates` text AFTER  `id`;";     $wpdb->query($sql);
 
@@ -282,7 +282,7 @@ function _cpabc_appointments_install() {
     $sql = "ALTER TABLE  `".$wpdb->prefix.CPABC_APPOINTMENTS_CONFIG_TABLE_NAME."` ADD `nadmin_emailformat` text AFTER  `timeWorkingDates6`;"; $wpdb->query($sql);
     $sql = "ALTER TABLE  `".$wpdb->prefix.CPABC_APPOINTMENTS_CONFIG_TABLE_NAME."` ADD `nremind_emailformat` text AFTER  `timeWorkingDates6`;"; $wpdb->query($sql);
 
-    $sql = "CREATE TABLE `".$wpdb->prefix.CPABC_APPOINTMENTS_CALENDARS_TABLE_NAME."` (`".CPABC_TDEAPP_DATA_ID."` int(10) unsigned NOT NULL auto_increment,`".CPABC_TDEAPP_DATA_IDCALENDAR."` int(10) unsigned default NULL,`".CPABC_TDEAPP_DATA_DATETIME."`datetime NOT NULL default '0000-00-00 00:00:00',`".CPABC_TDEAPP_DATA_TITLE."` varchar(250) default NULL,`".CPABC_TDEAPP_DATA_DESCRIPTION."` text,PRIMARY KEY (`".CPABC_TDEAPP_DATA_ID."`)) ;";
+    $sql = "CREATE TABLE `".$wpdb->prefix.CPABC_APPOINTMENTS_CALENDARS_TABLE_NAME."` (`".CPABC_TDEAPP_DATA_ID."` int(10) unsigned NOT NULL auto_increment,`".CPABC_TDEAPP_DATA_IDCALENDAR."` int(10) unsigned default NULL,`".CPABC_TDEAPP_DATA_DATETIME."`datetime NOT NULL default '0000-00-00 00:00:00',`".CPABC_TDEAPP_DATA_TITLE."` varchar(250) default NULL,`".CPABC_TDEAPP_DATA_DESCRIPTION."` mediumtext,PRIMARY KEY (`".CPABC_TDEAPP_DATA_ID."`)) ;";
     $wpdb->query($sql);
 
     $sql = "ALTER TABLE  `".$wpdb->prefix.CPABC_APPOINTMENTS_CALENDARS_TABLE_NAME_NO_PREFIX."` ADD `reminder` VARCHAR(1) DEFAULT '' NOT NULL;"; $wpdb->query($sql);
