@@ -1346,6 +1346,8 @@ function cpabc_appointments_calendar_load() {
                 $working_dates[$i] = intval($working_dates[$i]);
             else            
                 $working_dates[$i] = ''; 
+        if ($working_dates[0] == '')
+            unset($working_dates[0]);                
         $working_dates = array_unique($working_dates);        
         $working_dates = implode(",",$working_dates); 
         while (!(strpos($working_dates,",,") === false))
