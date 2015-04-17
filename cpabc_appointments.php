@@ -833,6 +833,7 @@ function cpabc_appointments_check_posted_data()
     $coupon = false;    
 
     $params = array();
+    $params["PRICE"] = $price;
     $params["COUPONCODE"] = ($coupon?"\nCoupon code:".$coupon->code.$discount_note."\n":"");
     $params["QUANTITY"] = @$_POST["abc_capacity"];
 
