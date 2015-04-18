@@ -1,0 +1,123 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: app book cal\n"
+"POT-Creation-Date: 2013-04-19 10:48+0100\n"
+"PO-Revision-Date: 2014-12-07 22:37+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.10\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;_e\n"
+"X-Poedit-Basepath: C:\\TORRE_F\\WorkII\\Developers4Web\\DWBooster.wordpress"
+"\\components\\Appointment Booking Calendar\\pro-version\\appointment-booking-"
+"calendar\\\n"
+"Language: zh_CN\n"
+"X-Poedit-SearchPath-0: .\n"
+
+# RevTran=Number
+#: cpabc_appointments.php:375
+msgid "Quantity"
+msgstr "数量"
+
+# RevTran=Please select an appointment time.
+#: cpabc_appointments.php:411
+msgid "Please select the appointment time."
+msgstr "请选择预约时间。"
+
+# RevTran=Select Date
+#: cpabc_appointments.php:444
+msgid "Selected date"
+msgstr "选择日期"
+
+#: cpabc_internal.inc.php:8 cpabc_scheduler.inc.php:6
+msgid "Calendar"
+msgstr "日历"
+
+# RevTran=The date and time selected
+#: cpabc_internal.inc.php:12 cpabc_scheduler.inc.php:10
+msgid "Select date and time"
+msgstr "选择的日期和时间"
+
+# RevTran=Please select the date and time
+#: cpabc_internal.inc.php:24 cpabc_scheduler.inc.php:37
+msgid "Please select date and time"
+msgstr "请选择日期和时间"
+
+#: cpabc_internal.inc.php:62 cpabc_scheduler.inc.php:79
+msgid "Coupon code (optional)"
+msgstr "优惠券代码（可选）"
+
+# RevTran=SERVICE
+#: cpabc_internal.inc.php:67 cpabc_scheduler.inc.php:84
+msgid "Service"
+msgstr "维修"
+
+# RevTran=Please enter this code:
+#: cpabc_internal.inc.php:73 cpabc_scheduler.inc.php:90
+msgid "Please enter the security code:"
+msgstr "请输入验证码："
+
+# RevTran=Verification code (lowercase letters):
+#: cpabc_internal.inc.php:76 cpabc_scheduler.inc.php:93
+msgid "Security Code (lowercase letters):"
+msgstr "验证码（小写字母）："
+
+# RevTran=Keizoku
+#: cpabc_internal.inc.php:84 cpabc_scheduler.inc.php:101
+msgid "Continue"
+msgstr "繼續"
+
+#: cpabc_scheduler.inc.php:22
+msgid "Please enter a valid phone number"
+msgstr "请输入一个有效的电话号码"
+
+#: cpabc_scheduler.inc.php:27
+msgid "Please enter a valid email address"
+msgstr "请输入一个有效的电子邮件地址"
+
+# RevTran=Please write your name clearly
+#: cpabc_scheduler.inc.php:32
+msgid "Please write your name"
+msgstr "请写清楚你的名字"
+
+# RevTran=Please enter the verification code
+#: cpabc_scheduler.inc.php:42
+msgid "Please enter the captcha verification code"
+msgstr "请输入验证码验证码"
+
+# RevTran=Telephone number
+#: cpabc_scheduler.inc.php:64
+msgid "Your phone number"
+msgstr "电话号码"
+
+#: cpabc_scheduler.inc.php:67
+msgid "Your name"
+msgstr "你的名字"
+
+# RevTran=Your email:
+#: cpabc_scheduler.inc.php:70
+msgid "Your email"
+msgstr "您的電郵地址："
+
+# RevTran=Comments or Questions
+#: cpabc_scheduler.inc.php:73
+msgid "Comments/Questions"
+msgstr "意见或问题"
+
+# RevTran=Please select at least% 1 slot. Currently selected:% 2 slot.
+msgid ""
+"Please select at least %1 time-slots. Currently selected: %2 time-slots."
+msgstr "请选择至少％1时隙。目前选定的：％2时隙。"
+
+# RevTran=Please select a maximum of% 1 slot. Currently selected:% 2 slot.
+msgid ""
+"Please select a maximum of %1 time-slots. Currently selected: %2 time-slots."
+msgstr "请选择一个最大的％1时隙。目前选定的：％2时隙。"
+
+msgid "Cancel"
+msgstr "取消"
+
+msgid "Previous"
+msgstr "上一个"

@@ -1,0 +1,122 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: app book cal\n"
+"POT-Creation-Date: 2013-04-19 10:48+0100\n"
+"PO-Revision-Date: 2014-12-07 22:38+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.10\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;_e\n"
+"X-Poedit-Basepath: C:\\TORRE_F\\WorkII\\Developers4Web\\DWBooster.wordpress"
+"\\components\\Appointment Booking Calendar\\pro-version\\appointment-booking-"
+"calendar\\\n"
+"Language: af\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: cpabc_appointments.php:375
+msgid "Quantity"
+msgstr "Hoeveelheid"
+
+# RevTran=Choose
+#: cpabc_appointments.php:411
+msgid "Please select the appointment time."
+msgstr "Kies die aanstelling tyd."
+
+#: cpabc_appointments.php:444
+msgid "Selected date"
+msgstr "Gekies datum"
+
+# RevTran=List of historical anniversaries
+#: cpabc_internal.inc.php:8 cpabc_scheduler.inc.php:6
+msgid "Calendar"
+msgstr "Kalender"
+
+# RevTran=dates
+#: cpabc_internal.inc.php:12 cpabc_scheduler.inc.php:10
+msgid "Select date and time"
+msgstr "Kies datum en tyd"
+
+# RevTran=please
+#: cpabc_internal.inc.php:24 cpabc_scheduler.inc.php:37
+msgid "Please select date and time"
+msgstr "Asseblief"
+
+#: cpabc_internal.inc.php:62 cpabc_scheduler.inc.php:79
+msgid "Coupon code (optional)"
+msgstr "Koepon kode (opsioneel)"
+
+#: cpabc_internal.inc.php:67 cpabc_scheduler.inc.php:84
+msgid "Service"
+msgstr "Diens"
+
+# RevTran=INVALID LANGUAGE PAIR SPECIFIED. EXAMPLE: LANGPAIR=EN|IT USING 2 LETTER ISO OR RFC3066 LIKE ZH-CN. ALMOST ALL LANGUAGES SUPPORTED BUT SOME MAY HAVE NO CONTENT
+#: cpabc_internal.inc.php:73 cpabc_scheduler.inc.php:90
+msgid "Please enter the security code:"
+msgstr "Tik asb die sekuriteit&#39;s kode:"
+
+# RevTran=Security code (lower case):
+#: cpabc_internal.inc.php:76 cpabc_scheduler.inc.php:93
+msgid "Security Code (lowercase letters):"
+msgstr "Sekuriteit Kode (kleinletters):"
+
+#: cpabc_internal.inc.php:84 cpabc_scheduler.inc.php:101
+msgid "Continue"
+msgstr "Voortgaan"
+
+# RevTran=INVALID LANGUAGE PAIR SPECIFIED. EXAMPLE: LANGPAIR=EN|IT USING 2 LETTER ISO OR RFC3066 LIKE ZH-CN. ALMOST ALL LANGUAGES SUPPORTED BUT SOME MAY HAVE NO CONTENT
+#: cpabc_scheduler.inc.php:22
+msgid "Please enter a valid phone number"
+msgstr "Tik &#39;n geldige telefoonnommer"
+
+# RevTran=INVALID LANGUAGE PAIR SPECIFIED. EXAMPLE: LANGPAIR=EN|IT USING 2 LETTER ISO OR RFC3066 LIKE ZH-CN. ALMOST ALL LANGUAGES SUPPORTED BUT SOME MAY HAVE NO CONTENT
+#: cpabc_scheduler.inc.php:27
+msgid "Please enter a valid email address"
+msgstr "Voer asseblief &#39;n geldige e-pos adres"
+
+#: cpabc_scheduler.inc.php:32
+msgid "Please write your name"
+msgstr "Skryf asseblief jou naam"
+
+# RevTran=Please enter the CAPTCHA verification code
+#: cpabc_scheduler.inc.php:42
+msgid "Please enter the captcha verification code"
+msgstr "Tik asb die captcha verifikasiekode"
+
+# RevTran=Number
+#: cpabc_scheduler.inc.php:64
+msgid "Your phone number"
+msgstr "Getal"
+
+#: cpabc_scheduler.inc.php:67
+msgid "Your name"
+msgstr "Jou naam"
+
+# RevTran=Email
+#: cpabc_scheduler.inc.php:70
+msgid "Your email"
+msgstr "E-pos"
+
+# RevTran=Comments \\ / Questions
+#: cpabc_scheduler.inc.php:73
+msgid "Comments/Questions"
+msgstr "Kommentaar / Vrae"
+
+# RevTran=atleast
+msgid ""
+"Please select at least %1 time-slots. Currently selected: %2 time-slots."
+msgstr "Kies ten minste% 1 tydgleuwe. Tans gekies:% 2 tydgleuwe."
+
+# RevTran=INVALID LANGUAGE PAIR SPECIFIED. EXAMPLE: LANGPAIR=EN|IT USING 2 LETTER ISO OR RFC3066 LIKE ZH-CN. ALMOST ALL LANGUAGES SUPPORTED BUT SOME MAY HAVE NO CONTENT
+msgid ""
+"Please select a maximum of %1 time-slots. Currently selected: %2 time-slots."
+msgstr "Kies &#39;n maksimum van% 1 tydgleuwe. Tans gekies:% 2 tydgleuwe."
+
+# RevTran=The executor of the deceased Lessee’s estate shall have the option, depending upon the circumstances of the estate, either to abide by the contract for the remainder period of the lease (the successor or successors of the Lessee assuming his rights and obligations) or to cancel this lease by giving the Lessor 1 (ONE) months written notice of termination, such notice to be given not more than 1 (ONE) month after the death of the Lessee.
+msgid "Cancel"
+msgstr "Kanselleer"
+
+msgid "Previous"
+msgstr "Vorige"

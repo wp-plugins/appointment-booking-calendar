@@ -1,0 +1,126 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: app book cal\n"
+"POT-Creation-Date: 2013-04-19 10:48+0100\n"
+"PO-Revision-Date: 2014-12-07 22:38+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.10\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;_e\n"
+"X-Poedit-Basepath: C:\\TORRE_F\\WorkII\\Developers4Web\\DWBooster.wordpress"
+"\\components\\Appointment Booking Calendar\\pro-version\\appointment-booking-"
+"calendar\\\n"
+"Language: bg_BG\n"
+"X-Poedit-SearchPath-0: .\n"
+
+# RevTran=Content
+# RevTran=Content
+msgid "Quantity"
+msgstr "Количество"
+
+# RevTran=Please select a time for the meeting.
+# RevTran=Please select a time for the meeting.
+msgid "Please select the appointment time."
+msgstr "Моля изберете час на срещата."
+
+#: cpabc_appointments.php:444
+msgid "Selected date"
+msgstr "Избрана дата"
+
+#: cpabc_internal.inc.php:8 cpabc_scheduler.inc.php:6
+msgid "Calendar"
+msgstr "Календар"
+
+# RevTran=Select a date and time
+# RevTran=Select a date and time
+msgid "Select date and time"
+msgstr "Изберете дата и час"
+
+# RevTran=Please select a date and time
+# RevTran=Please select a date and time
+msgid "Please select date and time"
+msgstr "Моля изберете дата и час"
+
+#: cpabc_internal.inc.php:62 cpabc_scheduler.inc.php:79
+msgid "Coupon code (optional)"
+msgstr "Купон код (по желание)"
+
+# RevTran=Host
+# RevTran=Host
+msgid "Service"
+msgstr "Услуга"
+
+#: cpabc_internal.inc.php:73 cpabc_scheduler.inc.php:90
+msgid "Please enter the security code:"
+msgstr "Моля, въведете кода за сигурност:"
+
+# RevTran=Security code (lowercase):
+# RevTran=Security code (lowercase):
+msgid "Security Code (lowercase letters):"
+msgstr "Код за сигурност (малки букви):"
+
+# RevTran=Resume
+# RevTran=Resume
+msgid "Continue"
+msgstr "Продължи"
+
+#: cpabc_scheduler.inc.php:22
+msgid "Please enter a valid phone number"
+msgstr "Моля, въведете валиден телефонен номер"
+
+#: cpabc_scheduler.inc.php:27
+msgid "Please enter a valid email address"
+msgstr "Моля въведете актуален имейл адрес﻿"
+
+# RevTran=MYMEMORY WARNING: YOU USED ALL AVAILABLE FREE TRANSLATIONS FOR TODAY. VISIT HTTP://MYMEMORY.TRANSLATED.NET/DOC/QUOTAREACHED TO TRANSLATE MORE
+msgid "Please write your name"
+msgstr "Моля, напишете вашето име"
+
+# RevTran=MYMEMORY WARNING: YOU USED ALL AVAILABLE FREE TRANSLATIONS FOR TODAY. VISIT HTTP://MYMEMORY.TRANSLATED.NET/DOC/QUOTAREACHED TO TRANSLATE MORE
+# RevTran=Please enter the confirmation code Captcha
+msgid "Please enter the captcha verification code"
+msgstr "Моля, въведете кода за потвърждение Captcha"
+
+# RevTran=MYMEMORY WARNING: YOU USED ALL AVAILABLE FREE TRANSLATIONS FOR TODAY. VISIT HTTP://MYMEMORY.TRANSLATED.NET/DOC/QUOTAREACHED TO TRANSLATE MORE
+msgid "Your phone number"
+msgstr "Вашият телефонен номер"
+
+# RevTran=MYMEMORY WARNING: YOU USED ALL AVAILABLE FREE TRANSLATIONS FOR TODAY. VISIT HTTP://MYMEMORY.TRANSLATED.NET/DOC/QUOTAREACHED TO TRANSLATE MORE
+msgid "Your name"
+msgstr "Вашето име"
+
+# RevTran=MYMEMORY WARNING: YOU USED ALL AVAILABLE FREE TRANSLATIONS FOR TODAY. VISIT HTTP://MYMEMORY.TRANSLATED.NET/DOC/QUOTAREACHED TO TRANSLATE MORE
+msgid "Your email"
+msgstr "Вашият адрес на електронна поща"
+
+# RevTran=MYMEMORY WARNING: YOU USED ALL AVAILABLE FREE TRANSLATIONS FOR TODAY. VISIT HTTP://MYMEMORY.TRANSLATED.NET/DOC/QUOTAREACHED TO TRANSLATE MORE
+# RevTran=Comments \\ / Questions
+msgid "Comments/Questions"
+msgstr "Коментари / Въпроси"
+
+# RevTran=MYMEMORY WARNING: YOU USED ALL AVAILABLE FREE TRANSLATIONS FOR TODAY. VISIT HTTP://MYMEMORY.TRANSLATED.NET/DOC/QUOTAREACHED TO TRANSLATE MORE
+# RevTran=Please select at least% 1-time slots. Currently selected:% 2 time-slots.
+msgid ""
+"Please select at least %1 time-slots. Currently selected: %2 time-slots."
+msgstr ""
+"Моля изберете по-малко %1-слотовете време. Избран в момента: %2 време-"
+"слотове."
+
+# RevTran=MYMEMORY WARNING: YOU USED ALL AVAILABLE FREE TRANSLATIONS FOR TODAY. VISIT HTTP://MYMEMORY.TRANSLATED.NET/DOC/QUOTAREACHED TO TRANSLATE MORE
+# RevTran=Please select no more than 1% intervals. Currently selected:% 2 intervals.
+msgid ""
+"Please select a maximum of %1 time-slots. Currently selected: %2 time-slots."
+msgstr ""
+"Моля изберете не повече от% 1 времеви интервали. В момента избрани:% 2 "
+"времеви интервали."
+
+# RevTran=MYMEMORY WARNING: YOU USED ALL AVAILABLE FREE TRANSLATIONS FOR TODAY. VISIT HTTP://MYMEMORY.TRANSLATED.NET/DOC/QUOTAREACHED TO TRANSLATE MORE
+msgid "Cancel"
+msgstr "Отмяна"
+
+# RevTran=MYMEMORY WARNING: YOU USED ALL AVAILABLE FREE TRANSLATIONS FOR TODAY. VISIT HTTP://MYMEMORY.TRANSLATED.NET/DOC/QUOTAREACHED TO TRANSLATE MORE
+msgid "Previous"
+msgstr "Предишна"
