@@ -341,6 +341,13 @@ The Appointment Booking Calendar plugin has recently reached **28,000 installati
 * Sanitized GET parameters used in queries
 * Fixed issue with the site home URL in WP with folders in non-default locations
 
+= 1.1.4 =
+* Fixed bug in the function that generates the https url
+* Sanitized query parameters
+* Fixed bug that caused the Sunday not being selectable in the calendar.
+* Automatically repaid corrupted databases
+* Fixed SQL issues and improved database structure
+
 Important note: If you are using the Professional version don't update via the WP dashboard but using your personal update link. Contact us if you need further information: http://wordpress.dwbooster.com/support
 
 
@@ -348,14 +355,11 @@ Important note: If you are using the Professional version don't update via the W
 
 Very Important note: If you are using the Professional version don't update via the WP dashboard but using your personal update link. Contact us if you need further information: http://wordpress.dwbooster.com/support
 
-= 1.1.3 =
-* Interface modifications.
-* New admin settings
-* New translations added
-* Fixed bug in multisite installations
-* PayPal Sandbox mode added
-* Fixed warning that appeared with PHP safe mode restrictions 
-* Sanitized GET parameters used in queries
-* Fixed issue with the site home URL in WP with folders in non-default locations
+= 1.1.4 =
+* Fixed bug in the function that generates the https url
+* Sanitized query parameters
+* Fixed bug that caused the Sunday not being selectable in the calendar.
+* Automatically repaid corrupted databases
+* Fixed SQL issues and improved database structure
  
 Important note: If you are using the Professional version don't update via the WP dashboard but using your personal update link. Contact us if you need further information: http://wordpress.dwbooster.com/support
