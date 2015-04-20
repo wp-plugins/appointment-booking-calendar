@@ -294,16 +294,12 @@ function _cpabc_appointments_install() {
     $wpdb->query($sql);
 
     require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
-    //dbDelta($sql);
 
 }
 
 
 
 /* Filter for placing the maps into the contents */
-
-
-
 function cpabc_appointments_filter_content($atts) {
     global $wpdb;
     extract( shortcode_atts( array(
@@ -844,17 +840,6 @@ function cpabc_appointments_check_posted_data()
     $params["PHONE"] = $_POST["phone"];
     $params["COMMENTS"] = $_POST["question"];
 
-    /**
-    $buffer = $_POST["selYearcal".$selectedCalendar].",".$_POST["selMonthcal".$selectedCalendar].",".$_POST["selDaycal".$selectedCalendar]."\n".
-    $_POST["selHourcal".$selectedCalendar].":".($_POST["selMinutecal".$selectedCalendar]<10?"0":"").$_POST["selMinutecal".$selectedCalendar]."\n".
-    "Name: ".$_POST["name"]."\n".
-    "Email: ".$_POST["email"]."\n".
-    "Phone: ".$_POST["phone"]."\n".
-    "Question: ".$_POST["question"]."\n".
-            (@$_POST["services"]?"\nService:".trim($services_formatted[1])."\n":"").
-            ($coupon?"\nCoupon code:".$coupon->code.$discount_note."\n":"").
-    "*-*\n";
-    */
     $buffer_A = $_POST["question"];
     $to = "email";
 
@@ -886,8 +871,6 @@ function cpabc_appointments_check_posted_data()
             $sql = "ALTER TABLE  `".$wpdb->prefix.CPABC_APPOINTMENTS_TABLE_NAME_NO_PREFIX."` ADD `booked_time_unformatted` text;"; $wpdb->query($sql);
             exit;
         }
-
-        //$myrows = $wpdb->get_results( "SELECT MAX(id) as max_id FROM ".CPABC_APPOINTMENTS_TABLE_NAME );
 
  	    // save data here
         $item_number[] = $wpdb->insert_id;
