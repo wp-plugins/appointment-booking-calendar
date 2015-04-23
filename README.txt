@@ -347,6 +347,7 @@ The Appointment Booking Calendar plugin has recently reached **28,000 installati
 * Fixed bug that caused the Sunday not being selectable in the calendar.
 * Automatically repaid corrupted databases
 * Fixed SQL issues and improved database structure
+* Compatible with the latest WordPress 4.2.x version
 
 Important note: If you are using the Professional version don't update via the WP dashboard but using your personal update link. Contact us if you need further information: http://wordpress.dwbooster.com/support
 
