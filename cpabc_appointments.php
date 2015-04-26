@@ -649,7 +649,7 @@ function cpabc_export_iCal() {
     define('CPABC_CAL_TIME_SLOT_SIZE'," +".get_option('CPABC_CAL_TIME_SLOT_SIZE_SET',"15")." minutes");
 
     echo "BEGIN:VCALENDAR\n";
-    echo "PRODID:-//CodePeople//Appointment Booking Calendar for WordPress//EN\n";
+    echo "PRODID:-//Net-Factor CodePeople//Appointment Booking Calendar for WordPress//EN\n";
     echo "VERSION:2.0\n";
     echo "CALSCALE:GREGORIAN\n";
     echo "METHOD:PUBLISH\n";
