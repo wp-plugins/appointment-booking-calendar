@@ -1,0 +1,121 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: app book cal\n"
+"POT-Creation-Date: 2013-04-19 10:48+0100\n"
+"PO-Revision-Date: 2014-12-07 22:38+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.10\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;_e\n"
+"X-Poedit-Basepath: C:\\TORRE_F\\WorkII\\Developers4Web\\DWBooster.wordpress"
+"\\components\\Appointment Booking Calendar\\pro-version\\appointment-booking-"
+"calendar\\\n"
+"Language: ar\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: cpabc_appointments.php:375
+msgid "Quantity"
+msgstr "الكمية"
+
+# RevTran=Please select an appointment time.
+# RevTran=Please select an appointment time.
+msgid "Please select the appointment time."
+msgstr "يرجى تحديد وقت الموعد."
+
+# RevTran=The date specified
+# RevTran=The date specified
+msgid "Selected date"
+msgstr "التاريخ المحدد"
+
+#: cpabc_internal.inc.php:8 cpabc_scheduler.inc.php:6
+msgid "Calendar"
+msgstr "التقويم"
+
+# RevTran=Select the date and time
+# RevTran=Select the date and time
+msgid "Select date and time"
+msgstr "حدد التاريخ والوقت"
+
+# RevTran=Please specify the date and time
+# RevTran=Please specify the date and time
+msgid "Please select date and time"
+msgstr "يرجى تحديد التاريخ والوقت"
+
+#: cpabc_internal.inc.php:62 cpabc_scheduler.inc.php:79
+msgid "Coupon code (optional)"
+msgstr "رمز القسيمة (اختياري)"
+
+#: cpabc_internal.inc.php:67 cpabc_scheduler.inc.php:84
+msgid "Service"
+msgstr "خدمة"
+
+#: cpabc_internal.inc.php:73 cpabc_scheduler.inc.php:90
+msgid "Please enter the security code:"
+msgstr "الرجاء إدخال رمز الأمان:"
+
+# RevTran=Security Code (lowercase):
+# RevTran=Security Code (lowercase):
+msgid "Security Code (lowercase letters):"
+msgstr "قانون الضمان (أحرف صغيرة):"
+
+# RevTran=Continue?
+# RevTran=Continue?
+msgid "Continue"
+msgstr "استمرار"
+
+# RevTran=Please enter a valid year number
+# RevTran=Please enter a valid year number
+msgid "Please enter a valid phone number"
+msgstr "الرجاء إدخال رقم عام صحيح"
+
+#: cpabc_scheduler.inc.php:27
+msgid "Please enter a valid email address"
+msgstr "يرجى إدخال عنوان بريد إلكتروني صالح"
+
+#: cpabc_scheduler.inc.php:32
+msgid "Please write your name"
+msgstr "يرجى كتابة اسمك"
+
+# RevTran=Please enter the verification code CAPTCHA
+# RevTran=Please enter the verification code CAPTCHA
+msgid "Please enter the captcha verification code"
+msgstr "الرجاء إدخال رمز التحقق CAPTCHA"
+
+# RevTran=Your Phone Number...
+# RevTran=Your Phone Number...
+msgid "Your phone number"
+msgstr "رقم هاتفك..."
+
+#: cpabc_scheduler.inc.php:67
+msgid "Your name"
+msgstr "اسمك"
+
+# RevTran=Your Email...
+# RevTran=Your Email...
+msgid "Your email"
+msgstr "بريدك الإلكتروني..."
+
+# RevTran=Comments \\ / FAQ
+# RevTran=Comments \\ / FAQ
+msgid "Comments/Questions"
+msgstr "تعليقات / أسئلة"
+
+# RevTran=Please specify at least 1% time slots. Currently selected:% 2 time slots.
+# RevTran=Please specify at least 1% time slots. Currently selected:% 2 time slots.
+msgid ""
+"Please select at least %1 time-slots. Currently selected: %2 time-slots."
+msgstr "يرجى تحديد ما لا يقل عن٪ 1 مرة فتحات. المحدد حاليا:٪ 2 الوقت فتحات."
+
+# RevTran=Please specify a maximum of 1% of the time slots. Currently selected:% 2 time slots.
+msgid ""
+"Please select a maximum of %1 time-slots. Currently selected: %2 time-slots."
+msgstr "يرجى تحديد حد أقصى قدره 1٪ الوقت فتحات. المحدد حاليا:٪ 2 الوقت فتحات."
+
+msgid "Cancel"
+msgstr "إلغاء"
+
+msgid "Previous"
+msgstr "السابق"

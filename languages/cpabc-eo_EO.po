@@ -1,0 +1,115 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: app book cal\n"
+"POT-Creation-Date: 2013-04-19 10:48+0100\n"
+"PO-Revision-Date: 2014-12-07 22:39+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.10\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;_e\n"
+"X-Poedit-Basepath: C:\\TORRE_F\\WorkII\\Developers4Web\\DWBooster.wordpress"
+"\\components\\Appointment Booking Calendar\\pro-version\\appointment-booking-"
+"calendar\\\n"
+"Language: eo_EO\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: cpabc_appointments.php:375
+msgid "Quantity"
+msgstr "Kvanto"
+
+# RevTran=Please choose the appointment time.
+# RevTran=Please choose the appointment time.
+msgid "Please select the appointment time."
+msgstr "Bonvole elektu la nomumo tempon."
+
+# RevTran=date
+# RevTran=date
+msgid "Selected date"
+msgstr "dato"
+
+#: cpabc_internal.inc.php:8 cpabc_scheduler.inc.php:6
+msgid "Calendar"
+msgstr "Kalendaro"
+
+# RevTran=And there they abode long time with the disciples.
+# RevTran=And there they abode long time with the disciples.
+msgid "Select date and time"
+msgstr "Elektu daton kaj tempon"
+
+# RevTran=Please select a date and time
+# RevTran=Please select a date and time
+msgid "Please select date and time"
+msgstr "Bonvole elektu daton kaj tempon"
+
+#: cpabc_internal.inc.php:62 cpabc_scheduler.inc.php:79
+msgid "Coupon code (optional)"
+msgstr "Kupono kodo (laŭvola)"
+
+#: cpabc_internal.inc.php:67 cpabc_scheduler.inc.php:84
+msgid "Service"
+msgstr "Servo"
+
+# RevTran=MYMEMORY WARNING: YOU USED ALL AVAILABLE FREE TRANSLATIONS FOR TODAY. VISIT HTTP://MYMEMORY.TRANSLATED.NET/DOC/QUOTAREACHED TO TRANSLATE MORE
+msgid "Please enter the security code:"
+msgstr "Bonvolu eniri la sekureco kodo:"
+
+# RevTran=MYMEMORY WARNING: YOU USED ALL AVAILABLE FREE TRANSLATIONS FOR TODAY. VISIT HTTP://MYMEMORY.TRANSLATED.NET/DOC/QUOTAREACHED TO TRANSLATE MORE
+msgid "Security Code (lowercase letters):"
+msgstr "Sekureca Kodo (minuskla literoj):"
+
+# RevTran=MYMEMORY WARNING: YOU USED ALL AVAILABLE FREE TRANSLATIONS FOR TODAY. VISIT HTTP://MYMEMORY.TRANSLATED.NET/DOC/QUOTAREACHED TO TRANSLATE MORE
+# RevTran=continue
+msgid "Continue"
+msgstr "dauxrigi"
+
+# RevTran=MYMEMORY WARNING: YOU USED ALL AVAILABLE FREE TRANSLATIONS FOR TODAY. VISIT HTTP://MYMEMORY.TRANSLATED.NET/DOC/QUOTAREACHED TO TRANSLATE MORE
+msgid "Please enter a valid phone number"
+msgstr "Bonvolu entajpi validan telefonnumero"
+
+#: cpabc_scheduler.inc.php:27
+msgid "Please enter a valid email address"
+msgstr "Bonvolu entajpi validan retpoŝtadreson"
+
+#: cpabc_scheduler.inc.php:32
+msgid "Please write your name"
+msgstr "Bonvolu skribi vian nomon"
+
+#: cpabc_scheduler.inc.php:42
+msgid "Please enter the captcha verification code"
+msgstr "Bonvolu eniri la captcha verificación kodo"
+
+#: cpabc_scheduler.inc.php:64
+msgid "Your phone number"
+msgstr "Via telefonnumero"
+
+#: cpabc_scheduler.inc.php:67
+msgid "Your name"
+msgstr "Via nomo"
+
+#: cpabc_scheduler.inc.php:70
+msgid "Your email"
+msgstr "Via retpoŝto"
+
+# RevTran=Comments \\ / FAQ
+#: cpabc_scheduler.inc.php:73
+msgid "Comments/Questions"
+msgstr "Komentoj / Demandoj"
+
+# RevTran=Please select at least% 1 time-slots. Selected:% 2 time-slots.
+msgid ""
+"Please select at least %1 time-slots. Currently selected: %2 time-slots."
+msgstr "Bonvole elektu almenaŭ% 1 tempo-fendoj. Elektitan:% 2 tempo-fendoj."
+
+# RevTran=Please select a maximum of% 1 time-slots. Selected:% 2 time-slots.
+msgid ""
+"Please select a maximum of %1 time-slots. Currently selected: %2 time-slots."
+msgstr "Bonvole elektu maksimume% 1 tempo-fendoj. Elektitan:% 2 tempo-fendoj."
+
+msgid "Cancel"
+msgstr "Rezignu"
+
+msgid "Previous"
+msgstr "Antaŭa"
