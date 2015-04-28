@@ -1182,7 +1182,7 @@ function cpabc_appointments_save_options()
          'url_cancel' => $_POST["url_cancel"],
          'paypal_language' => $_POST["paypal_language"],
 
-         'nuser_emailformat' => $_POST["nuser_emailformat"],
+         'nuser_emailformat' => @$_POST["nuser_emailformat"],
          'nadmin_emailformat' => $_POST["nadmin_emailformat"],
          'nremind_emailformat' => $_POST["nremind_emailformat"],
 
