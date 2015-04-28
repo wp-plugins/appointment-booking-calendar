@@ -1186,7 +1186,7 @@ function cpabc_appointments_save_options()
          'nadmin_emailformat' => $_POST["nadmin_emailformat"],
          'nremind_emailformat' => $_POST["nremind_emailformat"],
 
-         'vs_use_validation' => $_POST['vs_use_validation'],
+         //'vs_use_validation' => $_POST['vs_use_validation'],
          'vs_text_is_required' => $_POST['vs_text_is_required'],
          'vs_text_is_email' => $_POST['vs_text_is_email'],
          'vs_text_datemmddyyyy' => $_POST['vs_text_datemmddyyyy'],
