@@ -947,8 +947,9 @@ function cpabc_appointments_check_IPN_verification() {
 	if ($payment_type == 'echeck' && $payment_status == 'Completed')
 	    return;
     */
+    //$wpdb->get_results("ALTER TABLE `wp_cpabc_appointment_calendars_data` CHANGE `reference` `reference` VARCHAR(21)");
     $itemnumber = explode(";",$_GET["itemnumber"]);
-    $myrows = $wpdb->get_results( "SELECT * FROM ".CPABC_TDEAPP_CALENDAR_DATA_TABLE." WHERE reference=".$itemnumber[0] );
+    $myrows = $wpdb->get_results( "SELECT * FROM ".CPABC_TDEAPP_CALENDAR_DATA_TABLE." WHERE reference='".intval($itemnumber[0])."'" );
     if (count($myrows))
     {
         echo 'OK - Already processed';
