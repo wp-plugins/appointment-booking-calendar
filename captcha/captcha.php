@@ -159,8 +159,15 @@ else
     imagestring ( $image, $font, $x, $y, $str, $text_col);	
 }
 
-header("Content-type: image/png");
+function cfwpp_output_handler($img) {
+    header('Content-type: image/png');
+    header('Content-Length: ' . strlen($img));
+    return $img;
+}
+
+ob_start("cfwpp_output_handler");
 imagepng($image);
+ob_end_flush();
 imagedestroy ($image);
 exit;
 ?>
