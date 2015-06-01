@@ -6,7 +6,7 @@ http://www.codepeople.net
 
 error_reporting(7);
 
-ob_clean();
+if (!ini_get("zlib.output_compression")) ob_clean();
 
 if ($_GET["hdwtest"] == "sessiontest")
 {
