@@ -79,9 +79,9 @@
 <?php _e('Your phone number','cpabc'); ?>:<br />
 <input type="text" name="phone" value=""><br />
 <?php _e('Your name','cpabc'); ?>:<br />
-<input type="text" name="name" value="<?php if (isset($current_user->user_firstname)) echo $current_user->user_firstname." ".$current_user->user_lastname; ?>"><br />
+<input type="text" name="name" value="<?php /** if (isset($current_user->user_firstname)) echo $current_user->user_firstname." ".$current_user->user_lastname; */ ?>"><br />
 <?php _e('Your email','cpabc'); ?>:<br />
-<input type="text" name="email" value="<?php if (isset($current_user->user_email)) echo $current_user->user_email; ?>"><br />
+<input type="text" name="email" value="<?php /** if (isset($current_user->user_email)) echo $current_user->user_email; */ ?>"><br />
 <?php _e('Comments/Questions','cpabc'); ?>:<br />
 <textarea name="question" style="width:100%"></textarea><br />
 <?php if (cpabc_get_option('dexcv_enable_captcha', CPABC_TDEAPP_DEFAULT_dexcv_enable_captcha) != 'false') { ?>
