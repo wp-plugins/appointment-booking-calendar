@@ -8,22 +8,6 @@ error_reporting(7);
 
 if (!ini_get("zlib.output_compression")) ob_clean();
 
-if ($_GET["hdwtest"] == "sessiontest")
-{
-    session_start();
-    session_register("tmpvar");
-    if ($_GET["autocall"]!=1){
-        $_SESSION["tmpvar"] = "ok";
-    } else {
-        if ($_SESSION["tmpvar"]!="ok") {
-            die("Session Error");
-        } else {
-            die("Sessions works on your server!");
-        }
-    }   
-    header("Location: ".$PHP_SELF."?hdwtest=sessiontest&autocall=1" );
-    exit;
-}
 
 if ($_GET["width"] == '' || !is_numeric($_GET["width"])) $_GET["width"] = "180";
 if ($_GET["height"] == '' || !is_numeric($_GET["height"])) $_GET["height"] = "60";
