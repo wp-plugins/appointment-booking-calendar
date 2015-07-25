@@ -56,10 +56,6 @@ function cpcff_similarColors($c1, $c2)
    return sqrt( pow($c1["r"]-$c2["r"],2) + pow($c1["g"]-$c2["g"],2) + pow($c1["b"]-$c2["b"],2)) < 125;
 }
 
-
-// USAGE
-// if (empty($_POST['hdcaptcha']) || $_POST['hdcaptcha'] != $_SESSION['rand_code']) header("Location: /form.html");
-
 session_start();
 
 function cpcff_make_seed() {
