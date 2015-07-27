@@ -889,7 +889,7 @@ function cpabc_appointments_check_posted_data()
 <form action="<?php echo $ppurl; ?>" name="ppform3" method="post">
 <input type="hidden" name="cmd" value="_xclick" />
 <input type="hidden" name="business" value="<?php echo cpabc_get_option('paypal_email', CPABC_APPOINTMENTS_DEFAULT_PAYPAL_EMAIL); ?>" />
-<input type="hidden" name="item_name" value="<?php echo iconv("utf-8","iso-8859-1",cpabc_get_option('paypal_product_name', CPABC_APPOINTMENTS_DEFAULT_PRODUCT_NAME).(@$_POST["services"]?": ".trim($services_formatted[1]):"").$discount_note); ?>" />
+<input type="hidden" name="item_name" value="<?php echo iconv("utf-8","iso-8859-1",cpabc_get_option('paypal_product_name', CPABC_APPOINTMENTS_DEFAULT_PRODUCT_NAME).(@$_POST["services"]?": ".trim($services_formatted[1]):"")); ?>" />
 <!--<input type="hidden" name="item_number" value="<?php echo $item_number; ?>" />-->
 <input type="hidden" name="amount" value="<?php echo $price; ?>" />
 <input type="hidden" name="page_style" value="Primary" />
