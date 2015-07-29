@@ -349,18 +349,21 @@ The Appointment Booking Calendar plugin has recently reached **28,000 installati
 * Fixed SQL issues and improved database structure
 * Compatible with the latest WordPress 4.2.x version
 
-Important note: If you are using the Professional version don't update via the WP dashboard but using your personal update link. Contact us if you need further information: http://wordpress.dwbooster.com/support
+= 1.1.6 =
+* Removed incorrect parameter from product name forwarded to PayPal
+* Fixed: IPN address was generating an incorrect address under SSL environments
+* Updated the Export to CSV function to include manually added appointments
+* Removed feature that auto-fills the name and email due to multiple user requests
+* Update to the captcha image generation to add the content size
 
 
 == Upgrade Notice ==
 
-Very Important note: If you are using the Professional version don't update via the WP dashboard but using your personal update link. Contact us if you need further information: http://wordpress.dwbooster.com/support
+= 1.1.6 =
+* Removed incorrect parameter from product name forwarded to PayPal
+* Fixed: IPN address was generating an incorrect address under SSL environments
+* Updated the Export to CSV function to include manually added appointments
+* Removed feature that auto-fills the name and email due to multiple user requests
+* Update to the captcha image generation to add the content size
 
-= 1.1.4 =
-* Fixed bug in the function that generates the https url
-* Sanitized query parameters
-* Fixed bug that caused the Sunday not being selectable in the calendar.
-* Automatically repaid corrupted databases
-* Fixed SQL issues and improved database structure
- 
 Important note: If you are using the Professional version don't update via the WP dashboard but using your personal update link. Contact us if you need further information: http://wordpress.dwbooster.com/support
