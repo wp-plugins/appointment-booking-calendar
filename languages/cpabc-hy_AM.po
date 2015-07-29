@@ -1,0 +1,121 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: app book cal\n"
+"POT-Creation-Date: 2013-04-19 10:48+0100\n"
+"PO-Revision-Date: 2014-12-07 22:37+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.10\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;_e\n"
+"X-Poedit-Basepath: C:\\TORRE_F\\WorkII\\Developers4Web\\DWBooster.wordpress"
+"\\components\\Appointment Booking Calendar\\pro-version\\appointment-booking-"
+"calendar\\\n"
+"Language: hy_AM\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: cpabc_appointments.php:375
+msgid "Quantity"
+msgstr "քանակր"
+
+#: cpabc_appointments.php:411
+msgid "Please select the appointment time."
+msgstr "Please select the appointment time."
+
+# RevTran=Yea, and why even of yourselves judge ye not what is right?
+#: cpabc_appointments.php:444
+msgid "Selected date"
+msgstr "Selected date"
+
+#: cpabc_internal.inc.php:8 cpabc_scheduler.inc.php:6
+msgid "Calendar"
+msgstr "Օրացույց"
+
+# RevTran=Select a date and time,
+#: cpabc_internal.inc.php:12 cpabc_scheduler.inc.php:10
+msgid "Select date and time"
+msgstr "Ընտրել ամսաթիվը եւ ժամանակը,"
+
+# RevTran=Please select the date and time
+#: cpabc_internal.inc.php:24 cpabc_scheduler.inc.php:37
+msgid "Please select date and time"
+msgstr "Խնդրում ենք ընտրել ամսաթիվը եւ ժամանակը"
+
+#: cpabc_internal.inc.php:62 cpabc_scheduler.inc.php:79
+msgid "Coupon code (optional)"
+msgstr "Արժեկտրոնային կոդը (ըստ ցանկության)"
+
+#: cpabc_internal.inc.php:67 cpabc_scheduler.inc.php:84
+msgid "Service"
+msgstr "Ծառայություն"
+
+#: cpabc_internal.inc.php:73 cpabc_scheduler.inc.php:90
+msgid "Please enter the security code:"
+msgstr "Please enter the security code:"
+
+# RevTran=Security code (lowercase letters)
+#: cpabc_internal.inc.php:76 cpabc_scheduler.inc.php:93
+msgid "Security Code (lowercase letters):"
+msgstr "Անվտանգության կոդ (փոքրատառ տառեր)"
+
+#: cpabc_internal.inc.php:84 cpabc_scheduler.inc.php:101
+msgid "Continue"
+msgstr "Շարունակել"
+
+# RevTran=Number
+#: cpabc_scheduler.inc.php:22
+msgid "Please enter a valid phone number"
+msgstr "Please enter a valid phone number"
+
+#: cpabc_scheduler.inc.php:27
+msgid "Please enter a valid email address"
+msgstr "Խնդրում ենք մուտքագրել վավեր փոստի հասցե"
+
+#: cpabc_scheduler.inc.php:32
+msgid "Please write your name"
+msgstr "Please write your name"
+
+# RevTran=Please enter a captcha verification code
+#: cpabc_scheduler.inc.php:42
+msgid "Please enter the captcha verification code"
+msgstr "Խնդրում ենք մուտքագրել captcha ստուգման կոդը"
+
+#: cpabc_scheduler.inc.php:64
+msgid "Your phone number"
+msgstr "Ձեր հեռախոսի համարը"
+
+#: cpabc_scheduler.inc.php:67
+msgid "Your name"
+msgstr "Ձեր անունը"
+
+# RevTran=Email
+#: cpabc_scheduler.inc.php:70
+msgid "Your email"
+msgstr "Ձեր էլեկտրոնային"
+
+# RevTran=Comments \\ / Questions
+#: cpabc_scheduler.inc.php:73
+msgid "Comments/Questions"
+msgstr "Կարծիքներ / Հարցեր"
+
+# RevTran=PLEASE FORGIVE AM
+msgid ""
+"Please select at least %1 time-slots. Currently selected: %2 time-slots."
+msgstr ""
+"Please select at least %1 time-slots. Currently selected: %2 time-slots."
+
+# RevTran=Please select a maximum of 1% of the time slots. Currently selected: 2 time slots.
+msgid ""
+"Please select a maximum of %1 time-slots. Currently selected: %2 time-slots."
+msgstr ""
+"Խնդրում ենք ընտրել առավելագույնը% 1 ժամանակային slots. Ներկայումս ընտրված: 2 "
+"ժամանակային slots."
+
+# RevTran=The following table shows the FRS 17 unannounced definitions on the cancellation of future operating lease payments.
+msgid "Cancel"
+msgstr "Cancel"
+
+msgid "Previous"
+msgstr "Նախորդ"
