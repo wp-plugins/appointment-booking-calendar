@@ -49,7 +49,7 @@ if ($message) echo "<div id='setting-error-settings_updated' class='updated sett
 
 ?>
 <div class="wrap">
-<h2>Appointment Booking Calendar</h2>
+<h1>Appointment Booking Calendar</h1>
 
 <script type="text/javascript">
  function cp_addItem()
