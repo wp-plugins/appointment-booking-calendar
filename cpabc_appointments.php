@@ -1352,7 +1352,9 @@ function cpabc_appointments_calendar_load() {
         $working_dates = array_unique($working_dates);        
         $working_dates = implode(",",$working_dates); 
         while (!(strpos($working_dates,",,") === false))
-            $working_dates = str_replace(",,",",",$working_dates);       
+            $working_dates = str_replace(",,",",",$working_dates);
+        if ($working_dates[strlen($working_dates)-1] == ',')
+            $working_dates = substr($working_dates,0,strlen($working_dates)-1);
         echo $working_dates.";";
         // END:: new code to clean corrupted data
         echo $row[0][CPABC_TDEAPP_CONFIG_RESTRICTEDDATES].";";
